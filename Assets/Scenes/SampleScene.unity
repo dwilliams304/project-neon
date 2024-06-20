@@ -210,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.70090926, y: 0, z: 0, w: 0.7132505}
   m_LocalPosition: {x: 0, y: 15.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -709,7 +709,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508309310}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.70090926, y: 0, z: 0, w: 0.7132505}
   m_LocalPosition: {x: 0, y: 15.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -934,6 +934,69 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534215225}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1940732115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1940732117}
+  - component: {fileID: 1940732116}
+  m_Layer: 0
+  m_Name: LootManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1940732116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940732115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be595768ec0aafc468d44ad7bef45a1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rarities:
+  - RarityName: Legendary
+    RarityColor: {r: 1, g: 0.8475143, b: 0, a: 1}
+    ChanceToDrop: 1
+  - RarityName: Corrupted
+    RarityColor: {r: 1, g: 0, b: 0.029075146, a: 1}
+    ChanceToDrop: 5
+  - RarityName: Epic
+    RarityColor: {r: 0.88467693, g: 0, b: 1, a: 1}
+    ChanceToDrop: 10
+  - RarityName: Rare
+    RarityColor: {r: 0, g: 0.45470548, b: 1, a: 1}
+    ChanceToDrop: 20
+  - RarityName: Uncommon
+    RarityColor: {r: 0.11816931, g: 1, b: 0, a: 1}
+    ChanceToDrop: 60
+  - RarityName: Common
+    RarityColor: {r: 1, g: 1, b: 1, a: 1}
+    ChanceToDrop: 100
+--- !u!4 &1940732117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940732115}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2058448847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,3 +1114,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 2058448851}
   - {fileID: 490503880}
+  - {fileID: 1940732117}
