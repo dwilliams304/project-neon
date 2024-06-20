@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAiming : MonoBehaviour
 {
     [SerializeField] private LayerMask ground;
+    [SerializeField] private Transform turretHead;
 
     private Camera mainCam;
 
@@ -20,10 +21,10 @@ public class PlayerAiming : MonoBehaviour
     private void Aim(){
         var (success, mousePos) = GetMousePosition();
         if(success){
-            var dir = mousePos - transform.position;
+            var dir = mousePos - turretHead.position;
 
             dir.y = 0;
-            transform.forward = dir;
+            turretHead.forward = dir;
         }
     }
 
