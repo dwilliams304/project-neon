@@ -49,13 +49,20 @@ public class ObjectPooler : MonoBehaviour
             if(cur.pooledObjectType == objType){
                 for(int j = 0; j < cur.currentObjectPool.Count; j++){
                     if(!cur.currentObjectPool[j].activeInHierarchy){
+                        Debug.Log($"Successfuly found object of type {objType!}");
+                        cur.currentObjectPool[j].SetActive(true);
                         return cur.currentObjectPool[j];
                     }
                 }
                 if(cur.willGrow){
                     GameObject newObject = Instantiate(cur.objectToPool);
                     cur.currentObjectPool.Add(newObject);
+                    Debug.Log($"Successfuly found object of type {objType!}, and created a new one.");
                     return newObject;
+                }
+                else {
+                    Debug.Log($"Cannot spawn anymore objects of type {objType}, as we reached the limit.");
+                    return null;
                 }
             }
         }
