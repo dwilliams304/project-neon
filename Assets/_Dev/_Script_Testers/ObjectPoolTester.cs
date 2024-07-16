@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectPoolTester : MonoBehaviour
 {
-    public PooledObjectType pooledObjectType;
+    [SerializeField] private PooledObjectType pooledObjectType;
+    [SerializeField] private KeyCode keyToSpawn;
 
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.P)){
+        if(Input.GetKeyDown(keyToSpawn)){
             ObjectPooler.Instance.GetPooledObject(pooledObjectType);
         }
     }

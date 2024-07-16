@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //This list will likely become a lot more extensive, and will have more descriptive names!
+//Might need to break into multiple enums for enemies, bullets, etc, and just have a more vague PooledObjectType enum
 public enum PooledObjectType {
     PlayerBullet_1,
     EnemyBullet_1,
@@ -72,7 +73,7 @@ public class ObjectPooler : MonoBehaviour
 
                 //DO NOT NEED THIS, JUST FOR DEBUGGING
                 else {
-                    Debug.Log($"Cannot spawn anymore objects of type {objType}, as we reached the limit.");
+                    Debug.LogWarning($"Cannot spawn anymore objects of type {objType}, as we reached the limit.");
                     return null;
                 }
             }
