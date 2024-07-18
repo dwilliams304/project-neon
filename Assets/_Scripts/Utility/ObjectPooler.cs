@@ -56,7 +56,8 @@ public class ObjectPooler : MonoBehaviour
                 for(int j = 0; j < cur.currentObjectPool.Count; j++){
                     if(!cur.currentObjectPool[j].activeInHierarchy){
                         //if not in use/inactive, return that object and set it active (why would I want an inactive one? -- might change in case)
-                        Debug.Log($"Successfuly found object of type {objType!}");
+
+                        // Debug.Log($"Successfuly found object of type {objType!}");
                         cur.currentObjectPool[j].SetActive(true);
                         return cur.currentObjectPool[j];
                     }
@@ -67,7 +68,7 @@ public class ObjectPooler : MonoBehaviour
                     GameObject newObject = Instantiate(cur.objectToPool);
                     newObject.transform.parent = gameObject.transform;
                     cur.currentObjectPool.Add(newObject);
-                    Debug.Log($"Successfuly found object of type {objType!}, and created a new one.");
+                    // Debug.Log($"Successfuly found object of type {objType!}, and created a new one.");
                     return newObject;
                 }
 

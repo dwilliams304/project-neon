@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,10 +22,10 @@ public class Experimental_LootManager : MonoBehaviour
             return a.ChanceToDrop.CompareTo(b.ChanceToDrop);
         });
 
-        Debug.Log(rarities);
-        foreach(Rarity r in rarities){
-            Debug.Log($"{r.RarityName} - chance to drop: {r.ChanceToDrop}%");
-        }
+        // Debug.Log(rarities);
+        // foreach(Rarity r in rarities){
+        //     Debug.Log($"{r.RarityName} - chance to drop: {r.ChanceToDrop}%");
+        // }
     }
 
 
@@ -42,7 +41,7 @@ public class Experimental_LootManager : MonoBehaviour
         for(int i = 0; i < rarities.Count; i++){
             var cur = rarities[i];
             if(rolled <= RollTo * (cur.ChanceToDrop / 100)){ //is this even needed? why not just roll 1 - 100?
-                Debug.Log($"I rolled a {rolled}, and got a {cur.RarityName} drop!");
+                // Debug.Log($"I rolled a {rolled}, and got a {cur.RarityName} drop!");
                 break;
             }
         }

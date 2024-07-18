@@ -4,7 +4,9 @@ public class Bullet : MonoBehaviour
 {
 
     private Rigidbody rb;
-    private void Start() => rb = GetComponent<Rigidbody>();
+
+    private void OnEnable() => rb = GetComponent<Rigidbody>();
+    private void OnDisable() => rb.velocity = Vector3.zero;
 
 
     private void OnCollisionEnter(Collision collision){
@@ -12,10 +14,5 @@ public class Bullet : MonoBehaviour
             d.OnDamage();
         }
         gameObject.SetActive(false);
-    }
-
-
-    private void OnDisable(){
-        rb.velocity = Vector3.zero;
     }
 }

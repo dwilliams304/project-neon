@@ -23,7 +23,7 @@ public class PlayerCombat : MonoBehaviour
     }
 
     private void Update(){
-        if(!isReloading && Input.GetButtonDown("Fire1")){
+        if(!isReloading && Input.GetButton("Fire1")){
             Shoot();
         }
     }
