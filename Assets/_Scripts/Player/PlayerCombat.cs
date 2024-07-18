@@ -36,7 +36,6 @@ public class PlayerCombat : MonoBehaviour
             if(bullet == null) return;
             bullet.transform.position = firePoint.position;
             bullet.transform.rotation = firePoint.rotation;
-            // bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
             bullet.GetComponent<Rigidbody>().AddForce(firePoint.up * projectileSpeed, ForceMode.Impulse);
             if(!infiniteAmmo) currentAmmo--;
         }
