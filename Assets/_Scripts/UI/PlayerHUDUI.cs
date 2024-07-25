@@ -9,13 +9,13 @@ public class PlayerHUDUI : MonoBehaviour
     [SerializeField] private TMP_Text levelText;
 
     private void OnEnable(){
-        LevelingSystem.onExperienceChange += UpdateXPBar;
-        LevelingSystem.onLevelChange += UpdateLevel;
+        XPManager.onExperienceChange += UpdateXPBar;
+        XPManager.onLevelChange += UpdateLevel;
     }
 
     private void OnDisable(){
-        LevelingSystem.onExperienceChange -= UpdateXPBar;
-        LevelingSystem.onLevelChange -= UpdateLevel;
+        XPManager.onExperienceChange -= UpdateXPBar;
+        XPManager.onLevelChange -= UpdateLevel;
     }
 
     private void UpdateXPBar(int amountToAdd){

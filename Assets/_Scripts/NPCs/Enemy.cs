@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
 
     private void EnemyDeath(){
-        LevelingSystem.Instance.AddExperience(10);
+        XPManager.Instance.AddExperience(10);
         gameObject.SetActive(false);
     }
 }

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class LevelingSystem : MonoBehaviour
+public class XPManager : MonoBehaviour
 {
-    public static LevelingSystem Instance;
+    public static XPManager Instance;
 
     public delegate void OnLevelChange(int newLevel, int xpToNext, int newXpAmnt);
     public static OnLevelChange onLevelChange;
