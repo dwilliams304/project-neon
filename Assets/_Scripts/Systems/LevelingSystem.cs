@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class LevelingSystem : MonoBehaviour
 {
-    
+    public static LevelingSystem Instance;
+
     public delegate void OnLevelChange(int newLevel, int xpToNext, int newXpAmnt);
     public static OnLevelChange onLevelChange;
 
@@ -16,9 +17,13 @@ public class LevelingSystem : MonoBehaviour
     [SerializeField] private bool capLevel;
     [SerializeField] private int levelCap;
 
+    private void Awake() => Instance = this;
+
     private void Start(){
         currentLevel = 1;
         currentExperience = 0;
+        experienceToNextLevel = (int)levelScaler.Evaluate(currentLevel);
+        onLevelChange?.Invoke(currentLevel, experienceToNextLevel, currentExperience);
     }
 
 

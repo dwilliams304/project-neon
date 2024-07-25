@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 enum EnemyState {
@@ -13,6 +11,15 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     private Health healthSystem;
 
+    private void OnEnable(){
+        healthSystem = GetComponent<Health>();
+        healthSystem.onUnitDeath += EnemyDeath;
+    }
+
+    private void OnDisable(){
+        healthSystem.onUnitDeath -= EnemyDeath;
+    }
+
     void Start(){
         healthSystem = GetComponent<Health>();
     }
@@ -20,5 +27,11 @@ public class Enemy : MonoBehaviour, IDamageable
     public void OnDamage()
     {
         healthSystem.TakeDamage(10);
+    }
+
+
+    private void EnemyDeath(){
+        LevelingSystem.Instance.AddExperience(10);
+        gameObject.SetActive(false);
     }
 }
