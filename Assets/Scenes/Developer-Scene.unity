@@ -1205,6 +1205,10 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 0
   invincible: 0
+  healthBar: {fileID: 0}
+  hasHealthBar: 1
+  showsDamageText: 1
+  damageTextRandomOffset: {x: 2, y: 2, z: 2}
 --- !u!114 &474196594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4123,6 +4127,14 @@ MonoBehaviour:
     pooledObjectType: 0
     currentObjectPool: []
     willGrow: 1
+  - objectToPool: {fileID: 5713069235524420174, guid: ee7d370b9fad74a47906caaaabe20f61,
+      type: 3}
+    amountToPool: 10
+    pooledObjectType: 3
+    currentObjectPool: []
+    willGrow: 1
+  critColor: {r: 1, g: 0.08391815, b: 0, a: 1}
+  nonCritColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1835777355
 Transform:
   m_ObjectHideFlags: 0

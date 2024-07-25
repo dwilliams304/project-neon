@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 //This list will likely become a lot more extensive, and will have more descriptive names!
 //Might need to break into multiple enums for enemies, bullets, etc, and just have a more vague PooledObjectType enum
@@ -25,8 +26,13 @@ public class ObjectPooler : MonoBehaviour
     }
 
 
+    [Header("Generic Pooled Objects")]
     [SerializeField] private List<PooledObject> pooledObjects;
 
+    [Header("Specific Object Attributes")]
+    [SerializeField] private Color critColor;
+    [SerializeField] private Color nonCritColor;
+    
 
     void Awake(){
         Instance = this;
@@ -38,7 +44,13 @@ public class ObjectPooler : MonoBehaviour
             PooledObject cur = pooledObjects[i];
             for(int j = 0; j < cur.amountToPool; j++){
                 GameObject obj = Instantiate(cur.objectToPool);
-                obj.transform.parent = gameObject.transform; //make scene hierarchy neater
+                if(cur.pooledObjectType == PooledObjectType.DamageText_1){
+                    obj.transform.SetParent(gameObject.transform, false);
+                }
+                else{
+                    obj.transform.parent = gameObject.transform; //make scene hierarchy neater
+
+                }
 
                 obj.SetActive(false);
                 cur.currentObjectPool.Add(obj);
@@ -46,7 +58,9 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public GameObject GetPooledObject(PooledObjectType objType){
+
+    //Use for Generic Pooled Objects
+    public GameObject GetPooledObject(PooledObjectType objType, int damageAmountToShow = 0, bool damageWasCrit = false){
         for(int i = 0; i < pooledObjects.Count; i++){ 
             var cur = pooledObjects[i];
 
@@ -59,6 +73,18 @@ public class ObjectPooler : MonoBehaviour
 
                         // Debug.Log($"Successfuly found object of type {objType!}");
                         cur.currentObjectPool[j].SetActive(true);
+
+                        if(objType == PooledObjectType.DamageText_1){
+                            TMP_Text textComponent = cur.currentObjectPool[j].GetComponentInChildren<TMP_Text>();
+                            textComponent.text = damageAmountToShow.ToString();
+                            if(damageWasCrit){
+                                textComponent.color = critColor;
+                            }
+                            else{
+                                textComponent.color = nonCritColor;
+                            }
+                        }
+
                         return cur.currentObjectPool[j];
                     }
                 }
@@ -69,6 +95,17 @@ public class ObjectPooler : MonoBehaviour
                     newObject.transform.parent = gameObject.transform;
                     cur.currentObjectPool.Add(newObject);
                     // Debug.Log($"Successfuly found object of type {objType!}, and created a new one.");
+
+                    if(objType == PooledObjectType.DamageText_1){
+                        TMP_Text textComponent = newObject.GetComponent<TMP_Text>();
+                        textComponent.text = damageAmountToShow.ToString();
+                        if(damageWasCrit){
+                            textComponent.color = critColor;
+                        }
+                        else{
+                            textComponent.color = nonCritColor;
+                        }
+                    }
                     return newObject;
                 }
 

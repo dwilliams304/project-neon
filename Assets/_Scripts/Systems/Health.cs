@@ -16,6 +16,11 @@ public class Health : MonoBehaviour
     [SerializeField] private Slider healthBar;
     [SerializeField] private bool hasHealthBar;
 
+    [Space(10)]
+    [SerializeField] private bool showsDamageText;
+    [SerializeField] private Vector3 damageTextRandomOffset;
+
+
     private void Start(){
         currentHealth = maxHealth;
         if(healthBar == null && hasHealthBar){
@@ -28,6 +33,21 @@ public class Health : MonoBehaviour
         if(!invincible){
             currentHealth -= amount;
             if(hasHealthBar) UpdateHealthBarCurrent(currentHealth);
+            if(showsDamageText){
+                Vector3 randomPos = new Vector3(
+                    Random.Range(-damageTextRandomOffset.x, damageTextRandomOffset.x),
+                    damageTextRandomOffset.y,
+                    Random.Range(-damageTextRandomOffset.z, damageTextRandomOffset.z)
+                );
+                int roll = Random.Range(0, 101);
+                bool wasCrit = false;
+                if(roll >= 50){
+                    wasCrit = true;
+                }
+                GameObject textObj = ObjectPooler.Instance.GetPooledObject(PooledObjectType.DamageText_1, amount, wasCrit);
+                textObj.transform.position = gameObject.transform.position + randomPos;
+
+            }
         }
         if(currentHealth <= 0){
             onUnitDeath?.Invoke();
@@ -39,6 +59,7 @@ public class Health : MonoBehaviour
         if(currentHealth >= maxHealth){
             currentHealth = maxHealth;
         }
+        if(hasHealthBar) UpdateHealthBarCurrent(currentHealth);
     }
 
     public void IncreaseMaxHealth(int amount, bool setCurHealthToMax = false){
