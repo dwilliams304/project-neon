@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    private bool preventInput = false;
+
     [SerializeField] private float fireRate;
     [SerializeField] private float projectileSpeed;
     
@@ -18,14 +18,27 @@ public class PlayerCombat : MonoBehaviour
 
     private float timeSinceLastShot;
 
+    private void OnEnable(){
+        UIManager.Instance.onPreventPlayerInput += PreventInput;
+    }
+    private void OnDisable(){
+        UIManager.Instance.onPreventPlayerInput -= PreventInput;
+    }
+
     private void Start(){
         currentAmmo = magazineSize;
     }
 
     private void Update(){
+        if(preventInput) return;
+
         if(!isReloading && Input.GetButton("Fire1")){
             Shoot();
         }
+    }
+
+    private void PreventInput(bool _preventInput){
+        preventInput = _preventInput;
     }
 
 
