@@ -28,14 +28,6 @@ public class Experimental_LootManager : MonoBehaviour
         // }
     }
 
-
-    private void Update(){
-        if(Input.GetButtonDown("Jump")){
-            RollForLoot();
-        }
-    }
-
-
     private void RollForLoot(int RollTo = 1000){
         int rolled = Random.Range(0, RollTo + 1);
         for(int i = 0; i < rarities.Count; i++){
