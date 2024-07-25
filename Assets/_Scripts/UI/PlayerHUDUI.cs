@@ -8,6 +8,10 @@ public class PlayerHUDUI : MonoBehaviour
     [SerializeField] private Slider xpBar;
     [SerializeField] private TMP_Text levelText;
 
+    public static bool showPercentages = true;
+    public static bool showTotalValues = true;
+
+
     private void OnEnable(){
         XPManager.onExperienceChange += UpdateXPBar;
         XPManager.onLevelChange += UpdateLevel;
