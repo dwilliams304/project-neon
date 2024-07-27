@@ -159,7 +159,6 @@ MonoBehaviour:
   MaxHealth:
     BaseValue: 100
     canNotAugment: 0
-  currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
   hasHealthBar: 1
@@ -683,7 +682,6 @@ MonoBehaviour:
   MaxHealth:
     BaseValue: 100
     canNotAugment: 0
-  currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
   hasHealthBar: 1
@@ -2129,7 +2127,6 @@ MonoBehaviour:
   MaxHealth:
     BaseValue: 100
     canNotAugment: 0
-  currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
   hasHealthBar: 1
@@ -2560,13 +2557,13 @@ MonoBehaviour:
   ProjectileSpeed:
     BaseValue: 35
     canNotAugment: 0
+  ReloadSpeed:
+    BaseValue: 0
+    canNotAugment: 0
   magazineSize: 30
   currentAmmo: 30
   isReloading: 0
   infiniteAmmo: 1
-  ReloadSpeed:
-    BaseValue: 0
-    canNotAugment: 0
   firePoint: {fileID: 493070571}
 --- !u!114 &490503890
 MonoBehaviour:
@@ -2583,7 +2580,6 @@ MonoBehaviour:
   MaxHealth:
     BaseValue: 100
     canNotAugment: 0
-  currentHealth: 0
   invincible: 0
   healthBar: {fileID: 1031588388}
   hasHealthBar: 1
@@ -6390,7 +6386,6 @@ MonoBehaviour:
   MaxHealth:
     BaseValue: 100
     canNotAugment: 0
-  currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
   hasHealthBar: 1
@@ -6700,7 +6695,6 @@ MonoBehaviour:
   MaxHealth:
     BaseValue: 100
     canNotAugment: 0
-  currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
   hasHealthBar: 1
@@ -8041,7 +8035,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1835777355}
   - component: {fileID: 1835777354}
-  - component: {fileID: 1835777356}
   m_Layer: 0
   m_Name: ObjectPooler
   m_TagString: Untagged
@@ -8091,20 +8084,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 519825182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1835777356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835777353}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38141f12df21d324db5dec273ec35253, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pooledObjectType: 0
-  keyToSpawn: 0
 --- !u!1 &1846820412
 GameObject:
   m_ObjectHideFlags: 0
@@ -8141,7 +8120,6 @@ MonoBehaviour:
   MaxHealth:
     BaseValue: 100
     canNotAugment: 0
-  currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
   hasHealthBar: 1
@@ -8284,7 +8262,6 @@ MonoBehaviour:
   MaxHealth:
     BaseValue: 100
     canNotAugment: 0
-  currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
   hasHealthBar: 1
@@ -9017,7 +8994,6 @@ MonoBehaviour:
   MaxHealth:
     BaseValue: 100
     canNotAugment: 0
-  currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
   hasHealthBar: 1
