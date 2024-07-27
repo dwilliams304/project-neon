@@ -6,27 +6,26 @@ public class PlayerMovement : MonoBehaviour
     
     private Rigidbody rb;
 
-    [Header("Move Speed")]
-    [SerializeField] private float moveSpeed;
+    [Header("Movement Stats")]
+    public Stat MoveSpeed;
+    public Stat DashSpeed;
+    public Stat DashCooldown;
+    public Stat DashDuration;
+    
     private float moveX;
     private float moveZ;
-    private Vector3 moveDirection;
-
-    [Header("Dash Variables")]
-    [SerializeField] private float dashSpeed;
-    [SerializeField] private float dashDuration;
-    [SerializeField] private float dashCooldown;
-    
+    private Vector3 moveDirection;    
     private float timeSinceLastDash;
     WaitForSeconds dashDurationWait;
     private bool isDashing;
+
 
 
     private void Start(){
         rb = GetComponent<Rigidbody>();
         if(rb == null) Debug.LogError("No Rigidbody found on component, FIX THIS!");
         isDashing = false;
-        dashDurationWait = new WaitForSeconds(dashDuration);
+        dashDurationWait = new WaitForSeconds(DashDuration.Value);
         timeSinceLastDash = Time.time;
     }
 
@@ -46,12 +45,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate(){
         if(isDashing) return;
-        rb.velocity = moveDirection * moveSpeed;
+        rb.velocity = moveDirection * MoveSpeed.Value;
     }
 
 
     private bool CanDash(){
-        if(!isDashing && Time.time > timeSinceLastDash + dashCooldown) return true;
+        if(!isDashing && Time.time > timeSinceLastDash + DashCooldown.Value) return true;
         else return false;
     }
 
@@ -59,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator Dash(){
         isDashing = true;
         timeSinceLastDash = Time.time;
-        rb.velocity = moveDirection * dashSpeed;
+        rb.velocity = moveDirection * DashSpeed.Value;
         yield return dashDurationWait;
         isDashing = false;
     }

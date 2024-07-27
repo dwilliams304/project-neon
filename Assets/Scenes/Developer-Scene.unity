@@ -156,7 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976dc619ba51cb24cb811f15b22c1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  MaxHealth:
+    BaseValue: 100
+    canNotAugment: 0
   currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
@@ -678,7 +680,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976dc619ba51cb24cb811f15b22c1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  MaxHealth:
+    BaseValue: 100
+    canNotAugment: 0
   currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
@@ -1209,7 +1213,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.18039216, g: 0.007843138, b: 0.28627452, a: 1}
+  m_BackGroundColor: {r: 0.070156746, g: 0, b: 0.11320752, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2122,7 +2126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976dc619ba51cb24cb811f15b22c1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  MaxHealth:
+    BaseValue: 100
+    canNotAugment: 0
   currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
@@ -2524,10 +2530,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9c281fdc9f4554d96dc6652c644ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 11
-  dashSpeed: 35
-  dashDuration: 0.2
-  dashCooldown: 2
+  MoveSpeed:
+    BaseValue: 11
+    canNotAugment: 0
+  DashSpeed:
+    BaseValue: 35
+    canNotAugment: 0
+  DashCooldown:
+    BaseValue: 2
+    canNotAugment: 0
+  DashDuration:
+    BaseValue: 0.2
+    canNotAugment: 1
 --- !u!114 &490503889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2540,12 +2554,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43311a991d6c31479349dbe7274fe75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.2
-  projectileSpeed: 40
+  FireRate:
+    BaseValue: 0.1
+    canNotAugment: 0
+  ProjectileSpeed:
+    BaseValue: 35
+    canNotAugment: 0
   magazineSize: 30
   currentAmmo: 30
   isReloading: 0
   infiniteAmmo: 1
+  ReloadSpeed:
+    BaseValue: 0
+    canNotAugment: 0
   firePoint: {fileID: 493070571}
 --- !u!114 &490503890
 MonoBehaviour:
@@ -2559,7 +2580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976dc619ba51cb24cb811f15b22c1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  MaxHealth:
+    BaseValue: 100
+    canNotAugment: 0
   currentHealth: 0
   invincible: 0
   healthBar: {fileID: 1031588388}
@@ -6286,7 +6309,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d1a5903867c8f0a4a8a94c3fe36dad11, type: 2}
+  - {fileID: 2100000, guid: 2ab8149ec4775284bada96c1b85b4a09, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6364,7 +6387,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976dc619ba51cb24cb811f15b22c1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  MaxHealth:
+    BaseValue: 100
+    canNotAugment: 0
   currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
@@ -6672,7 +6697,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976dc619ba51cb24cb811f15b22c1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  MaxHealth:
+    BaseValue: 100
+    canNotAugment: 0
   currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
@@ -7709,7 +7736,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d1a5903867c8f0a4a8a94c3fe36dad11, type: 2}
+  - {fileID: 2100000, guid: 2ab8149ec4775284bada96c1b85b4a09, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8047,7 +8074,7 @@ MonoBehaviour:
     pooledObjectType: 3
     currentObjectPool: []
     willGrow: 1
-  critColor: {r: 1, g: 0.08391815, b: 0, a: 1}
+  critColor: {r: 1, g: 0, b: 0.69559526, a: 1}
   nonCritColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1835777355
 Transform:
@@ -8111,7 +8138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976dc619ba51cb24cb811f15b22c1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  MaxHealth:
+    BaseValue: 100
+    canNotAugment: 0
   currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
@@ -8252,7 +8281,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976dc619ba51cb24cb811f15b22c1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  MaxHealth:
+    BaseValue: 100
+    canNotAugment: 0
   currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}
@@ -8755,7 +8786,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dfc08c90188302847afb04f628582097, type: 2}
+  - {fileID: 2100000, guid: 4084a843b9ef6af45a63b7163f9fbefb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8983,7 +9014,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976dc619ba51cb24cb811f15b22c1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  MaxHealth:
+    BaseValue: 100
+    canNotAugment: 0
   currentHealth: 0
   invincible: 0
   healthBar: {fileID: 0}

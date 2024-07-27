@@ -4,15 +4,20 @@ public class PlayerCombat : MonoBehaviour
 {
     private bool preventInput = false;
 
-    [SerializeField] private float fireRate;
-    [SerializeField] private float projectileSpeed;
-    
-    [SerializeField] private int magazineSize;
+    [Header("Combat Stats")]
+    public Stat FireRate;
+    public Stat ProjectileSpeed;
+    public Stat ReloadSpeed;
+
+
+    [Header("Other vars")]
+    [SerializeField] private int magazineSize; //TO-DO: GET THIS VALUE FROM A PLAYERSTATS CLASS
     [SerializeField] private int currentAmmo;
 
     [SerializeField] private bool isReloading;
-    [SerializeField] private bool infiniteAmmo;
-    [SerializeField] private WaitForSeconds reloadSpeed;
+    [SerializeField] private bool infiniteAmmo; //TO-DO: MAKE THIS VALUE CHANGEABLE FROM POWER-UPS/ABILITIES
+    
+    [SerializeField] private WaitForSeconds reloadSpeed; //TO-DO: GET THIS VALUE FROM A PLAYERSTATS CLASS
 
     [SerializeField] private Transform firePoint;
 
@@ -43,13 +48,13 @@ public class PlayerCombat : MonoBehaviour
 
 
     private void Shoot(){
-        if(currentAmmo > 0 && (Time.time > timeSinceLastShot + fireRate)){
+        if(currentAmmo > 0 && (Time.time > timeSinceLastShot + FireRate.Value)){
             timeSinceLastShot = Time.time;
             GameObject bullet = ObjectPooler.Instance.GetPooledObject(PooledObjectType.PlayerBullet_1);
             if(bullet == null) return;
             bullet.transform.position = firePoint.position;
             bullet.transform.rotation = firePoint.rotation;
-            bullet.GetComponent<Rigidbody>().AddForce(firePoint.up * projectileSpeed, ForceMode.Impulse);
+            bullet.GetComponent<Rigidbody>().AddForce(firePoint.up * ProjectileSpeed.Value, ForceMode.Impulse);
             if(!infiniteAmmo) currentAmmo--;
         }
     }

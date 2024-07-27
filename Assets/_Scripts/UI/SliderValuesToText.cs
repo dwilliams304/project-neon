@@ -53,6 +53,6 @@ public class SliderValuesToText : MonoBehaviour
     void ChangeValuesText_Both(){
         text.text = slider.value.ToString() + " / " + slider.maxValue.ToString()
             +
-        "(" + Math.Round(slider.value / slider.maxValue * 100f, 2).ToString() + "%)";
+        " (" + Math.Round(slider.value / slider.maxValue * 100f, 2).ToString() + "%)";
     }
 }

@@ -8,6 +8,8 @@ public class PlayerHUDUI : MonoBehaviour
     [SerializeField] private Slider xpBar;
     [SerializeField] private TMP_Text levelText;
 
+
+    //CHANGE THESE TO BE A SETTING - NOT SOMETHING SET HERE!
     public static bool showPercentages = true;
     public static bool showTotalValues = true;
 

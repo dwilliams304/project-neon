@@ -8,7 +8,8 @@ public class Health : MonoBehaviour
     public OnUnitDeath onUnitDeath;
 
     [Header("Health Values")]
-    [SerializeField] private int maxHealth;
+    public Stat MaxHealth;
+    [Space]
     [SerializeField] private int currentHealth;
     [SerializeField] private bool invincible;
 
@@ -22,10 +23,10 @@ public class Health : MonoBehaviour
 
 
     private void Start(){
-        currentHealth = maxHealth;
+        currentHealth = (int)MaxHealth.Value;
         if(healthBar == null && hasHealthBar){
             healthBar = GetComponentInChildren<Slider>();
-            UpdateHealthBarMax(maxHealth, true);
+            UpdateHealthBarMax((int)MaxHealth.Value, true);
         }
     }
 
@@ -56,18 +57,18 @@ public class Health : MonoBehaviour
 
     public void TakeHeal(int amount){
         currentHealth += amount;
-        if(currentHealth >= maxHealth){
-            currentHealth = maxHealth;
+        if(currentHealth >= (int)MaxHealth.Value){
+            currentHealth = (int)MaxHealth.Value;
         }
         if(hasHealthBar) UpdateHealthBarCurrent(currentHealth);
     }
 
     public void IncreaseMaxHealth(int amount, bool setCurHealthToMax = false){
-        maxHealth += amount;
+        MaxHealth.AddAugment(new StatAugment(amount, StatAugmentType.Flat_Add, 1, this));
         if(setCurHealthToMax){
-            currentHealth = maxHealth;
+            currentHealth = (int)MaxHealth.Value;
         }
-        if(hasHealthBar) UpdateHealthBarMax(maxHealth, setCurHealthToMax);
+        if(hasHealthBar) UpdateHealthBarMax((int)MaxHealth.Value, setCurHealthToMax);
     }
 
     void UpdateHealthBarMax(int amount, bool setCurToMax = false){
