@@ -9,8 +9,8 @@ public class Health : MonoBehaviour
 
     [Header("Health Values")]
     public Stat MaxHealth;
+    private int currentHealth;
     [Space]
-    [SerializeField] private int currentHealth;
     [SerializeField] private bool invincible;
 
     [Header("UI Elements")]
@@ -71,12 +71,12 @@ public class Health : MonoBehaviour
         if(hasHealthBar) UpdateHealthBarMax((int)MaxHealth.Value, setCurHealthToMax);
     }
 
-    void UpdateHealthBarMax(int amount, bool setCurToMax = false){
+    private void UpdateHealthBarMax(int amount, bool setCurToMax = false){
         healthBar.maxValue = amount;
         if(setCurToMax) healthBar.value = amount;
     }
 
-    void UpdateHealthBarCurrent(int amount){
+    private void UpdateHealthBarCurrent(int amount){
         healthBar.value = amount;
     }
 
