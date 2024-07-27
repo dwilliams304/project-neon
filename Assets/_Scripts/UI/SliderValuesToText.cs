@@ -42,6 +42,19 @@ public class SliderValuesToText : MonoBehaviour
         });
     }
 
+
+    void Start(){
+        if(PlayerHUDUI.showPercentages == true && PlayerHUDUI.showTotalValues == true){
+            ChangeValuesText_Both();
+        }
+        else if(PlayerHUDUI.showPercentages == true && PlayerHUDUI.showTotalValues == false){
+            ChangeValuesText_Pct_Only();
+        }
+        else if(PlayerHUDUI.showPercentages == false && PlayerHUDUI.showTotalValues == true){
+            ChangeValuesText_Vals_Only();
+        }
+    }
+
     void ChangeValuesText_Pct_Only(){
         text.text = (slider.value / slider.maxValue * 100f).ToString() + "%";
     }

@@ -7,16 +7,26 @@ public class Ticker : MonoBehaviour
     [SerializeField] private float tickTimer;
     private float lastTick;
 
-    public delegate void OnTick();
-    public OnTick onTick;
+    public delegate void OnNormalTick();
+    public static OnNormalTick onNormalTick;
+
+    public delegate void OnFifthTick();
+    public static OnFifthTick onFifthTick;
+
+    private int tick;
 
     private void Awake(){
         Instance = this;
+        tick = 0;
     }
     
     private void Update(){
         if(Time.time >= lastTick + tickTimer){
-            onTick?.Invoke();
+            onNormalTick?.Invoke();
+            tick++;
+            if(tick % 5 == 0){
+                onFifthTick?.Invoke();
+            }
             lastTick = Time.time;
         }
     }

@@ -1,31 +1,23 @@
-using System.Collections;
 using UnityEngine;
 
 public class DespawnAfterTime : MonoBehaviour
 {
-    private WaitForSeconds despawnTimer;
+
     [SerializeField] private float waitTime;
     [SerializeField] private bool destroyObject;
 
+    private float timeActivated;
 
-    private void OnEnable(){
-        despawnTimer = new WaitForSeconds(waitTime);
-        StartCoroutine(Despawn());
-    }
 
-    private void OnDisable(){
-        StopCoroutine(Despawn());
+    private void OnEnable() {
+        timeActivated = Time.time;
     }
 
 
-
-    private IEnumerator Despawn(){
-        yield return despawnTimer;
-        if (!destroyObject) {
+    private void Update(){
+        if(Time.time > timeActivated + waitTime){
             gameObject.SetActive(false);
         }
-        else{
-            Destroy(gameObject);
-        }
     }
+
 }
