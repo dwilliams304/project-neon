@@ -50,12 +50,20 @@ public class PlayerCombat : MonoBehaviour
     private void Shoot(){
         if(currentAmmo > 0 && (Time.time > timeSinceLastShot + FireRate.Value)){
             timeSinceLastShot = Time.time;
-            GameObject bullet = ObjectPooler.Instance.GetPooledObject(PooledObjectType.PlayerBullet_1);
-            if(bullet == null) return;
-            bullet.transform.position = firePoint.position;
-            bullet.transform.rotation = firePoint.rotation;
-            bullet.GetComponent<Rigidbody>().AddForce(firePoint.up * ProjectileSpeed.Value, ForceMode.Impulse);
+            GameObject bullet_exp = Experimental_ObjectPooler.Instance.Pooled_Bullet.GetPooledObject(firePoint.position, firePoint.rotation);
+            if(bullet_exp == null) return;
+            bullet_exp.GetComponent<Rigidbody>().AddForce(firePoint.up * ProjectileSpeed.Value, ForceMode.Impulse);
             if(!infiniteAmmo) currentAmmo--;
+            
+
+            //------ LEGACY CODE -------\\
+            
+            // GameObject bullet = ObjectPooler.Instance.GetPooledObject(PooledObjectType.PlayerBullet_1);
+            // bullet_exp.transform.rotation = firePoint.rotation;
+            // if(bullet == null) return;
+            // bullet.transform.position = firePoint.position;
+            // bullet.transform.rotation = firePoint.rotation;
+            // bullet.GetComponent<Rigidbody>().AddForce(firePoint.up * ProjectileSpeed.Value, ForceMode.Impulse);
         }
     }
 

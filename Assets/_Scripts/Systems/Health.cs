@@ -39,14 +39,21 @@ public class Health : MonoBehaviour
                     Random.Range(-damageTextRandomOffset.x, damageTextRandomOffset.x),
                     damageTextRandomOffset.y,
                     Random.Range(-damageTextRandomOffset.z, damageTextRandomOffset.z)
-                );
-                int roll = Random.Range(0, 101);
+                ) + gameObject.transform.position;
                 bool wasCrit = false;
-                if(roll >= 50){
+                if(Random.Range(0, 101) >= 50){
                     wasCrit = true;
                 }
-                GameObject textObj = ObjectPooler.Instance.GetPooledObject(PooledObjectType.DamageText_1, amount, wasCrit);
-                textObj.transform.position = gameObject.transform.position + randomPos;
+                Experimental_ObjectPooler.Instance.Pooled_Damage_Text.GetPooledTextObject(
+                    randomPos, amount.ToString(), wasCrit);
+
+
+
+
+                //------ LEGACY CODE -------\\
+
+                // GameObject textObj = ObjectPooler.Instance.GetPooledObject(PooledObjectType.DamageText_1, amount, wasCrit);
+                // textObj.transform.position = gameObject.transform.position + randomPos;
 
             }
         }
