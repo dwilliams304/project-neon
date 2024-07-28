@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class PlayerCombat : MonoBehaviour
+public class PlayerCombat : MonoBehaviour, IDamageable
 {
     private bool preventInput = false;
 
     [Header("Combat Stats")]
     public Stat Damage;
+    public Stat Damage_Taken_Multiplier;
     public Stat CritChance;
     public Stat CritDamageMultiplier;
     public Stat FireRate;
@@ -26,6 +27,11 @@ public class PlayerCombat : MonoBehaviour
 
     private float timeSinceLastShot;
 
+
+    private Health health;
+
+
+
     private void OnEnable(){
         UIManager.Instance.onPreventPlayerInput += PreventInput;
     }
@@ -35,6 +41,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Start(){
         currentAmmo = magazineSize;
+        health = GetComponent<Health>();
     }
 
     private void Update(){
@@ -60,4 +67,16 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
+
+    /*  -----------------------------------------------------------------
+        |                       PLACEHOLDER!!!!!                        |
+        |  Will change in the future, so that the enemy passes their    |
+        | damage stats / multipliers and whatnot, this does not yet     |
+        |                  TODO: USE ENEMY STAT VALS!!!                 |
+        -----------------------------------------------------------------
+    */
+    public void OnDamage()
+    {
+        health.TakeDamage(Mathf.FloorToInt(GameManager.Instance.CalculateDamage() * Damage_Taken_Multiplier.Value), false);
+    }
 }

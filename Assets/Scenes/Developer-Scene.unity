@@ -2771,11 +2771,14 @@ MonoBehaviour:
   Damage:
     BaseValue: 10
     canNotAugment: 0
+  Damage_Taken_Multiplier:
+    BaseValue: 1
+    canNotAugment: 0
   CritChance:
     BaseValue: 10
     canNotAugment: 0
   CritDamageMultiplier:
-    BaseValue: 2
+    BaseValue: 1.5
     canNotAugment: 0
   FireRate:
     BaseValue: 0.1

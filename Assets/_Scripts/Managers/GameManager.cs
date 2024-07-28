@@ -41,8 +41,9 @@ public class GameManager : MonoBehaviour
         return Mathf.CeilToInt(finalDamage);
     }
 
-    public float CalculateDamage(Stat damageStat){
+    public float CalculateDamage(Stat damageStat = null){
         float variance = Random.Range(-damageVariance, damageVariance);
+        if(damageStat == null) return 10 + variance;
         return damageStat.Value + variance;
     }
 
