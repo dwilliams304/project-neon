@@ -5,6 +5,9 @@ public class PlayerCombat : MonoBehaviour
     private bool preventInput = false;
 
     [Header("Combat Stats")]
+    public Stat Damage;
+    public Stat CritChance;
+    public Stat CritDamageMultiplier;
     public Stat FireRate;
     public Stat ProjectileSpeed;
     public Stat ReloadSpeed;

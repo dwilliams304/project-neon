@@ -176,6 +176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage:
+    BaseValue: 0
+    canNotAugment: 0
 --- !u!136 &39328109
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -699,6 +702,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage:
+    BaseValue: 0
+    canNotAugment: 0
 --- !u!136 &176471474
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -982,17 +988,17 @@ MonoBehaviour:
   Pooled_Bullet:
     ObjectToPool: {fileID: 1107567162705653528, guid: e956e63ece7e4b3499132259626764db,
       type: 3}
-    AmountToPool: 50
+    AmountToPool: 10
     WillGrow: 1
     currentPool: []
-  Pooled_DamageText:
+  Pooled_Damage_Text:
     ObjectToPool: {fileID: 5713069235524420174, guid: ee7d370b9fad74a47906caaaabe20f61,
       type: 3}
-    AmountToPool: 25
-    WillGrow: 0
+    AmountToPool: 10
+    WillGrow: 1
     currentPool: []
     Color_Normal: {r: 1, g: 1, b: 1, a: 1}
-    Color_Special: {r: 1, g: 0, b: 0.74622536, a: 1}
+    Color_Special: {r: 1, g: 0, b: 0.804821, a: 1}
 --- !u!1 &265667366
 GameObject:
   m_ObjectHideFlags: 0
@@ -2202,6 +2208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage:
+    BaseValue: 0
+    canNotAugment: 0
 --- !u!136 &474196595
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2609,6 +2618,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43311a991d6c31479349dbe7274fe75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage:
+    BaseValue: 10
+    canNotAugment: 0
+  CritChance:
+    BaseValue: 30
+    canNotAugment: 0
+  CritDamageMultiplier:
+    BaseValue: 2
+    canNotAugment: 0
   FireRate:
     BaseValue: 0.1
     canNotAugment: 0
@@ -2806,12 +2824,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1835777355}
+  - {fileID: 243761673}
+  - {fileID: 1765507170}
   - {fileID: 1940732117}
   - {fileID: 407519279}
   - {fileID: 1134493599}
   - {fileID: 2130556474}
-  - {fileID: 243761673}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &646428492
@@ -4531,9 +4549,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6462,6 +6480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage:
+    BaseValue: 0
+    canNotAugment: 0
 --- !u!136 &1485528791
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6771,6 +6792,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage:
+    BaseValue: 0
+    canNotAugment: 0
 --- !u!136 &1510036655
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7729,6 +7753,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d0fc874ca6d114dab6e7a4339fd8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1765507169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1765507170}
+  - component: {fileID: 1765507171}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1765507170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765507169}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 519825182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1765507171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765507169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba659af56dcbee4da84d8d30a8f1d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 490503879}
+  enemyHealthScaler:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  enemyDamageScaler:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  damageVariance: 3
 --- !u!1 &1794419029
 GameObject:
   m_ObjectHideFlags: 0
@@ -8084,67 +8166,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1835777353
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1835777355}
-  - component: {fileID: 1835777354}
-  m_Layer: 0
-  m_Name: ObjectPooler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1835777354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835777353}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a3730e2b8419874bb64ad8bc9ea8e19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pooledObjects:
-  - {objectToPool: {fileID: 1107567162705653528, guid: e956e63ece7e4b3499132259626764db,
-      type: 3}, amountToPool: 10, pooledObjectType: 0, currentObjectPool: []
-, willGrow: 1}
-  - {objectToPool: {fileID: 5713069235524420174, guid: ee7d370b9fad74a47906caaaabe20f61,
-      type: 3}, amountToPool: 10, pooledObjectType: 3, currentObjectPool: []
-, willGrow: 1}
-  critColor:
-    r: 1
-    g: 0
-    b: 0.69559526
-    a: 1
-  nonCritColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
---- !u!4 &1835777355
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835777353}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 519825182}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846820412
 GameObject:
   m_ObjectHideFlags: 0
@@ -8198,6 +8219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage:
+    BaseValue: 0
+    canNotAugment: 0
 --- !u!136 &1846820415
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8340,6 +8364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage:
+    BaseValue: 0
+    canNotAugment: 0
 --- !u!136 &1850075634
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9072,6 +9099,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage:
+    BaseValue: 0
+    canNotAugment: 0
 --- !u!136 &2085540371
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount){
+    public void TakeDamage(int amount, bool wasCrit){
         if(!invincible){
             currentHealth -= amount;
             if(hasHealthBar) UpdateHealthBarCurrent(currentHealth);
@@ -40,10 +40,6 @@ public class Health : MonoBehaviour
                     damageTextRandomOffset.y,
                     Random.Range(-damageTextRandomOffset.z, damageTextRandomOffset.z)
                 ) + gameObject.transform.position;
-                bool wasCrit = false;
-                if(Random.Range(0, 101) >= 50){
-                    wasCrit = true;
-                }
                 Experimental_ObjectPooler.Instance.Pooled_Damage_Text.GetPooledTextObject(
                     randomPos, amount.ToString(), wasCrit);
 

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Ticker : MonoBehaviour
 {
     [SerializeField] private float tickTimer;
+    // private float _timer;
 
     public delegate void OnNormalTick();
     public static OnNormalTick onNormalTick;

@@ -38,8 +38,8 @@ public class PooledTextObject
                 currentObj.SetActive(true);
                 TMP_Text textElement = currentObj.GetComponentInChildren<TMP_Text>();
                 textElement.text = textToShow;
-                if(useSpecialColor) textElement.color = Color_Normal;
-                else textElement.color = Color_Special;
+                if(useSpecialColor) textElement.color = Color_Special;
+                else textElement.color = Color_Normal;
                 currentObj.transform.position = spawnPos;
                 return currentObj;
             }
