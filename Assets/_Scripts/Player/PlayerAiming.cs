@@ -18,7 +18,6 @@ public class PlayerAiming : MonoBehaviour
     }
 
     private void Update(){
-        // Debug.Log()
         if(!preventInput) Aim();
     }
 
