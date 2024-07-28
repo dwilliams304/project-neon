@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     WaitForSeconds dashDurationWait;
     private bool isDashing;
 
+    // private DashTrailAnimatior dashTrailAnimatior;
+
 
 
     private void Start(){
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
         dashDurationWait = new WaitForSeconds(DashDuration.Value);
         timeSinceLastDash = Time.time;
+        // dashTrailAnimatior = GetComponent<DashTrailAnimatior>();
     }
 
 
@@ -59,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         timeSinceLastDash = Time.time;
         rb.velocity = moveDirection * DashSpeed.Value;
+        // dashTrailAnimatior.StartTrailEffect(DashDuration.Value);
         yield return dashDurationWait;
         isDashing = false;
     }

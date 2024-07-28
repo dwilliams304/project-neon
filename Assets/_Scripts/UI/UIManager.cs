@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,6 +12,16 @@ public class UIManager : MonoBehaviour
     public OnPreventPlayerInput onPreventPlayerInput;
 
     [SerializeField] private List<GameObject> openPanels = new List<GameObject>();
+
+    // [System.Serializable]
+    // public class GamePanel {
+    //     public GameObject panel;
+    //     public KeyCode key;
+    // }
+
+    [Header("Specific Panels")]
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private KeyCode pauseKey;
 
     void Awake(){
         if(Instance == null){
@@ -22,17 +34,27 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+
+    //DIRTY, CHANGE ME PLEASE
+    void Update(){
+        if(Input.GetKeyDown(pauseKey)){
+            TogglePanel(pausePanel);
+        }
+    }
+
     public void OnDragMenu(bool preventInput = false){
         onPreventPlayerInput?.Invoke(preventInput);
     }
 
-    public void OpenPanel(GameObject panel){
-        if(openPanels.Contains(panel)) return;
+    public void TogglePanel(GameObject panel){
+        if(openPanels.Contains(panel)) {
+            ClosePanel(panel);
+            return;
+        }
         else if(!ArePanelsOpen()){
             previousTimeScale = Time.timeScale;
             openPanels.Add(panel);
             panel.SetActive(true);
-            Debug.Log($"Storing time scale: {previousTimeScale} // and pausing");
             Time.timeScale = 0f;
         }
         else {
@@ -43,18 +65,15 @@ public class UIManager : MonoBehaviour
         onPreventPlayerInput?.Invoke(true);
     }
 
-    public void ClosePanel(GameObject panel){
+    private void ClosePanel(GameObject panel){
         if(!openPanels.Contains(panel)) {
             Debug.LogError("Close panel called on a panel that isn't open. FIX THIS");
-            return;
         }
         openPanels.Remove(panel);
         panel.SetActive(false);
-        Debug.Log("Closing Panel");
         if(!ArePanelsOpen()){
             Time.timeScale = previousTimeScale;
             onPreventPlayerInput?.Invoke(false);
-            Debug.Log($"Setting time back to regular scale of: {previousTimeScale}");
         }
     }
 
