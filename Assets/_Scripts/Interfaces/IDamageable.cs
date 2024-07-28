@@ -1,3 +1,3 @@
 public interface IDamageable{
-    public void OnDamage();
+    public void OnDamage(Stat damageStat = null);
 }

@@ -56,8 +56,8 @@ public class Health : MonoBehaviour
         if(hasHealthBar) UpdateHealthBarCurrent(currentHealth);
     }
 
-    public void IncreaseMaxHealth(int amount, bool setCurHealthToMax = false){
-        MaxHealth.AddAugment(new StatAugment(amount, StatAugmentType.Flat_Add, 1, this));
+    public void IncreaseMaxHealth(int amount, object source, bool setCurHealthToMax = false){
+        MaxHealth.AddAugment(new StatAugment(amount, StatAugmentType.Flat_Add, source));
         if(setCurHealthToMax){
             currentHealth = (int)MaxHealth.Value;
         }

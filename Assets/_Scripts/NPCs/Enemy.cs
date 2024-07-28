@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour, IDamageable
     private Health healthSystem;
 
     public Stat Damage;
+    public Stat MoveSpeed;
+
+    [SerializeField] private int baseXP;
 
     private void OnEnable(){
         healthSystem = GetComponent<Health>();
@@ -26,7 +29,7 @@ public class Enemy : MonoBehaviour, IDamageable
         healthSystem = GetComponent<Health>();
     }
 
-    public void OnDamage()
+    public void OnDamage(Stat damageStat)
     {
         bool _wasCrit = GameManager.Instance.CalculateIfCrit();
         int _damage = GameManager.Instance.CalculatePlayerDamageDone(_wasCrit);
@@ -35,7 +38,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
 
     private void EnemyDeath(){
-        XPManager.Instance.AddExperience(100);
+        XPManager.Instance.AddExperience(baseXP);
         gameObject.SetActive(false);
     }
 }

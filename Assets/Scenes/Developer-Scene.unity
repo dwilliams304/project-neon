@@ -314,6 +314,10 @@ MonoBehaviour:
   Damage:
     BaseValue: 0
     canNotAugment: 0
+  MoveSpeed:
+    BaseValue: 0
+    canNotAugment: 0
+  baseXP: 15
 --- !u!136 &39328109
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -853,6 +857,10 @@ MonoBehaviour:
   Damage:
     BaseValue: 0
     canNotAugment: 0
+  MoveSpeed:
+    BaseValue: 0
+    canNotAugment: 0
+  baseXP: 15
 --- !u!136 &176471474
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1818,11 +1826,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  currentLevel: 0
-  currentExperience: 0
-  experienceToNextLevel: 0
   capLevel: 1
   levelCap: 100
+  XP_Multiplier:
+    BaseValue: 1
+    canNotAugment: 0
 --- !u!1 &407815203
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,6 +2369,10 @@ MonoBehaviour:
   Damage:
     BaseValue: 0
     canNotAugment: 0
+  MoveSpeed:
+    BaseValue: 0
+    canNotAugment: 0
+  baseXP: 15
 --- !u!136 &474196595
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6622,6 +6634,10 @@ MonoBehaviour:
   Damage:
     BaseValue: 0
     canNotAugment: 0
+  MoveSpeed:
+    BaseValue: 0
+    canNotAugment: 0
+  baseXP: 15
 --- !u!136 &1485528791
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6934,6 +6950,10 @@ MonoBehaviour:
   Damage:
     BaseValue: 0
     canNotAugment: 0
+  MoveSpeed:
+    BaseValue: 0
+    canNotAugment: 0
+  baseXP: 15
 --- !u!136 &1510036655
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8195,6 +8215,10 @@ MonoBehaviour:
   Damage:
     BaseValue: 0
     canNotAugment: 0
+  MoveSpeed:
+    BaseValue: 0
+    canNotAugment: 0
+  baseXP: 15
 --- !u!136 &1846820415
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8340,6 +8364,10 @@ MonoBehaviour:
   Damage:
     BaseValue: 0
     canNotAugment: 0
+  MoveSpeed:
+    BaseValue: 0
+    canNotAugment: 0
+  baseXP: 15
 --- !u!136 &1850075634
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9210,6 +9238,10 @@ MonoBehaviour:
   Damage:
     BaseValue: 0
     canNotAugment: 0
+  MoveSpeed:
+    BaseValue: 0
+    canNotAugment: 0
+  baseXP: 15
 --- !u!136 &2085540371
 CapsuleCollider:
   m_ObjectHideFlags: 0

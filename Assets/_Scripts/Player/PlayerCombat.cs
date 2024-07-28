@@ -75,8 +75,8 @@ public class PlayerCombat : MonoBehaviour, IDamageable
         |                  TODO: USE ENEMY STAT VALS!!!                 |
         -----------------------------------------------------------------
     */
-    public void OnDamage()
+    public void OnDamage(Stat damageStat)
     {
-        health.TakeDamage(Mathf.FloorToInt(GameManager.Instance.CalculateDamage() * Damage_Taken_Multiplier.Value), false);
+        health.TakeDamage(Mathf.FloorToInt(GameManager.Instance.CalculateDamage(damageStat) * Damage_Taken_Multiplier.Value), false);
     }
 }

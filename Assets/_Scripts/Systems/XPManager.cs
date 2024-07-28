@@ -10,12 +10,15 @@ public class XPManager : MonoBehaviour
     public delegate void OnExperienceChange(int xpAmnt);
     public static OnExperienceChange onExperienceChange;
 
-    [SerializeField] private AnimationCurve levelScaler;
 
-    [SerializeField] private int currentLevel, currentExperience, experienceToNextLevel;
-    
+    [SerializeField] private AnimationCurve levelScaler;
     [SerializeField] private bool capLevel;
     [SerializeField] private int levelCap;
+    public Stat XP_Multiplier;
+
+
+    private int currentLevel, currentExperience, experienceToNextLevel;
+
 
     private void Awake() => Instance = this;
 
@@ -28,7 +31,7 @@ public class XPManager : MonoBehaviour
 
 
     public void AddExperience(int amnt){
-        currentExperience += amnt;
+        currentExperience += Mathf.CeilToInt(amnt * XP_Multiplier.Value);
         if(currentExperience >= experienceToNextLevel) LevelUp(currentExperience - experienceToNextLevel);
         else onExperienceChange?.Invoke(currentExperience);
     }
@@ -40,5 +43,9 @@ public class XPManager : MonoBehaviour
         currentExperience = overflow;
         onLevelChange?.Invoke(currentLevel, experienceToNextLevel, overflow);
     }
+
+    // public void IncreaseXPMultiplier(float amount, object source){
+    //     XP_Multiplier.AddAugment(new StatAugment(amount, StatAugmentType.Percent_Add, source));
+    // }
 
 }
