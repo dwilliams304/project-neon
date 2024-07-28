@@ -29,12 +29,8 @@ public class XPManager : MonoBehaviour
 
     public void AddExperience(int amnt){
         currentExperience += amnt;
-
-        if(currentExperience >= experienceToNextLevel){
-            LevelUp(currentExperience - experienceToNextLevel);
-        }
-
-        onExperienceChange?.Invoke(amnt);
+        if(currentExperience >= experienceToNextLevel) LevelUp(currentExperience - experienceToNextLevel);
+        else onExperienceChange?.Invoke(currentExperience);
     }
 
 

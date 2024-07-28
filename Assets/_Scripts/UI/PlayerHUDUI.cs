@@ -24,8 +24,8 @@ public class PlayerHUDUI : MonoBehaviour
         XPManager.onLevelChange -= UpdateLevel;
     }
 
-    private void UpdateXPBar(int amountToAdd){
-        xpBar.value += amountToAdd;
+    private void UpdateXPBar(int newValue){
+        xpBar.value = newValue;
     }
 
     private void UpdateLevel(int newLevel, int xpToNext, int newXpAmnt){
