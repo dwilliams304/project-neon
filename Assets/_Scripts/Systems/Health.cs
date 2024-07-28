@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
     [SerializeField] private bool showsDamageText;
     [SerializeField] private Vector3 damageTextRandomOffset;
 
+    private Transform gameObjTransform;
 
     private void Start(){
         currentHealth = (int)MaxHealth.Value;
@@ -28,6 +29,8 @@ public class Health : MonoBehaviour
             healthBar = GetComponentInChildren<Slider>();
             UpdateHealthBarMax((int)MaxHealth.Value, true);
         }
+        gameObjTransform = gameObject.transform;
+        
     }
 
     public void TakeDamage(int amount, bool wasCrit){
@@ -35,22 +38,9 @@ public class Health : MonoBehaviour
             currentHealth -= amount;
             if(hasHealthBar) UpdateHealthBarCurrent(currentHealth);
             if(showsDamageText){
-                Vector3 randomPos = new Vector3(
-                    Random.Range(-damageTextRandomOffset.x, damageTextRandomOffset.x),
-                    damageTextRandomOffset.y,
-                    Random.Range(-damageTextRandomOffset.z, damageTextRandomOffset.z)
-                ) + gameObject.transform.position;
                 Experimental_ObjectPooler.Instance.Pooled_Damage_Text.GetPooledTextObject(
-                    randomPos, amount.ToString(), wasCrit);
-
-
-
-
-                //------ LEGACY CODE -------\\
-
-                // GameObject textObj = ObjectPooler.Instance.GetPooledObject(PooledObjectType.DamageText_1, amount, wasCrit);
-                // textObj.transform.position = gameObject.transform.position + randomPos;
-
+                    GetRandomTextOffset(gameObjTransform.position), amount.ToString(), wasCrit
+                );
             }
         }
         if(currentHealth <= 0){
@@ -81,6 +71,15 @@ public class Health : MonoBehaviour
 
     private void UpdateHealthBarCurrent(int amount){
         healthBar.value = amount;
+    }
+
+
+    private Vector3 GetRandomTextOffset(Vector3 objPos){
+        return new Vector3(
+            Random.Range(-damageTextRandomOffset.x, damageTextRandomOffset.x),
+            damageTextRandomOffset.y,
+            Random.Range(-damageTextRandomOffset.z, damageTextRandomOffset.z)
+        ) + objPos;
     }
 
 }

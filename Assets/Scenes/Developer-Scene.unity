@@ -2622,7 +2622,7 @@ MonoBehaviour:
     BaseValue: 10
     canNotAugment: 0
   CritChance:
-    BaseValue: 30
+    BaseValue: 10
     canNotAugment: 0
   CritDamageMultiplier:
     BaseValue: 2
@@ -3672,7 +3672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &832575518
 MonoBehaviour:
   m_ObjectHideFlags: 0

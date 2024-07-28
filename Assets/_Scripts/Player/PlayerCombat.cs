@@ -57,16 +57,6 @@ public class PlayerCombat : MonoBehaviour
             if(bullet_exp == null) return;
             bullet_exp.GetComponent<Rigidbody>().AddForce(firePoint.up * ProjectileSpeed.Value, ForceMode.Impulse);
             if(!infiniteAmmo) currentAmmo--;
-            
-
-            //------ LEGACY CODE -------\\
-            
-            // GameObject bullet = ObjectPooler.Instance.GetPooledObject(PooledObjectType.PlayerBullet_1);
-            // bullet_exp.transform.rotation = firePoint.rotation;
-            // if(bullet == null) return;
-            // bullet.transform.position = firePoint.position;
-            // bullet.transform.rotation = firePoint.rotation;
-            // bullet.GetComponent<Rigidbody>().AddForce(firePoint.up * ProjectileSpeed.Value, ForceMode.Impulse);
         }
     }
 
