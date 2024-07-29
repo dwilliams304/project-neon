@@ -317,7 +317,8 @@ MonoBehaviour:
   MoveSpeed:
     BaseValue: 0
     canNotAugment: 0
-  baseXP: 15
+  experience: 15
+  gold: 10
 --- !u!136 &39328109
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -860,7 +861,8 @@ MonoBehaviour:
   MoveSpeed:
     BaseValue: 0
     canNotAugment: 0
-  baseXP: 15
+  experience: 15
+  gold: 10
 --- !u!136 &176471474
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2372,7 +2374,8 @@ MonoBehaviour:
   MoveSpeed:
     BaseValue: 0
     canNotAugment: 0
-  baseXP: 15
+  experience: 15
+  gold: 10
 --- !u!136 &474196595
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2607,6 +2610,7 @@ GameObject:
   - component: {fileID: 490503888}
   - component: {fileID: 490503890}
   - component: {fileID: 490503889}
+  - component: {fileID: 490503891}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2826,6 +2830,22 @@ MonoBehaviour:
   hasHealthBar: 1
   showsDamageText: 0
   damageTextRandomOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &490503891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490503879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48545b4ad7cd5e1419cba013c7957884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrencyMultiplier:
+    BaseValue: 1
+    canNotAugment: 0
+  currency: 0
 --- !u!1 &493070570
 GameObject:
   m_ObjectHideFlags: 0
@@ -5556,6 +5576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xpBar: {fileID: 903820770}
   levelText: {fileID: 429501252}
+  currencyText: {fileID: 1494358275}
 --- !u!1 &1360750882
 GameObject:
   m_ObjectHideFlags: 0
@@ -6637,7 +6658,8 @@ MonoBehaviour:
   MoveSpeed:
     BaseValue: 0
     canNotAugment: 0
-  baseXP: 15
+  experience: 15
+  gold: 10
 --- !u!136 &1485528791
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6953,7 +6975,8 @@ MonoBehaviour:
   MoveSpeed:
     BaseValue: 0
     canNotAugment: 0
-  baseXP: 15
+  experience: 15
+  gold: 10
 --- !u!136 &1510036655
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8218,7 +8241,8 @@ MonoBehaviour:
   MoveSpeed:
     BaseValue: 0
     canNotAugment: 0
-  baseXP: 15
+  experience: 15
+  gold: 10
 --- !u!136 &1846820415
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8367,7 +8391,8 @@ MonoBehaviour:
   MoveSpeed:
     BaseValue: 0
     canNotAugment: 0
-  baseXP: 15
+  experience: 15
+  gold: 10
 --- !u!136 &1850075634
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9241,7 +9266,8 @@ MonoBehaviour:
   MoveSpeed:
     BaseValue: 0
     canNotAugment: 0
-  baseXP: 15
+  experience: 15
+  gold: 10
 --- !u!136 &2085540371
 CapsuleCollider:
   m_ObjectHideFlags: 0

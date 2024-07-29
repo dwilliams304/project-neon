@@ -14,7 +14,8 @@ public class Enemy : MonoBehaviour, IDamageable
     public Stat Damage;
     public Stat MoveSpeed;
 
-    [SerializeField] private int baseXP;
+    [SerializeField] private int experience;
+    [SerializeField] private int gold;
 
     private void OnEnable(){
         healthSystem = GetComponent<Health>();
@@ -38,7 +39,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
 
     private void EnemyDeath(){
-        XPManager.Instance.AddExperience(baseXP);
+        XPManager.Instance.AddExperience(experience);
+        PlayerInventory.Instance.AddGold(gold);
         gameObject.SetActive(false);
     }
 }
