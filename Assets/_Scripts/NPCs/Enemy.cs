@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private int experience;
     [SerializeField] private int gold;
 
+
     private void OnEnable(){
         healthSystem = GetComponent<Health>();
         healthSystem.onUnitDeath += EnemyDeath;
