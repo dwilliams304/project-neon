@@ -64,6 +64,7 @@ public class PlayerCombat : MonoBehaviour, IDamageable
             if(bullet_exp == null) return;
             bullet_exp.GetComponent<Rigidbody>().AddForce(firePoint.up * ProjectileSpeed.Value, ForceMode.Impulse);
             if(!infiniteAmmo) currentAmmo--;
+            EffectsManager.Instance.CameraShake(1.5f, 0.05f);
         }
     }
 
