@@ -2893,6 +2893,7 @@ GameObject:
   - component: {fileID: 490503882}
   - component: {fileID: 490503881}
   - component: {fileID: 490503884}
+  - component: {fileID: 490503892}
   - component: {fileID: 490503886}
   - component: {fileID: 490503888}
   - component: {fileID: 490503890}
@@ -3071,27 +3072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43311a991d6c31479349dbe7274fe75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage:
-    BaseValue: 10
-    canNotAugment: 0
-  Damage_Taken_Multiplier:
-    BaseValue: 1
-    canNotAugment: 0
-  CritChance:
-    BaseValue: 10
-    canNotAugment: 0
-  CritDamageMultiplier:
-    BaseValue: 1.5
-    canNotAugment: 0
-  FireRate:
-    BaseValue: 0.1
-    canNotAugment: 0
-  ProjectileSpeed:
-    BaseValue: 35
-    canNotAugment: 0
-  ReloadSpeed:
-    BaseValue: 0
-    canNotAugment: 0
+  playerStats: {fileID: 0}
   magazineSize: 30
   currentAmmo: 30
   isReloading: 0
@@ -3129,10 +3110,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48545b4ad7cd5e1419cba013c7957884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Augment1: {fileID: 0}
+  Augment2: {fileID: 0}
+  Augment3: {fileID: 0}
+  Augment4: {fileID: 0}
+  Augment5: {fileID: 0}
+  currency: 0
+--- !u!114 &490503892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490503879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b44ade66570bf843a15e5fdf761d146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthRegenAmount:
+    BaseValue: 1
+    canNotAugment: 0
+  HealthRegenSpeed:
+    BaseValue: 5
+    canNotAugment: 0
+  DamageTaken:
+    BaseValue: 1
+    canNotAugment: 0
+  BaseDamage:
+    BaseValue: 5
+    canNotAugment: 0
+  CritChance:
+    BaseValue: 2
+    canNotAugment: 0
+  CritDamageMultiplier:
+    BaseValue: 2
+    canNotAugment: 0
+  FireRate:
+    BaseValue: 0.175
+    canNotAugment: 0
+  ReloadSpeed:
+    BaseValue: 0.5
+    canNotAugment: 0
+  ProjectileSpeed:
+    BaseValue: 45
+    canNotAugment: 0
+  MoveSpeed:
+    BaseValue: 8
+    canNotAugment: 0
+  DashSpeed:
+    BaseValue: 35
+    canNotAugment: 0
+  DashCooldown:
+    BaseValue: 4
+    canNotAugment: 0
+  DashDuration:
+    BaseValue: 0.2
+    canNotAugment: 0
+  ExperienceMultiplier:
+    BaseValue: 1
+    canNotAugment: 0
   CurrencyMultiplier:
     BaseValue: 1
     canNotAugment: 0
-  currency: 0
+  CorruptionGainAmount:
+    BaseValue: 0
+    canNotAugment: 0
+  CorruptionGainSpeed:
+    BaseValue: 1
+    canNotAugment: 0
 --- !u!1 &493070570
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,9 +18,8 @@ public class LevelUpgrader : MonoBehaviour
 
 
     //PRIVATE VARS
-    private PlayerCombat playerCombat;
+    private PlayerStats playerStats;
     private Health playerHealth;
-    private PlayerMovement playerMovement;
 
 
     private void OnEnable(){
@@ -37,14 +36,13 @@ public class LevelUpgrader : MonoBehaviour
             Debug.Log("Player reference not set, setting now!");
             player = GameObject.FindGameObjectWithTag("Player");
         }
-        playerCombat = player.GetComponent<PlayerCombat>();
-        playerMovement = player.GetComponent<PlayerMovement>();
+        playerStats = player.GetComponent<PlayerStats>();
         playerHealth = player.GetComponent<Health>();
     }
 
 
     private void HandleLevelChange(int newLevel, int xpToNext, int newXpAmnt){
-        playerCombat.Damage.AddAugment(new StatAugment(damageToAdd, StatAugmentType.Flat_Add, this));
+        playerStats.BaseDamage.AddAugment(new StatAugment(damageToAdd, StatAugmentType.Flat_Add, this));
         playerHealth.IncreaseMaxHealth(maxHealthToAdd, this, true);
         UIManager.Instance.TogglePanel(levelUpPanel);
     }

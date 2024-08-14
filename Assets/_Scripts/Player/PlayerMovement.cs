@@ -1,10 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerStats))]
 public class PlayerMovement : MonoBehaviour
 {
     
     private Rigidbody rb;
+
+    private PlayerStats playerStats;
 
     [Header("Movement Stats")]
     public Stat MoveSpeed;
@@ -27,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if(rb == null) Debug.LogError("No Rigidbody found on component, FIX THIS!");
         isDashing = false;
+        playerStats = GetComponent<PlayerStats>();
         dashDurationWait = new WaitForSeconds(DashDuration.Value);
         timeSinceLastDash = Time.time;
         // dashTrailAnimatior = GetComponent<DashTrailAnimatior>();

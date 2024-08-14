@@ -7,8 +7,7 @@ public class GameManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject player;
-    private PlayerCombat playerCombat;
-    private PlayerMovement playerMovement;
+    private PlayerStats playerStats;
 
 
     [Header("Difficulty Settings")]
@@ -24,21 +23,20 @@ public class GameManager : MonoBehaviour
     void Awake() => Instance = this;
 
     void Start(){
-        playerCombat = player.GetComponent<PlayerCombat>();
-        playerMovement = player.GetComponent<PlayerMovement>();
+        playerStats = player.GetComponent<PlayerStats>();
     }
 
     public bool CalculateIfCrit(){
-        if(Random.Range(0, 101) <= playerCombat.CritChance.Value) return true;
+        if(Random.Range(0, 101) <= playerStats.CritChance.Value) return true;
         return false;
     }
 
     public int CalculatePlayerDamageDone(bool wasCrit){
         float finalDamage;
         float variance = Random.Range(-damageVariance, damageVariance);
-        finalDamage = playerCombat.Damage.Value + variance;
+        finalDamage = playerStats.BaseDamage.Value + variance;
         if(wasCrit){
-            finalDamage *= playerCombat.CritDamageMultiplier.Value;
+            finalDamage *= playerStats.CritDamageMultiplier.Value;
         }
         return Mathf.CeilToInt(finalDamage);
     }

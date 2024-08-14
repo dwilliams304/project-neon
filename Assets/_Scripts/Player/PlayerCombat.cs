@@ -1,17 +1,20 @@
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerStats))]
 public class PlayerCombat : MonoBehaviour, IDamageable
 {
     private bool preventInput = false;
 
+    public PlayerStats playerStats;
+
     [Header("Combat Stats")]
-    public Stat Damage;
-    public Stat Damage_Taken_Multiplier;
-    public Stat CritChance;
-    public Stat CritDamageMultiplier;
-    public Stat FireRate;
-    public Stat ProjectileSpeed;
-    public Stat ReloadSpeed;
+    // public Stat Damage;
+    // public Stat Damage_Taken_Multiplier;
+    // public Stat CritChance;
+    // public Stat CritDamageMultiplier;
+    // public Stat FireRate;
+    // public Stat ProjectileSpeed;
+    // public Stat ReloadSpeed;
 
 
     [Header("Other vars")]
@@ -40,6 +43,7 @@ public class PlayerCombat : MonoBehaviour, IDamageable
     }
 
     private void Start(){
+        playerStats = GetComponent<PlayerStats>();
         currentAmmo = magazineSize;
         health = GetComponent<Health>();
     }
@@ -58,11 +62,11 @@ public class PlayerCombat : MonoBehaviour, IDamageable
 
 
     private void Shoot(){
-        if(currentAmmo > 0 && (Time.time > timeSinceLastShot + FireRate.Value)){
+        if(currentAmmo > 0 && (Time.time > timeSinceLastShot + playerStats.FireRate.Value)){
             timeSinceLastShot = Time.time;
             GameObject bullet_exp = Experimental_ObjectPooler.Instance.Pooled_Bullet.GetPooledObject(firePoint.position, firePoint.rotation);
             if(bullet_exp == null) return;
-            bullet_exp.GetComponent<Rigidbody>().AddForce(firePoint.up * ProjectileSpeed.Value, ForceMode.Impulse);
+            bullet_exp.GetComponent<Rigidbody>().AddForce(firePoint.up * playerStats.ProjectileSpeed.Value, ForceMode.Impulse);
             if(!infiniteAmmo) currentAmmo--;
             EffectsManager.Instance.CameraShake(1.5f, 0.05f);
         }
@@ -78,6 +82,6 @@ public class PlayerCombat : MonoBehaviour, IDamageable
     */
     public void OnDamage(Stat damageStat)
     {
-        health.TakeDamage(Mathf.FloorToInt(GameManager.Instance.CalculateDamage(damageStat) * Damage_Taken_Multiplier.Value), false);
+        health.TakeDamage(Mathf.FloorToInt(GameManager.Instance.CalculateDamage(damageStat) * playerStats.DamageTaken.Value), false);
     }
 }

@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerStats))]
 public class PlayerInventory : MonoBehaviour
 {
     //Gold, Augments, Consumables, all that stuff!
-    public Stat CurrencyMultiplier;
+
+    private PlayerStats playerStats;
 
     public static PlayerInventory Instance;
 
@@ -27,10 +29,14 @@ public class PlayerInventory : MonoBehaviour
         currency = 0;
     }
 
+    private void Start(){
+        playerStats = GetComponent<PlayerStats>();
+    }
+
 
 
     public void AddGold(int amount){
-        currency += Mathf.RoundToInt(amount * CurrencyMultiplier.Value);
+        currency += Mathf.RoundToInt(amount * playerStats.CurrencyMultiplier.Value);
         onCurrencyChange?.Invoke(currency);
     }
 

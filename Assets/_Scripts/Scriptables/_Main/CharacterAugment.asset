@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2a296b42c7f2954e87e97ae80996541, type: 3}
   m_Name: CharacterAugment
   m_EditorClassIdentifier: 
+  augmentName: 
+  augmentDescription: 
   augments: []
-  stats: []
