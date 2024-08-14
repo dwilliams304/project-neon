@@ -13,6 +13,9 @@ public class CorruptionManager : MonoBehaviour
 {
     public static CorruptionManager Instance;
 
+    public Stat CorruptionTickAmount;
+    public Stat CorruptionTickSpeed;
+
 
     [SerializeField] private int currentCorruptionAmount;
     [SerializeField] private int corruptionToNextTier;

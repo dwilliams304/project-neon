@@ -15,10 +15,31 @@ public enum StatAugmentType {
     Percent_Mult = 300,
 }
 
+public enum StatToAugment {
+    Health,
+    Health_Regen_Amount,
+    Health_Regen_Speed,
+    Damage,
+    Damage_Taken_Multiplier,
+    Crit_Chance,
+    Crit_Damage_Multiplier,
+    FireRate,
+    ProjectileSpeed,
+    ReloadSpeed,
+    Move_Speed,
+    DashSpeed,
+    DashCooldown,
+    XP_Multiplier,
+    Currency_Multiplier,
+    Corruption_Ticker,
+    Corruption_Gain_Multiplier,
+}
+
 [Serializable]
 public class StatAugment {
-    public readonly float Value;
-    public readonly StatAugmentType AugmentType;
+    public float Value;
+    public StatAugmentType AugmentType;
+    public StatToAugment statToAugment;
     public readonly int Order;
     public readonly object Source;
 

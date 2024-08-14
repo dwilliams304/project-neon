@@ -7,6 +7,9 @@ public class Ticker : MonoBehaviour
     public delegate void OnNormalTick();
     public static OnNormalTick onNormalTick;
 
+    public delegate void OnShortTick();
+    public static OnShortTick onShortTick;
+
     public delegate void OnSecondTick();
     public static OnSecondTick onSecondTick;
 

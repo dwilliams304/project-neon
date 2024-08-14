@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
 
-
     [Header("References")]
     [SerializeField] private GameObject player;
     private PlayerCombat playerCombat;
@@ -18,6 +17,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Other Variables")]
     [SerializeField] private float damageVariance;
+
+
+
 
     void Awake() => Instance = this;
 

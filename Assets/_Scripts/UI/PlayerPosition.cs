@@ -6,8 +6,8 @@ public class PlayerPosition : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private TMP_Text text;
 
-    void OnEnable() => Ticker.onNormalTick += UpdatePositionText; 
-    void OnDisable() => Ticker.onNormalTick -= UpdatePositionText; 
+    void OnEnable() => Ticker.onSecondTick += UpdatePositionText; 
+    void OnDisable() => Ticker.onSecondTick -= UpdatePositionText; 
 
 
     void UpdatePositionText(){
