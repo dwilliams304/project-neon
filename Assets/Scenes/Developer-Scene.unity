@@ -4226,18 +4226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9c281fdc9f4554d96dc6652c644ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed:
-    BaseValue: 11
-    canNotAugment: 0
-  DashSpeed:
-    BaseValue: 35
-    canNotAugment: 0
-  DashCooldown:
-    BaseValue: 2
-    canNotAugment: 0
-  DashDuration:
-    BaseValue: 0.2
-    canNotAugment: 1
 --- !u!114 &490503889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4254,7 +4242,7 @@ MonoBehaviour:
   magazineSize: 30
   currentAmmo: 30
   isReloading: 0
-  infiniteAmmo: 1
+  infiniteAmmo: 0
   firePoint: {fileID: 493070571}
 --- !u!114 &490503890
 MonoBehaviour:
@@ -4334,7 +4322,7 @@ MonoBehaviour:
     BaseValue: 45
     canNotAugment: 0
   MoveSpeed:
-    BaseValue: 8
+    BaseValue: 10
     canNotAugment: 0
   DashSpeed:
     BaseValue: 35
@@ -11313,6 +11301,7 @@ MonoBehaviour:
   xpBar: {fileID: 903820770}
   levelText: {fileID: 429501252}
   currencyText: {fileID: 1494358275}
+  ammoText: {fileID: 806336071}
 --- !u!1 &1360750882
 GameObject:
   m_ObjectHideFlags: 0

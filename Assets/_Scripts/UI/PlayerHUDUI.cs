@@ -4,10 +4,15 @@ using TMPro;
 
 public class PlayerHUDUI : MonoBehaviour
 {
+
+    public static PlayerHUDUI Instance;
+
     [Header("UI Elements")]
     [SerializeField] private Slider xpBar;
     [SerializeField] private TMP_Text levelText;
     [SerializeField] private TMP_Text currencyText;
+
+    [SerializeField] private TMP_Text ammoText;
 
 
     //CHANGE THESE TO BE A SETTING - NOT SOMETHING SET HERE!
@@ -27,6 +32,10 @@ public class PlayerHUDUI : MonoBehaviour
         PlayerInventory.onCurrencyChange -= UpdateGoldAmount;
     }
 
+    private void Awake(){
+        Instance = this;
+    }
+
     private void UpdateXPBar(int newValue){
         xpBar.value = newValue;
     }
@@ -40,5 +49,10 @@ public class PlayerHUDUI : MonoBehaviour
         xpBar.value = newXpAmnt;
         levelText.text = $"Lvl. {newLevel}";
     }
+
+    public void UpdateAmmoText(int cur, int max){
+        ammoText.text = $"{cur} / {max}";
+    }
+
 
 }

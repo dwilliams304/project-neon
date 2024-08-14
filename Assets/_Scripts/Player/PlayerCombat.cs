@@ -1,21 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerStats))]
 public class PlayerCombat : MonoBehaviour, IDamageable
 {
-    private bool preventInput = false;
+    private bool preventInput;
 
     public PlayerStats playerStats;
-
-    [Header("Combat Stats")]
-    // public Stat Damage;
-    // public Stat Damage_Taken_Multiplier;
-    // public Stat CritChance;
-    // public Stat CritDamageMultiplier;
-    // public Stat FireRate;
-    // public Stat ProjectileSpeed;
-    // public Stat ReloadSpeed;
-
 
     [Header("Other vars")]
     [SerializeField] private int magazineSize; //TO-DO: GET THIS VALUE FROM A PLAYERSTATS CLASS
@@ -24,7 +15,7 @@ public class PlayerCombat : MonoBehaviour, IDamageable
     [SerializeField] private bool isReloading;
     [SerializeField] private bool infiniteAmmo; //TO-DO: MAKE THIS VALUE CHANGEABLE FROM POWER-UPS/ABILITIES
     
-    [SerializeField] private WaitForSeconds reloadSpeed; //TO-DO: GET THIS VALUE FROM A PLAYERSTATS CLASS
+    [SerializeField] private WaitForSeconds reloadSpeedWait; //TO-DO: GET THIS VALUE FROM A PLAYERSTATS CLASS
 
     [SerializeField] private Transform firePoint;
 
@@ -43,9 +34,12 @@ public class PlayerCombat : MonoBehaviour, IDamageable
     }
 
     private void Start(){
+        preventInput = false;
         playerStats = GetComponent<PlayerStats>();
         currentAmmo = magazineSize;
         health = GetComponent<Health>();
+        reloadSpeedWait = new WaitForSeconds(playerStats.ReloadSpeed.Value);
+        PlayerHUDUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
     }
 
     private void Update(){
@@ -53,6 +47,9 @@ public class PlayerCombat : MonoBehaviour, IDamageable
 
         if(!isReloading && Input.GetButton("Fire1")){
             Shoot();
+        }
+        if(!isReloading && Input.GetKeyDown(KeyCode.R)){
+            StartCoroutine(Reload());
         }
     }
 
@@ -67,11 +64,22 @@ public class PlayerCombat : MonoBehaviour, IDamageable
             GameObject bullet_exp = Experimental_ObjectPooler.Instance.Pooled_Bullet.GetPooledObject(firePoint.position, firePoint.rotation);
             if(bullet_exp == null) return;
             bullet_exp.GetComponent<Rigidbody>().AddForce(firePoint.up * playerStats.ProjectileSpeed.Value, ForceMode.Impulse);
-            if(!infiniteAmmo) currentAmmo--;
+            if(!infiniteAmmo) {
+                currentAmmo--;
+                PlayerHUDUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
+            }
             EffectsManager.Instance.CameraShake(1.5f, 0.05f);
         }
     }
 
+
+    private IEnumerator Reload(){
+        isReloading = true;
+        yield return reloadSpeedWait;
+        currentAmmo = magazineSize;
+        PlayerHUDUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
+        isReloading = false;
+    }
 
     /*  -----------------------------------------------------------------
         |                       PLACEHOLDER!!!!!                        |
@@ -84,4 +92,8 @@ public class PlayerCombat : MonoBehaviour, IDamageable
     {
         health.TakeDamage(Mathf.FloorToInt(GameManager.Instance.CalculateDamage(damageStat) * playerStats.DamageTaken.Value), false);
     }
+
+
+
+
 }

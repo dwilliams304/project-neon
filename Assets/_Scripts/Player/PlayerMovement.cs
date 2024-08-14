@@ -6,14 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     
     private Rigidbody rb;
-
     private PlayerStats playerStats;
-
-    [Header("Movement Stats")]
-    public Stat MoveSpeed;
-    public Stat DashSpeed;
-    public Stat DashCooldown;
-    public Stat DashDuration;
     
     private float moveX;
     private float moveZ;
@@ -31,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         if(rb == null) Debug.LogError("No Rigidbody found on component, FIX THIS!");
         isDashing = false;
         playerStats = GetComponent<PlayerStats>();
-        dashDurationWait = new WaitForSeconds(DashDuration.Value);
+        dashDurationWait = new WaitForSeconds(playerStats.DashDuration.Value);
         timeSinceLastDash = Time.time;
         // dashTrailAnimatior = GetComponent<DashTrailAnimatior>();
     }
@@ -52,12 +45,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate(){
         if(isDashing) return;
-        rb.velocity = moveDirection * MoveSpeed.Value;
+        rb.velocity = moveDirection * playerStats.MoveSpeed.Value;
     }
 
 
     private bool CanDash(){
-        if(!isDashing && Time.time > timeSinceLastDash + DashCooldown.Value) return true;
+        if(!isDashing && Time.time > timeSinceLastDash + playerStats.DashCooldown.Value) return true;
         else return false;
     }
 
@@ -65,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator Dash(){
         isDashing = true;
         timeSinceLastDash = Time.time;
-        rb.velocity = moveDirection * DashSpeed.Value;
+        rb.velocity = moveDirection * playerStats.DashSpeed.Value;
         // dashTrailAnimatior.StartTrailEffect(DashDuration.Value);
         yield return dashDurationWait;
         isDashing = false;
