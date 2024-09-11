@@ -21,8 +21,6 @@ public class Health : MonoBehaviour
     [SerializeField] private bool showsDamageText;
     [SerializeField] private Vector3 damageTextRandomOffset;
 
-    private Transform gameObjTransform;
-
 
     private void Start(){
         

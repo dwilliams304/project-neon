@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "NPC Data", menuName = "NPCs/Data")]
+[CreateAssetMenu(fileName = "NPC Data", menuName = "NPCs/NPC Data")]
 public class NPCData : ScriptableObject
 {
     [Header("Base NPC Info")]
