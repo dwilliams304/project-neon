@@ -43,7 +43,7 @@ public class LevelUpgrader : MonoBehaviour
 
     private void HandleLevelChange(int newLevel, int xpToNext, int newXpAmnt){
         playerStats.BaseDamage.AddAugment(new StatAugment(damageToAdd, StatAugmentType.Flat_Add, this));
-        playerHealth.IncreaseMaxHealth(maxHealthToAdd, this, true);
+        // playerHealth.IncreaseMaxHealth(maxHealthToAdd, this, true);
         UIManager.Instance.TogglePanel(levelUpPanel);
     }
 

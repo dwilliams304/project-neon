@@ -13,17 +13,42 @@ public class GameManager : MonoBehaviour
     [Header("Difficulty Settings")]
     [SerializeField] private AnimationCurve enemyHealthScaler;
     [SerializeField] private AnimationCurve enemyDamageScaler;
+    [Space]
+    
+    [Header("Enemy Drop Settings")]
+    [SerializeField] private AnimationCurve enemyXPDropScaler;
+    [SerializeField] private AnimationCurve enemyCurrencyDropScaler;
+    [Space]
+    
+    [Header("Cost Requirements")]
+    [SerializeField] private AnimationCurve itemCostScaler;
+
+
+
+    //FLOATS
+    public float enemyHealthScale;
+    public float enemyDamageScale;
+    public float enemyXPDropScale;
+    public float enemyCurrencyDropScale;
+    public float itemCostScale;
 
     [Header("Other Variables")]
     [SerializeField] private float damageVariance;
 
 
+    private void OnEnable(){
+        XPManager.onLevelChange += HandleLevelChange;
+    }
+    private void OnDisable(){
+        XPManager.onLevelChange -= HandleLevelChange;
+    }
 
 
     void Awake() => Instance = this;
 
     void Start(){
         playerStats = player.GetComponent<PlayerStats>();
+        HandleLevelChange(0);
     }
 
     public bool CalculateIfCrit(){
@@ -46,5 +71,15 @@ public class GameManager : MonoBehaviour
         if(damageStat == null) return 10 + variance;
         return damageStat.Value + variance;
     }
+
+
+    private void HandleLevelChange(int newLevel, int a = 0, int b = 0){
+        enemyHealthScale = enemyHealthScaler.Evaluate(newLevel);
+        enemyDamageScale = enemyDamageScaler.Evaluate(newLevel);
+        enemyXPDropScale = enemyXPDropScaler.Evaluate(newLevel);
+        enemyCurrencyDropScale = enemyCurrencyDropScaler.Evaluate(newLevel);
+        itemCostScale = itemCostScaler.Evaluate(newLevel);
+    }
+
 
 }

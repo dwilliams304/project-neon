@@ -4,18 +4,18 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
 
-    public delegate void OnUnitDeath();
-    public OnUnitDeath onUnitDeath;
+    public delegate void OnDeath();
+    public OnDeath onDeath;
 
     [Header("Health Values")]
-    public Stat MaxHealth;
-    private int currentHealth;
-    [Space]
-    [SerializeField] private bool invincible;
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int currentHealth;
+    [SerializeField] private bool isDamageable;
+    [SerializeField] private bool canHeal;
 
     [Header("UI Elements")]
+    [SerializeField] private bool usesHealthBar;
     [SerializeField] private Slider healthBar;
-    [SerializeField] private bool hasHealthBar;
 
     [Space(10)]
     [SerializeField] private bool showsDamageText;
@@ -23,46 +23,56 @@ public class Health : MonoBehaviour
 
     private Transform gameObjTransform;
 
+
     private void Start(){
-        currentHealth = (int)MaxHealth.Value;
-        if(healthBar == null && hasHealthBar){
-            healthBar = GetComponentInChildren<Slider>();
-            UpdateHealthBarMax((int)MaxHealth.Value, true);
-        }
-        gameObjTransform = gameObject.transform;
         
     }
+    
 
-    public void TakeDamage(int amount, bool wasCrit){
-        if(!invincible){
+    public void InitializeHealthSystem(int _maxHealth, bool _usesHealthBar, bool _showsDamageText, bool _canHeal){
+        usesHealthBar = _usesHealthBar;
+        showsDamageText = _showsDamageText;
+        canHeal = _canHeal;
+
+        if(usesHealthBar && healthBar == null){
+            healthBar = GetComponentInChildren<Slider>();
+        }
+
+        SetMaxHealth(_maxHealth, true);
+    }
+
+
+    private void SetMaxHealth(int amount, bool setCurToMax = false){
+        maxHealth = amount;
+        if(setCurToMax) currentHealth = maxHealth;
+        if(usesHealthBar) UpdateHealthBarMax(maxHealth, true);
+    }
+
+
+    public void TakeDamage(int amount, bool wasCrit = false){
+        if(isDamageable){
             currentHealth -= amount;
-            if(hasHealthBar) UpdateHealthBarCurrent(currentHealth);
+
+            if(usesHealthBar) UpdateHealthBarCurrent(currentHealth);
+
             if(showsDamageText){
                 Experimental_ObjectPooler.Instance.Pooled_Damage_Text.GetPooledTextObject(
-                    GetRandomTextOffset(gameObjTransform.position), amount.ToString(), wasCrit
+                    GetRandomTextOffset(transform.position), amount.ToString(), wasCrit
                 );
             }
         }
-        if(currentHealth <= 0){
-            onUnitDeath?.Invoke();
-        }
+
+        if(currentHealth <= 0) onDeath?.Invoke();
     }
+
 
     public void TakeHeal(int amount){
         currentHealth += amount;
-        if(currentHealth >= (int)MaxHealth.Value){
-            currentHealth = (int)MaxHealth.Value;
-        }
-        if(hasHealthBar) UpdateHealthBarCurrent(currentHealth);
+        if(currentHealth > maxHealth) currentHealth = maxHealth;
     }
 
-    public void IncreaseMaxHealth(int amount, object source, bool setCurHealthToMax = false){
-        MaxHealth.AddAugment(new StatAugment(amount, StatAugmentType.Flat_Add, source));
-        if(setCurHealthToMax){
-            currentHealth = (int)MaxHealth.Value;
-        }
-        if(hasHealthBar) UpdateHealthBarMax((int)MaxHealth.Value, setCurHealthToMax);
-    }
+
+#region UI
 
     private void UpdateHealthBarMax(int amount, bool setCurToMax = false){
         healthBar.maxValue = amount;
@@ -81,5 +91,7 @@ public class Health : MonoBehaviour
             Random.Range(-damageTextRandomOffset.z, damageTextRandomOffset.z)
         ) + objPos;
     }
+
+#endregion
 
 }

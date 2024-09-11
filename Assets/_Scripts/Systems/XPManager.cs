@@ -16,7 +16,6 @@ public class XPManager : MonoBehaviour
     [SerializeField] private int levelCap;
     public Stat XP_Multiplier;
 
-
     private int currentLevel, currentExperience, experienceToNextLevel;
 
 
@@ -26,7 +25,6 @@ public class XPManager : MonoBehaviour
         currentLevel = 1;
         currentExperience = 0;
         experienceToNextLevel = (int)levelScaler.Evaluate(currentLevel);
-        onLevelChange?.Invoke(currentLevel, experienceToNextLevel, currentExperience);
     }
 
 
