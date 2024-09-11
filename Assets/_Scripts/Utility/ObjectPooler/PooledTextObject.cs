@@ -12,6 +12,7 @@ public class PooledTextObject
 
     public Color Color_Normal;
     public Color Color_Special;
+    public Color Color_Heal;
 
 
     public PooledTextObject(GameObject _objectToPool, int _amountToPool, bool _willGrow){
@@ -31,7 +32,7 @@ public class PooledTextObject
     }
 
 
-    public GameObject GetPooledTextObject(Vector3 spawnPos, string textToShow, bool useSpecialColor){
+    public GameObject GetPooledTextObject(Vector3 spawnPos, string textToShow, bool useSpecialColor, bool isHeal = false){
         for(int i = 0; i < currentPool.Count; i++){
             GameObject currentObj = currentPool[i];
             if(!currentObj.activeInHierarchy){
@@ -39,6 +40,7 @@ public class PooledTextObject
                 TMP_Text textElement = currentObj.GetComponentInChildren<TMP_Text>();
                 textElement.text = textToShow;
                 if(useSpecialColor) textElement.color = Color_Special;
+                else if(isHeal) textElement.color = Color_Heal;
                 else textElement.color = Color_Normal;
                 currentObj.transform.position = spawnPos;
                 return currentObj;

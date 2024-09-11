@@ -27,7 +27,8 @@ public class Health : MonoBehaviour
     }
     
 
-    public void InitializeHealthSystem(int _maxHealth, bool _usesHealthBar, bool _showsDamageText, bool _canHeal){
+    public void InitializeHealthSystem(int _maxHealth, bool _isDamageable, bool _usesHealthBar, bool _showsDamageText, bool _canHeal){
+        isDamageable = _isDamageable;
         usesHealthBar = _usesHealthBar;
         showsDamageText = _showsDamageText;
         canHeal = _canHeal;
@@ -65,8 +66,15 @@ public class Health : MonoBehaviour
 
 
     public void TakeHeal(int amount){
-        currentHealth += amount;
-        if(currentHealth > maxHealth) currentHealth = maxHealth;
+        if(canHeal){
+            currentHealth += amount;
+            if(showsDamageText){
+                Experimental_ObjectPooler.Instance.Pooled_Damage_Text.GetPooledTextObject(
+                    GetRandomTextOffset(transform.position), amount.ToString(), false, true
+                );
+            }
+            if(currentHealth > maxHealth) currentHealth = maxHealth;
+        }
     }
 
 
