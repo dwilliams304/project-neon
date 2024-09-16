@@ -11,10 +11,12 @@ public class Rarity : ScriptableObject
     public int Weight = 50;
     public Color RarityColor = Color.white;
 
-    public List<GameObject> LootTable = new List<GameObject>(); //Change object type to a lootobject eventually
+    public List<LootPool> LootTable = new List<LootPool>(); //Might remove, unless we want a global loot table for certain rarities
 
     public GameObject DropPrefab;
 }
+
+
 
 [CustomEditor(typeof(Rarity))]
 public class RarityEditor : Editor 

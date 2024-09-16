@@ -24,6 +24,7 @@ public class LootManager : MonoBehaviour
         }
     }
 
+
     public int Editor_GetTotalWeights(){
         totalWeights = 0;
         for(int i = 0; i < rarities.Count; i++){
@@ -31,41 +32,68 @@ public class LootManager : MonoBehaviour
         }
         return totalWeights;
     }
-    // private void Update(){
-    //     if(Input.GetKeyDown(KeyCode.G)){
-    //         DropLoot(Vector3.zero);
-    //     }
-    // }
-
-
-    public void DropLoot(Vector3 DropPos){
-        int roll = Random.Range(0, totalWeights + 1);
-        int starterRoll = roll; //DEBUG ONLY
-        roll /= 1 + (int)luckStat.Value;
-
-        string rarityChosen = ""; //DEBUG ONLY
-
-        for(int i = 0; i <= rarities.Count; i++){
-            var rarity = rarities[i];
-            if(roll <= rarity.Weight){
-                // GameObject lootDrop = rarity.LootTable.RandomFromList();
-                // Instantiate(lootDrop, DropPos, Quaternion.identity);
-                rarityChosen = rarity.RarityName; //DEBUG ONLY
-                break;
-            }
-            else{
-                roll -= rarity.Weight;
-            }
-        }
-
-        Debug.Log($"Rolled a {starterRoll}, and got a {rarityChosen} drop!"); //DEBUG ONLY
-    }
-
 
     public void SortRarites(){
         rarities.Sort(delegate(Rarity a, Rarity b){
             return a.Weight.CompareTo(b.Weight);
         });
+    }
+
+
+    public void DropLoot(Vector3 spawnPos, List<LootPool> lootPool = null){
+        int roll = Random.Range(0, totalWeights + 1);
+        int starterRoll = roll; //DEBUG ONLY
+        // roll /= 1 + (int)luckStat.Value;
+
+        Rarity rarity = ChooseRarity(roll);
+
+        /*  IF WE WANT TO HAVE GLOBAL LOOT POOLS
+        if(lootPool == null){
+            DropLootFromGlobal(spawnPos, rarity.LootTable);
+        }
+        
+            TO USE FOR WHEN DOING PERSONAL LOOT POOLS
+        for(int i = 0; i < lootPool.TotalLootDrops; i++){
+            -Loop through loot table
+                -Check to see if the current loot drop's rarity in the loot table matches
+                    -if so, spawn that object
+            
+            -if no loot matching that rarity drops, ???
+        }
+        
+        */
+
+        //SpawnLoot(rarity.DropPrefab, spawnPos)
+
+        Debug.Log($"Rolled a {starterRoll}, and got a(n) {rarity.RarityName} drop!"); //DEBUG ONLY
+    }
+
+
+    /*
+    private int Roll(){
+        return Random.Range(0, totalWeights + 1);
+    }
+
+    private void SpawnLoot(GameObject lootObjPrefab, LootData lootData, Vector3 spawnPos)
+    {
+        -Get the LootObject componenet (will exist) from the GameObject
+        -Set the LootObject's data to be the data we want
+        -Spawn the prefab where we want
+    }
+    */
+
+
+    private Rarity ChooseRarity(int roll){
+        for(int i = 0; i <= rarities.Count; i++){
+            var rarity = rarities[i];
+            if(roll <= rarity.Weight){
+                return rarity; //DEBUG ONLY
+            }
+            else{
+                roll -= rarity.Weight;
+            }
+        }
+        return null;
     }
 
 }
