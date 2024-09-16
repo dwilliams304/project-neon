@@ -25,11 +25,11 @@ public class LootManager : MonoBehaviour
     }
 
 
-    private void Update(){
-        if(Input.GetKeyDown(KeyCode.G)){
-            DropLoot(Vector3.zero);
-        }
-    }
+    // private void Update(){
+    //     if(Input.GetKeyDown(KeyCode.G)){
+    //         DropLoot(Vector3.zero);
+    //     }
+    // }
 
 
     public void DropLoot(Vector3 DropPos){
