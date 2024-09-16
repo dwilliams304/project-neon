@@ -51,14 +51,15 @@ public class PlayerStats : MonoBehaviour
     public Stat DashDuration;
     [Space(15)]
 
-    [Header("Misc. Multipliers")]
-    [Space]
-    public Stat ExperienceMultiplier;
-    public Stat CurrencyMultiplier;
-    [Space(15)]
-
     [Header("Corruption Stats")]
     [Space]
     public Stat CorruptionGainAmount;
     public Stat CorruptionGainSpeed;
+    [Space(15)]
+
+    [Header("Misc. Stats")]
+    [Space]
+    public Stat LuckStat;
+    public Stat ExperienceMultiplier;
+    public Stat CurrencyMultiplier;
 }

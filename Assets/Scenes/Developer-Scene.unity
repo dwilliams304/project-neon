@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4316,16 +4316,19 @@ MonoBehaviour:
   DashDuration:
     BaseValue: 0.2
     canNotAugment: 0
-  ExperienceMultiplier:
-    BaseValue: 1
-    canNotAugment: 0
-  CurrencyMultiplier:
-    BaseValue: 1
-    canNotAugment: 0
   CorruptionGainAmount:
     BaseValue: 0
     canNotAugment: 0
   CorruptionGainSpeed:
+    BaseValue: 1
+    canNotAugment: 0
+  LuckStat:
+    BaseValue: 0
+    canNotAugment: 0
+  ExperienceMultiplier:
+    BaseValue: 1
+    canNotAugment: 0
+  CurrencyMultiplier:
     BaseValue: 1
     canNotAugment: 0
 --- !u!1 &493070570
@@ -16371,24 +16374,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rarities:
-  - RarityName: Legendary
-    RarityColor: {r: 1, g: 0.8475143, b: 0, a: 1}
-    ChanceToDrop: 1
-  - RarityName: Corrupted
-    RarityColor: {r: 1, g: 0, b: 0.029075146, a: 1}
-    ChanceToDrop: 5
-  - RarityName: Epic
-    RarityColor: {r: 0.88467693, g: 0, b: 1, a: 1}
-    ChanceToDrop: 10
-  - RarityName: Rare
-    RarityColor: {r: 0, g: 0.45470548, b: 1, a: 1}
-    ChanceToDrop: 20
-  - RarityName: Uncommon
-    RarityColor: {r: 0.11816931, g: 1, b: 0, a: 1}
-    ChanceToDrop: 60
-  - RarityName: Common
-    RarityColor: {r: 1, g: 1, b: 1, a: 1}
-    ChanceToDrop: 100
+  - {fileID: 11400000, guid: 5063e5e0522cd494fb835c145210d8b0, type: 2}
+  - {fileID: 11400000, guid: 6dd57f489095b4049b246177e0c67ca0, type: 2}
+  - {fileID: 11400000, guid: 8eaec1456cf38d94580f6e87f4a7b9e4, type: 2}
+  - {fileID: 11400000, guid: e12cc6e757adccf4da92e5d0ff09cfe4, type: 2}
+  - {fileID: 11400000, guid: d3b4df6187e03634ea933770c522942f, type: 2}
+  - {fileID: 11400000, guid: 2291fff21942d62439dcfa465eb8d6cf, type: 2}
+  - {fileID: 11400000, guid: b28e054f3c1503647afe25640c6a5b14, type: 2}
+  - {fileID: 11400000, guid: 56c05cafb4ce5164a8c258b26b38d368, type: 2}
+  totalWeights: 0
 --- !u!4 &1940732117
 Transform:
   m_ObjectHideFlags: 0
