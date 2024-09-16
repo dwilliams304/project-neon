@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Worthless
   m_EditorClassIdentifier: 
   RarityName: Worthless
-  PercentDropChance: 100
+  Weight: 1000
   RarityColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   LootTable: []
   DropPrefab: {fileID: 0}

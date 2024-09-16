@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Corrupted
   m_EditorClassIdentifier: 
   RarityName: Corrupted
-  PercentDropChance: 50
+  Weight: 300
   RarityColor: {r: 1, g: 1, b: 1, a: 1}
   LootTable: []
   DropPrefab: {fileID: 0}

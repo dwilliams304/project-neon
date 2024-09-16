@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Epic
   m_EditorClassIdentifier: 
   RarityName: Epic
-  PercentDropChance: 50
+  Weight: 600
   RarityColor: {r: 1, g: 1, b: 1, a: 1}
   LootTable: []
   DropPrefab: {fileID: 0}

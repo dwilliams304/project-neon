@@ -20,35 +20,44 @@ public class LootManager : MonoBehaviour
     private void Start(){
         luckStat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().LuckStat;
         for(int i = 0; i < rarities.Count; i++){
-            totalWeights += rarities[i].PercentDropChance;
+            totalWeights += rarities[i].Weight;
         }
+    }
 
-// #if UNITY_EDITOR
-//         rarities.Sort(delegate(Rarity a, Rarity b){
-//             return a.PercentDropChance.CompareTo(b.PercentDropChance);
-//         });
-// #endif
 
+    private void Update(){
+        if(Input.GetKeyDown(KeyCode.G)){
+            DropLoot(Vector3.zero);
+        }
     }
 
 
     public void DropLoot(Vector3 DropPos){
         int roll = Random.Range(0, totalWeights + 1);
+        int starterRoll = roll; //DEBUG ONLY
         roll /= 1 + (int)luckStat.Value;
 
-        for(int i = rarities.Count; i >= 0; i--){
-            if(roll <= rarities[i].PercentDropChance){
-                GameObject lootDrop = rarities[i].LootTable.RandomFromList();
-                Instantiate(lootDrop, DropPos, Quaternion.identity);
+        string rarityChosen = ""; //DEBUG ONLY
+
+        for(int i = 0; i <= rarities.Count; i++){
+            if(roll <= rarities[i].Weight){
+                // GameObject lootDrop = rarities[i].LootTable.RandomFromList();
+                // Instantiate(lootDrop, DropPos, Quaternion.identity);
+                rarityChosen = rarities[i].RarityName; //DEBUG ONLY
                 break;
             }
+            else{
+                roll -= rarities[i].Weight;
+            }
         }
+
+        Debug.Log($"Rolled a {starterRoll}, and got a {rarityChosen} drop!"); //DEBUG ONLY
     }
 
 
     public void SortRarites(){
         rarities.Sort(delegate(Rarity a, Rarity b){
-            return a.PercentDropChance.CompareTo(b.PercentDropChance);
+            return a.Weight.CompareTo(b.Weight);
         });
     }
 

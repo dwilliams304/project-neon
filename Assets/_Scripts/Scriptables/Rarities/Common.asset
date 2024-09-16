@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Common
   m_EditorClassIdentifier: 
   RarityName: Common
-  PercentDropChance: 90
+  Weight: 900
   RarityColor: {r: 1, g: 1, b: 1, a: 1}
   LootTable: []
   DropPrefab: {fileID: 0}

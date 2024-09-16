@@ -8,7 +8,7 @@ public class Rarity : ScriptableObject
 {
     public string RarityName = "Default Rarity";
 
-    public int PercentDropChance = 50;
+    public int Weight = 50;
     public Color RarityColor = Color.white;
 
     public List<GameObject> LootTable = new List<GameObject>(); //Change object type to a lootobject eventually
