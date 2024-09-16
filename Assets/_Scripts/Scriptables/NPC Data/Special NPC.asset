@@ -30,8 +30,8 @@ MonoBehaviour:
   BaseDamage:
     BaseValue: 10
     canNotAugment: 0
-  CurrencyDrop: 10
-  XPDrop: 10
+  CurrencyDrop: 500
+  XPDrop: 110
   CorruptionDrop: 10
   LootPool: []
   UsesHealthBar: 1

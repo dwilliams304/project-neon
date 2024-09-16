@@ -12654,7 +12654,6 @@ GameObject:
   - component: {fileID: 1485528792}
   - component: {fileID: 1485528791}
   - component: {fileID: 1485528790}
-  - component: {fileID: 1485528789}
   m_Layer: 0
   m_Name: Enemy (7)
   m_TagString: Untagged
@@ -12662,26 +12661,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1485528789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485528788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976dc619ba51cb24cb811f15b22c1912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
-  isDamageable: 0
-  canHeal: 0
-  usesHealthBar: 0
-  healthBar: {fileID: 0}
-  showsDamageText: 1
-  damageTextRandomOffset: {x: 2, y: 2, z: 2}
 --- !u!114 &1485528790
 MonoBehaviour:
   m_ObjectHideFlags: 0

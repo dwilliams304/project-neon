@@ -19,34 +19,32 @@ public class Health : MonoBehaviour
 
     [Space(10)]
     [SerializeField] private bool showsDamageText;
-    [SerializeField] private Vector3 damageTextRandomOffset;
+    [SerializeField] private Vector3 damageTextRandomOffset = new Vector3(2f, 2f, 2f); //Default values, might need to use NPC data for this as well!
 
 
-    private void Start(){
-        
-    }
-    
-
-    public void InitializeHealthSystem(int _maxHealth, bool _isDamageable, bool _usesHealthBar, bool _showsDamageText, bool _canHeal, Color _healthBarColor){
-        isDamageable = _isDamageable;
-        usesHealthBar = _usesHealthBar;
-        showsDamageText = _showsDamageText;
-        canHeal = _canHeal;
+    /// <summary>
+    /// NOTE: This is ONLY for NPCs. This sets the Health Sytem's variables using all of the NPCs Scriptable Object settings. 
+    /// </summary>
+    /// <param name="npcData">The NPC's Scriptable Object</param>
+    public void InitializeHealthSystem(NPCData npcData){
+        isDamageable = npcData.IsDamageable;
+        usesHealthBar = npcData.UsesHealthBar;
+        showsDamageText = npcData.ShowsDamageText;
+        canHeal = npcData.CanHeal;
 
         if(usesHealthBar && healthBar == null){
 
-            if(GetComponentInChildren<Slider>()){
+            if(GetComponentInChildren<Slider>()) {
                 healthBar = GetComponentInChildren<Slider>();
-                
             }
             else{
                 Debug.LogError("There was no health bar, need to make one!");
             }
-            healthBar.fillRect.GetComponent<Image>().color = _healthBarColor;
+            healthBar.fillRect.GetComponent<Image>().color = npcData.HealthBarColor;
             
         }
 
-        SetMaxHealth(_maxHealth, true);
+        SetMaxHealth(npcData.MaxHealth, true);
     }
 
 

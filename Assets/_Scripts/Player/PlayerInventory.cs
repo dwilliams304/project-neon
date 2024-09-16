@@ -35,7 +35,7 @@ public class PlayerInventory : MonoBehaviour
 
 
 
-    public void AddGold(int amount){
+    public void AddCurrency(int amount){
         currency += Mathf.RoundToInt(amount * playerStats.CurrencyMultiplier.Value);
         onCurrencyChange?.Invoke(currency);
     }
