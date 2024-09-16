@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Uncommon
   m_EditorClassIdentifier: 
   RarityName: Uncommon
-  Weight: 800
+  Weight: 500
   RarityColor: {r: 0.08675194, g: 1, b: 0, a: 1}
   LootTable: []
   DropPrefab: {fileID: 0}

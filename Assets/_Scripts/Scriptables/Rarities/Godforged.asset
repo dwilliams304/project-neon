@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Godforged
   m_EditorClassIdentifier: 
   RarityName: Godforged
-  Weight: 10
+  Weight: 5
   RarityColor: {r: 0, g: 1, b: 0.6880622, a: 1}
   LootTable: []
   DropPrefab: {fileID: 0}

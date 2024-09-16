@@ -46,15 +46,15 @@ public class LootManager : MonoBehaviour
         string rarityChosen = ""; //DEBUG ONLY
 
         for(int i = 0; i <= rarities.Count; i++){
-            if(roll <= rarities[i].Weight){
-                // GameObject lootDrop = rarities[i].LootTable.RandomFromList();
+            var rarity = rarities[i];
+            if(roll <= rarity.Weight){
+                // GameObject lootDrop = rarity.LootTable.RandomFromList();
                 // Instantiate(lootDrop, DropPos, Quaternion.identity);
-                rarityChosen = rarities[i].RarityName; //DEBUG ONLY
+                rarityChosen = rarity.RarityName; //DEBUG ONLY
                 break;
             }
             else{
-                int temp = roll;
-                roll -= rarities[i].Weight;
+                roll -= rarity.Weight;
             }
         }
 
