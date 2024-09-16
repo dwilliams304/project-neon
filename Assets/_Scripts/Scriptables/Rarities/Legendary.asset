@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RarityName: Legendary
   Weight: 100
-  RarityColor: {r: 1, g: 1, b: 1, a: 1}
+  RarityColor: {r: 1, g: 0.94731724, b: 0, a: 1}
   LootTable: []
   DropPrefab: {fileID: 0}

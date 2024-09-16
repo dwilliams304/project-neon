@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RarityName: Epic
   Weight: 600
-  RarityColor: {r: 1, g: 1, b: 1, a: 1}
+  RarityColor: {r: 0.47613144, g: 0, b: 1, a: 1}
   LootTable: []
   DropPrefab: {fileID: 0}

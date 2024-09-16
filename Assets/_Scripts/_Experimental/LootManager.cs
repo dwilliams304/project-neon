@@ -24,7 +24,13 @@ public class LootManager : MonoBehaviour
         }
     }
 
-
+    public int Editor_GetTotalWeights(){
+        totalWeights = 0;
+        for(int i = 0; i < rarities.Count; i++){
+            totalWeights += rarities[i].Weight;
+        }
+        return totalWeights;
+    }
     // private void Update(){
     //     if(Input.GetKeyDown(KeyCode.G)){
     //         DropLoot(Vector3.zero);
@@ -47,6 +53,7 @@ public class LootManager : MonoBehaviour
                 break;
             }
             else{
+                int temp = roll;
                 roll -= rarities[i].Weight;
             }
         }

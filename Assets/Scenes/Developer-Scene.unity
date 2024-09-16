@@ -16375,14 +16375,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rarities:
   - {fileID: 11400000, guid: e12cc6e757adccf4da92e5d0ff09cfe4, type: 2}
-  - {fileID: 11400000, guid: 6dd57f489095b4049b246177e0c67ca0, type: 2}
   - {fileID: 11400000, guid: d3b4df6187e03634ea933770c522942f, type: 2}
-  - {fileID: 11400000, guid: 5063e5e0522cd494fb835c145210d8b0, type: 2}
   - {fileID: 11400000, guid: 8eaec1456cf38d94580f6e87f4a7b9e4, type: 2}
   - {fileID: 11400000, guid: 2291fff21942d62439dcfa465eb8d6cf, type: 2}
   - {fileID: 11400000, guid: b28e054f3c1503647afe25640c6a5b14, type: 2}
+  - {fileID: 11400000, guid: 5063e5e0522cd494fb835c145210d8b0, type: 2}
   - {fileID: 11400000, guid: 56c05cafb4ce5164a8c258b26b38d368, type: 2}
-  totalWeights: 0
+  totalWeights: 4110
 --- !u!4 &1940732117
 Transform:
   m_ObjectHideFlags: 0
