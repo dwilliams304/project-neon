@@ -27,14 +27,23 @@ public class Health : MonoBehaviour
     }
     
 
-    public void InitializeHealthSystem(int _maxHealth, bool _isDamageable, bool _usesHealthBar, bool _showsDamageText, bool _canHeal){
+    public void InitializeHealthSystem(int _maxHealth, bool _isDamageable, bool _usesHealthBar, bool _showsDamageText, bool _canHeal, Color _healthBarColor){
         isDamageable = _isDamageable;
         usesHealthBar = _usesHealthBar;
         showsDamageText = _showsDamageText;
         canHeal = _canHeal;
 
         if(usesHealthBar && healthBar == null){
-            healthBar = GetComponentInChildren<Slider>();
+
+            if(GetComponentInChildren<Slider>()){
+                healthBar = GetComponentInChildren<Slider>();
+                
+            }
+            else{
+                Debug.LogError("There was no health bar, need to make one!");
+            }
+            healthBar.fillRect.GetComponent<Image>().color = _healthBarColor;
+            
         }
 
         SetMaxHealth(_maxHealth, true);

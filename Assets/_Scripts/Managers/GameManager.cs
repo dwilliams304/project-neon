@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     
     [Header("Cost Requirements")]
     [SerializeField] private AnimationCurve itemCostScaler;
-
+    [Space]
 
 
     //FLOATS

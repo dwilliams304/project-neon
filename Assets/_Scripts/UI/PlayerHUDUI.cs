@@ -53,6 +53,7 @@ public class PlayerHUDUI : MonoBehaviour
     public void UpdateAmmoText(int cur, int max){
         ammoText.text = $"{cur} / {max}";
     }
+    
 
 
 }

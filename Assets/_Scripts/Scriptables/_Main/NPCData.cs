@@ -18,6 +18,7 @@ public class NPCData : ScriptableObject
     [Header("Health")]
     public int MaxHealth = 100;
     public Stat DamageTakenModifier = new Stat(1f);
+    public Color HealthBarColor = Color.red;
 
 
     [Header("Combat")]

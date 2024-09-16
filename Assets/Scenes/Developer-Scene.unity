@@ -2103,7 +2103,7 @@ GameObject:
   - component: {fileID: 243761673}
   - component: {fileID: 243761674}
   m_Layer: 0
-  m_Name: Experimental_ObjectPooler
+  m_Name: ObjectPooler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12694,7 +12694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcData: {fileID: 11400000, guid: a2d13f59f147d8d439d3bce6d4b6e96f, type: 2}
+  npcData: {fileID: 11400000, guid: a608758d00d85fe4d90710d9248c3faa, type: 2}
   npcBrain: {fileID: 0}
 --- !u!136 &1485528791
 CapsuleCollider:
@@ -15992,34 +15992,13 @@ GameObject:
   - component: {fileID: 1846820416}
   - component: {fileID: 1846820415}
   - component: {fileID: 1846820414}
-  - component: {fileID: 1846820413}
   m_Layer: 0
-  m_Name: Enemy (5)
+  m_Name: Friendly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1846820413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846820412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976dc619ba51cb24cb811f15b22c1912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
-  isDamageable: 0
-  canHeal: 0
-  usesHealthBar: 0
-  healthBar: {fileID: 0}
-  showsDamageText: 1
-  damageTextRandomOffset: {x: 2, y: 2, z: 2}
 --- !u!114 &1846820414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16032,7 +16011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcData: {fileID: 11400000, guid: a2d13f59f147d8d439d3bce6d4b6e96f, type: 2}
+  npcData: {fileID: 11400000, guid: 28a942ca836eebe4a836bb635ed0a7b8, type: 2}
   npcBrain: {fileID: 0}
 --- !u!136 &1846820415
 CapsuleCollider:
@@ -16077,7 +16056,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 68d9464d0cd4fbf48a81abf378167c7f, type: 2}
+  - {fileID: 2100000, guid: bce32739db90b6843ac7f0179bcaa6b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16381,7 +16360,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b28e054f3c1503647afe25640c6a5b14, type: 2}
   - {fileID: 11400000, guid: 5063e5e0522cd494fb835c145210d8b0, type: 2}
   - {fileID: 11400000, guid: 56c05cafb4ce5164a8c258b26b38d368, type: 2}
-  totalWeights: 2630
+  totalWeights: 2637
 --- !u!4 &1940732117
 Transform:
   m_ObjectHideFlags: 0
