@@ -9,7 +9,7 @@ namespace ContradictiveGames.Managers
     {
         public static LootManager Instance;
         
-        public List<Rarity> rarities;
+        public List<Rarity> rarities = new List<Rarity>();
 
 
         [SerializeField] private int totalWeights = 0;
@@ -39,47 +39,22 @@ namespace ContradictiveGames.Managers
 
         public void SortRarites(){
             rarities.Sort(delegate(Rarity a, Rarity b){
-                return a.Weight.CompareTo(b.Weight);
+                return b.Weight.CompareTo(a.Weight);
             });
         }
 
 
-        public void DropLoot(Vector3 spawnPos, LootPool lootPool){
-
-            /*  IF WE WANT TO HAVE GLOBAL LOOT POOLS
-            if(lootPool == null){
-                DropLootFromGlobal(spawnPos, rarity.LootTable);
-            }
-                TO USE FOR WHEN DOING PERSONAL LOOT POOLS
-            for(int i = 0; i < lootPool.TotalLootDrops; i++){
-                -Loop through loot table
-                    -Check to see if the current loot drop's rarity in the loot table matches
-                        -if so, spawn that object
-                
-                -if no loot matching that rarity drops, ???
-            }
-            */
+        public void DropLoot(Vector3 spawnPos){
             int roll = Random.Range(0, totalWeights + 1);
-            int starterRoll = roll; //DEBUG ONLY
+            Debug.Log(roll);
             // roll /= 1 + (int)luckStat.Value;
             Rarity _rarity = ChooseRarity(roll);
-            
-            if(lootPool == null){
-                // DO STUFF FROM GLOBAL LOOT POOL
-            }
-            else{
-                // DO STUFF FROM LOCAL LOOT POOL
-            }
-            //SpawnLoot(rarity.DropPrefab, spawnPos)
 
-            Debug.Log($"Rolled a {starterRoll}, and got a(n) {_rarity.RarityName} drop!"); //DEBUG ONLY
+            Debug.Log($"<color=cyan>Rolled and got a(n) {_rarity.RarityName} drop!</color>"); //DEBUG ONLY
         }
 
 
         /*
-        private int Roll(){
-            return Random.Range(0, totalWeights + 1);
-        }
 
         private void SpawnLoot(GameObject lootObjPrefab, LootData lootData, Vector3 spawnPos)
         {
@@ -91,15 +66,16 @@ namespace ContradictiveGames.Managers
 
 
         private Rarity ChooseRarity(int roll){
-            for(int i = 0; i <= rarities.Count; i++){
-                Rarity rarity = rarities[i];
-                if(roll <= rarity.Weight){
-                    return rarity; //DEBUG ONLY
+            for(int i = 0; i < rarities.Count; i++){
+                Debug.Log($"<color=green>{roll} on loop {i}</color>");
+                if(roll <= rarities[i].Weight){
+                    return rarities[i]; //DEBUG ONLY
                 }
                 else{
-                    roll -= rarity.Weight;
+                    roll -= rarities[i].Weight;
                 }
             }
+            Debug.LogError("COULD NOT FIND A RARITY");
             return null;
         }
 

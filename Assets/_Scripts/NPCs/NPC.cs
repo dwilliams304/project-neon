@@ -51,8 +51,9 @@ namespace ContradictiveGames.AI
 
         private void OnDeath(){
             playerInventory.AddCurrency(npcData.CurrencyDrop);
-            XPManager.Instance.AddExperience(npcData.XPDrop);
-            LootManager.Instance.DropLoot(gameObject.transform.position, npcData.lootPool);
+            // XPManager.Instance.AddExperience(npcData.XPDrop);
+            LootManager.Instance.DropLoot(transform.position);
+            EffectsManager.Instance.CallForXPParticles(transform.position, npcData.XPDrop);
             gameObject.SetActive(false);
         }
     }

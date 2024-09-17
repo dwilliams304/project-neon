@@ -50,7 +50,7 @@ namespace ContradictiveGames.Dev
             EditorGUILayout.Space(5);
 
             if(GUILayout.Button("Drop Loot")){
-                lootManager.DropLoot(Vector3.zero, null);
+                lootManager.DropLoot(Vector3.zero);
             }
             EditorGUILayout.EndHorizontal();
 
