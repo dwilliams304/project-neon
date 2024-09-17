@@ -19,43 +19,44 @@ using UnityEngine;
     // Currency_Multiplier,
     // Corruption_Ticker,
     // Corruption_Gain_Multiplier,
-
-
-[CreateAssetMenu(fileName = "CharacterAugment", menuName = "Custom/Augments", order = 0)]
-public class CharacterAugment : ScriptableObject
+namespace ContradictiveGames
 {
-    public string augmentName;
-    [Multiline]
-    public string augmentDescription;
+    [CreateAssetMenu(fileName = "CharacterAugment", menuName = "Custom/Augments", order = 0)]
+    public class CharacterAugment : ScriptableObject
+    {
+        public string augmentName;
+        [Multiline]
+        public string augmentDescription;
 
-    public List<StatAugment> augments;
+        public List<StatAugment> augments;
 
-    public void AddAugment(GameObject playerObject){
-        //AddAugment(this)
-        for(int i = 0; i < augments.Count; i++){
-            var cur = augments[i];
-            switch(cur.statToAugment){
-                case StatToAugment.Health:
-                break;
+        public void AddAugment(GameObject playerObject){
+            //AddAugment(this)
+            for(int i = 0; i < augments.Count; i++){
+                var cur = augments[i];
+                switch(cur.statToAugment){
+                    case StatToAugment.Health:
+                    break;
 
-                default:
-                break;
+                    default:
+                    break;
+                }
             }
         }
-    }
 
-    public void RemoveAllAugments(){
-        //RemoveAllModifiersFromSource(this);
-        for(int i = 0; i < augments.Count; i++){
-            var cur = augments[i];
-            switch(cur.statToAugment){
-                case StatToAugment.Health:
-                break;
+        public void RemoveAllAugments(){
+            //RemoveAllModifiersFromSource(this);
+            for(int i = 0; i < augments.Count; i++){
+                var cur = augments[i];
+                switch(cur.statToAugment){
+                    case StatToAugment.Health:
+                    break;
 
-                default:
-                break;
+                    default:
+                    break;
+                }
             }
         }
-    }
 
+    }
 }

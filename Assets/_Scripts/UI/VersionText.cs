@@ -1,14 +1,17 @@
 using UnityEngine;
 using TMPro;
 
-public class VersionText : MonoBehaviour
+namespace ContradictiveGames
 {
-    private TMP_Text textAsset;
+    public class VersionText : MonoBehaviour
+    {
+        private TMP_Text textAsset;
 
-    void Awake(){
-        if(textAsset == null) {
-            textAsset = GetComponent<TMP_Text>();
+        void Awake(){
+            if(textAsset == null) {
+                textAsset = GetComponent<TMP_Text>();
+            }
+            textAsset.text = "v" + Application.version;
         }
-        textAsset.text = "v" + Application.version;
     }
 }

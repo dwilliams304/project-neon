@@ -17,47 +17,49 @@ using UnityEngine;
     // Currency_Multiplier,
     // Corruption_Ticker,
     // Corruption_Gain_Multiplier,
-
-public class PlayerStats : MonoBehaviour
+namespace ContradictiveGames
 {
-    [Header("Health Stats")]
-    [Space]
-    public Stat HealthRegenAmount;
-    public Stat HealthRegenSpeed;
-    public Stat DamageTaken;
-    [Space(15)]
+    public class PlayerStats : MonoBehaviour
+    {
+        [Header("Health Stats")]
+        [Space]
+        public Stat HealthRegenAmount;
+        public Stat HealthRegenSpeed;
+        public Stat DamageTaken;
+        [Space(15)]
 
-    [Header("Damage Stats")]
-    [Space]
-    public Stat BaseDamage;
-    public Stat CritChance;
-    public Stat CritDamageMultiplier;
-    [Space(15)]
+        [Header("Damage Stats")]
+        [Space]
+        public Stat BaseDamage;
+        public Stat CritChance;
+        public Stat CritDamageMultiplier;
+        [Space(15)]
 
-    [Header("Combat Stats")]
-    [Space]
-    public Stat FireRate;
-    public Stat ReloadSpeed;
-    public Stat ProjectileSpeed;
-    [Space(15)]
+        [Header("Combat Stats")]
+        [Space]
+        public Stat FireRate;
+        public Stat ReloadSpeed;
+        public Stat ProjectileSpeed;
+        [Space(15)]
 
-    [Header("Movement Stats")]
-    [Space]
-    public Stat MoveSpeed;
-    public Stat DashSpeed;
-    public Stat DashCooldown;
-    public Stat DashDuration;
-    [Space(15)]
+        [Header("Movement Stats")]
+        [Space]
+        public Stat MoveSpeed;
+        public Stat DashSpeed;
+        public Stat DashCooldown;
+        public Stat DashDuration;
+        [Space(15)]
 
-    [Header("Corruption Stats")]
-    [Space]
-    public Stat CorruptionGainAmount;
-    public Stat CorruptionGainSpeed;
-    [Space(15)]
+        [Header("Corruption Stats")]
+        [Space]
+        public Stat CorruptionGainAmount;
+        public Stat CorruptionGainSpeed;
+        [Space(15)]
 
-    [Header("Misc. Stats")]
-    [Space]
-    public Stat LuckStat;
-    public Stat ExperienceMultiplier;
-    public Stat CurrencyMultiplier;
+        [Header("Misc. Stats")]
+        [Space]
+        public Stat LuckStat;
+        public Stat ExperienceMultiplier;
+        public Stat CurrencyMultiplier;
+    }
 }

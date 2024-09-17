@@ -1,3 +1,6 @@
-public interface IHealable{
-    public void OnHeal();
+namespace ContradictiveGames
+{
+    public interface IHealable{
+        public void OnHeal();
+    }
 }

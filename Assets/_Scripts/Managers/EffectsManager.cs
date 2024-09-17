@@ -1,43 +1,46 @@
 using UnityEngine;
 using Cinemachine;
 
-public class EffectsManager : MonoBehaviour
+namespace ContradictiveGames
 {
-    public static EffectsManager Instance;
+    public class EffectsManager : MonoBehaviour
+    {
+        public static EffectsManager Instance;
 
-    private CinemachineVirtualCamera cam;
-    private CinemachineBasicMultiChannelPerlin camNoise;
-
-
-    //Camera shake variables
-    private float shakeTimer;
-    private float shakeDuration;
-    private float startingIntensity;
-
-    private void Awake(){
-        Instance = this;
-        cam = FindObjectOfType<CinemachineVirtualCamera>();
-        camNoise = cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-    }
-
-    public void CameraShake(float intensity, float time){
-        camNoise.m_AmplitudeGain = intensity;
-        camNoise.m_FrequencyGain = time;
-        shakeTimer = time;
-        shakeDuration = time;
-        startingIntensity = intensity;
-    }
+        private CinemachineVirtualCamera cam;
+        private CinemachineBasicMultiChannelPerlin camNoise;
 
 
-    private void Update(){
-        if(shakeTimer > 0){
-            shakeTimer -= Time.deltaTime;
-            if(shakeTimer <= 0f){
-                camNoise.m_AmplitudeGain = 0f;
-                Mathf.Lerp(startingIntensity, 0f, 1 - (shakeTimer / shakeDuration));
+        //Camera shake variables
+        private float shakeTimer;
+        private float shakeDuration;
+        private float startingIntensity;
+
+        private void Awake(){
+            Instance = this;
+            cam = FindObjectOfType<CinemachineVirtualCamera>();
+            camNoise = cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        }
+
+        public void CameraShake(float intensity, float time){
+            camNoise.m_AmplitudeGain = intensity;
+            camNoise.m_FrequencyGain = time;
+            shakeTimer = time;
+            shakeDuration = time;
+            startingIntensity = intensity;
+        }
+
+
+        private void Update(){
+            if(shakeTimer > 0){
+                shakeTimer -= Time.deltaTime;
+                if(shakeTimer <= 0f){
+                    camNoise.m_AmplitudeGain = 0f;
+                    Mathf.Lerp(startingIntensity, 0f, 1 - (shakeTimer / shakeDuration));
+                }
             }
         }
+
+
     }
-
-
 }
