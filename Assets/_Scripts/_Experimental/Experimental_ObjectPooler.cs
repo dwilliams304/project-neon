@@ -1,7 +1,7 @@
 using UnityEngine;
 using ContradictiveGames.ObjectPooling;
 
-namespace ContradictiveGames.Experimental.ObjectPooling
+namespace ContradictiveGames.Experimental
 {
     public class Experimental_ObjectPooler : MonoBehaviour
     {

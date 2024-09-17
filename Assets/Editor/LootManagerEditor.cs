@@ -5,7 +5,7 @@ using UnityEditor.AnimatedValues;
 using ContradictiveGames.Managers;
 
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Dev
 {
     [CustomEditor(typeof(LootManager))]
     public class LootManagerEditor : Editor

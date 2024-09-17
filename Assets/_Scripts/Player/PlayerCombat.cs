@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using ContradictiveGames.Experimental.ObjectPooling;
+using ContradictiveGames.Experimental;
 using ContradictiveGames.Managers;
 using ContradictiveGames.UI;
 

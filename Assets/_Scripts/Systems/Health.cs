@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using ContradictiveGames.Experimental.ObjectPooling;
+using ContradictiveGames.Experimental;
 using ContradictiveGames.AI;
 
 

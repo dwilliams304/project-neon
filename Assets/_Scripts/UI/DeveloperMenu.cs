@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-namespace ContradictiveGames.Developer.UI
+namespace ContradictiveGames.Dev.UI
 {
     public class DeveloperMenu : MonoBehaviour
     {
