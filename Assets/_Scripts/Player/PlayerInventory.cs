@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Player
 {
     [RequireComponent(typeof(PlayerStats))]
     public class PlayerInventory : MonoBehaviour

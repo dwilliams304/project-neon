@@ -17,7 +17,7 @@ using UnityEngine;
     // Currency_Multiplier,
     // Corruption_Ticker,
     // Corruption_Gain_Multiplier,
-namespace ContradictiveGames
+namespace ContradictiveGames.Player
 {
     public class PlayerStats : MonoBehaviour
     {

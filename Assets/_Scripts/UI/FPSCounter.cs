@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 
 
-namespace ContradictiveGames
+namespace ContradictiveGames.UI
 {
     public class FPSCounter : MonoBehaviour
     {

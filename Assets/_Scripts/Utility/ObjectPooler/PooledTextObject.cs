@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 
 
-namespace ContradictiveGames
+namespace ContradictiveGames.ObjectPooling
 {
     [System.Serializable]
     public class PooledTextObject

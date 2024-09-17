@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Loot
 {
     [CreateAssetMenu(fileName = "Loot Pool", menuName = "NPCs/Loot Pool")]
     public class LootPool : ScriptableObject

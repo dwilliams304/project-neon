@@ -1,7 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using ContradictiveGames.Experimental.ObjectPooling;
+using ContradictiveGames.Managers;
+using ContradictiveGames.UI;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Player
 {
     [RequireComponent(typeof(PlayerStats))]
     public class PlayerCombat : MonoBehaviour, IDamageable

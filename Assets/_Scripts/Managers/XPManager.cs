@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Managers
 {
     public class XPManager : MonoBehaviour
     {

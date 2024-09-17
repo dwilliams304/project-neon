@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using ContradictiveGames.Managers;
+using ContradictiveGames.Player;
 
 
-namespace ContradictiveGames
+namespace ContradictiveGames.UI
 {
     public class PlayerHUDUI : MonoBehaviour
     {

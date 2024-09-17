@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using ContradictiveGames.Managers;
 
 
-namespace ContradictiveGames
+namespace ContradictiveGames.UI
 {
     public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {

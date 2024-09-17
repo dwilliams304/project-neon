@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System;
 using UnityEditor.AnimatedValues;
-
+using ContradictiveGames.Managers;
 
 
 namespace ContradictiveGames

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Managers
 {
     public enum CorruptionTier {
         Tier1,

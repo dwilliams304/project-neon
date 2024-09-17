@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
+using ContradictiveGames.Loot;
+using ContradictiveGames.Player;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Managers
 {
     public class LootManager : MonoBehaviour
     {

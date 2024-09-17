@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Loot
 {
     [CreateAssetMenu(fileName = "Default Rarity", menuName = "Custom/Rarity")]
     public class Rarity : ScriptableObject

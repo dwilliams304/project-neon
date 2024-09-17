@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.ObjectPooling
 {
     [System.Serializable]
     public class PooledObject

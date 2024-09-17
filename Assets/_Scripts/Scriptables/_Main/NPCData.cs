@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.AI
 {
     [CreateAssetMenu(fileName = "NPC Data", menuName = "NPCs/NPC Data")]
     public class NPCData : ScriptableObject

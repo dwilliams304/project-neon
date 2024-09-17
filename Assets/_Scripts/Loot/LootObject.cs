@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Loot
 {
     public class LootObject : MonoBehaviour, IInteractable {
         public Loot loot;

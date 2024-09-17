@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.AI
 {
     public abstract class AIState : ScriptableObject {
 

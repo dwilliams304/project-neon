@@ -1,7 +1,7 @@
 using UnityEngine;
 using Cinemachine;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Managers
 {
     public class EffectsManager : MonoBehaviour
     {

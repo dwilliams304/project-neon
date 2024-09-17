@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Utility
 {
     public class DespawnAfterTime : MonoBehaviour
     {

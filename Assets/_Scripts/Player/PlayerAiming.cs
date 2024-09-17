@@ -1,6 +1,7 @@
 using UnityEngine;
+using ContradictiveGames.Managers;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Player
 {
     public class PlayerAiming : MonoBehaviour
     {

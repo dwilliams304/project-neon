@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.UI
 {
     public class VersionText : MonoBehaviour
     {

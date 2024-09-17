@@ -1,4 +1,6 @@
 using UnityEngine;
+using ContradictiveGames.Managers;
+using ContradictiveGames.Player;
 
 
 namespace ContradictiveGames

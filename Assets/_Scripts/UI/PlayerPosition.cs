@@ -1,8 +1,9 @@
 using UnityEngine;
 using TMPro;
+using ContradictiveGames.Utility;
 
 
-namespace ContradictiveGames
+namespace ContradictiveGames.UI
 {
     public class PlayerPosition : MonoBehaviour
     {

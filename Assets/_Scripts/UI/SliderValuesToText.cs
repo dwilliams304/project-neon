@@ -17,7 +17,7 @@ using System;
 
 
 
-namespace ContradictiveGames
+namespace ContradictiveGames.UI
 {
     public class SliderValuesToText : MonoBehaviour
     {

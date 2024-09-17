@@ -1,6 +1,8 @@
 using UnityEngine;
+using ContradictiveGames.Managers;
+using ContradictiveGames.Player;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.AI
 {
     public class NPC : MonoBehaviour, IDamageable
     {

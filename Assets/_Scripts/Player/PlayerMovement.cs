@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Player
 {
     [RequireComponent(typeof(PlayerStats))]
     public class PlayerMovement : MonoBehaviour

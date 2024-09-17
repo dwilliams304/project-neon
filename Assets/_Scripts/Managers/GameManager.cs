@@ -1,6 +1,7 @@
 using UnityEngine;
+using ContradictiveGames.Player;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.Managers
 {
     public class GameManager : MonoBehaviour
     {
