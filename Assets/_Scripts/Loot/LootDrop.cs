@@ -10,8 +10,10 @@ namespace ContradictiveGames.Loot
     }
 
     [CreateAssetMenu(fileName = "Loot", menuName = "Custom/Loot")]
-    public class Loot : ScriptableObject
+    public class LootDrop : ScriptableObject
     {
+        public string LootName = "Loot Name";
+
         public int ChanceToCorrupt = 0; //0 - 1000 (allows for 0.1% chance)
 
         public Rarity rarity;

@@ -33,6 +33,6 @@ MonoBehaviour:
   CurrencyDrop: 500
   XPDrop: 110
   CorruptionDrop: 10
-  LootPool: []
+  lootPool: {fileID: 11400000, guid: 0dedb244705ddbc448a29f6bee6a4f8f, type: 2}
   UsesHealthBar: 1
   ShowsDamageText: 1

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57bcab03c7dc6d34fb8ae196420f25ad, type: 3}
+  m_Name: Worthless Loot
+  m_EditorClassIdentifier: 
+  LootName: Worthless Loot
+  ChanceToCorrupt: 0
+  rarity: {fileID: 11400000, guid: 56c05cafb4ce5164a8c258b26b38d368, type: 2}
+  lootType: 3

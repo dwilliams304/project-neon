@@ -1,6 +1,7 @@
 using UnityEngine;
 using ContradictiveGames.Managers;
 using ContradictiveGames.Player;
+using ContradictiveGames.Loot;
 
 namespace ContradictiveGames.AI
 {
@@ -51,6 +52,7 @@ namespace ContradictiveGames.AI
         private void OnDeath(){
             playerInventory.AddCurrency(npcData.CurrencyDrop);
             XPManager.Instance.AddExperience(npcData.XPDrop);
+            LootManager.Instance.DropLoot(gameObject.transform.position, npcData.lootPool);
             gameObject.SetActive(false);
         }
     }

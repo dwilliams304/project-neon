@@ -12,7 +12,7 @@ namespace ContradictiveGames.Loot
         public int Weight = 50;
         public Color RarityColor = Color.white;
 
-        public List<LootPool> LootTable = new List<LootPool>(); //Might remove, unless we want a global loot table for certain rarities
+        public LootPool lootPool; //Might remove, unless we want a global loot table for certain rarities
 
         public GameObject DropPrefab;
     }

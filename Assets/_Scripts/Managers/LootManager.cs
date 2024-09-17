@@ -44,18 +44,12 @@ namespace ContradictiveGames.Managers
         }
 
 
-        public void DropLoot(Vector3 spawnPos, List<LootPool> lootPool = null){
-            int roll = Random.Range(0, totalWeights + 1);
-            int starterRoll = roll; //DEBUG ONLY
-            // roll /= 1 + (int)luckStat.Value;
-
-            Rarity rarity = ChooseRarity(roll);
+        public void DropLoot(Vector3 spawnPos, LootPool lootPool){
 
             /*  IF WE WANT TO HAVE GLOBAL LOOT POOLS
             if(lootPool == null){
                 DropLootFromGlobal(spawnPos, rarity.LootTable);
             }
-            
                 TO USE FOR WHEN DOING PERSONAL LOOT POOLS
             for(int i = 0; i < lootPool.TotalLootDrops; i++){
                 -Loop through loot table
@@ -64,12 +58,21 @@ namespace ContradictiveGames.Managers
                 
                 -if no loot matching that rarity drops, ???
             }
-            
             */
-
+            int roll = Random.Range(0, totalWeights + 1);
+            int starterRoll = roll; //DEBUG ONLY
+            // roll /= 1 + (int)luckStat.Value;
+            Rarity _rarity = ChooseRarity(roll);
+            
+            if(lootPool == null){
+                // DO STUFF FROM GLOBAL LOOT POOL
+            }
+            else{
+                // DO STUFF FROM LOCAL LOOT POOL
+            }
             //SpawnLoot(rarity.DropPrefab, spawnPos)
 
-            Debug.Log($"Rolled a {starterRoll}, and got a(n) {rarity.RarityName} drop!"); //DEBUG ONLY
+            Debug.Log($"Rolled a {starterRoll}, and got a(n) {_rarity.RarityName} drop!"); //DEBUG ONLY
         }
 
 
@@ -89,7 +92,7 @@ namespace ContradictiveGames.Managers
 
         private Rarity ChooseRarity(int roll){
             for(int i = 0; i <= rarities.Count; i++){
-                var rarity = rarities[i];
+                Rarity rarity = rarities[i];
                 if(roll <= rarity.Weight){
                     return rarity; //DEBUG ONLY
                 }

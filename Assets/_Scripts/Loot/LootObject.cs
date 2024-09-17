@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ContradictiveGames.Loot
 {
     public class LootObject : MonoBehaviour, IInteractable {
-        public Loot loot;
+        public LootDrop loot;
 
         public void OnInteract()
         {

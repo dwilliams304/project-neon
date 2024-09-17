@@ -23,6 +23,7 @@ MonoBehaviour:
   DamageTakenModifier:
     BaseValue: 1
     canNotAugment: 0
+  HealthBarColor: {r: 1, g: 0, b: 0, a: 1}
   AttackSpeed:
     BaseValue: 0.5
     canNotAugment: 0
@@ -32,6 +33,6 @@ MonoBehaviour:
   CurrencyDrop: 10
   XPDrop: 10
   CorruptionDrop: 10
-  LootPool: []
+  lootPool: {fileID: 11400000, guid: 0dedb244705ddbc448a29f6bee6a4f8f, type: 2}
   UsesHealthBar: 1
   ShowsDamageText: 1

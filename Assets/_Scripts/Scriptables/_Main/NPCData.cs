@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using UnityEngine;
+using ContradictiveGames.Loot;
 
 namespace ContradictiveGames.AI
 {
@@ -31,7 +31,7 @@ namespace ContradictiveGames.AI
         public int CurrencyDrop = 10;
         public int XPDrop = 10;
         public int CorruptionDrop = 10;
-        public List<GameObject> LootPool = new List<GameObject>();
+        public LootPool lootPool;
 
 
         [Header("Misc")]

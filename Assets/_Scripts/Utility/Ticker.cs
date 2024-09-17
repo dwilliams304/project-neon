@@ -6,6 +6,7 @@ namespace ContradictiveGames.Utility
     public class Ticker : MonoBehaviour
     {
         [SerializeField] private float tickTimer;
+        [SerializeField] private float shortTickTimer;
 
         public delegate void OnNormalTick();
         public static OnNormalTick onNormalTick;
@@ -20,20 +21,27 @@ namespace ContradictiveGames.Utility
         public static OnFifthTick onFifthTick;
 
         private float lastTick;
+        private float lastShortTick;
         private int tick;
+        private int shortTicks;
 
         private void Start() => tick = 0;
         
         private void Update(){
+            if(Time.time >= lastShortTick + shortTickTimer){
+                shortTicks++;
+                onShortTick?.Invoke();
+                lastShortTick = Time.time;
+            }
+            
             if(Time.time >= lastTick + tickTimer){
-                onNormalTick?.Invoke();
                 tick++;
-                if(tick % 2 == 0){
-                    onSecondTick?.Invoke();
-                }
-                if(tick % 5 == 0){
-                    onFifthTick?.Invoke();
-                }
+                
+                onNormalTick?.Invoke();
+                
+                if(tick % 2 == 0) onSecondTick?.Invoke();
+                if(tick % 5 == 0)onFifthTick?.Invoke();
+
                 lastTick = Time.time;
             }
         }
