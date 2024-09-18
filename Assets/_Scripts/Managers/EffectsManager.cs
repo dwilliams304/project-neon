@@ -48,10 +48,10 @@ namespace ContradictiveGames.Managers
             ParticleSystem ps = Instantiate(XPDropPrefab, pos, Quaternion.identity).GetComponent<ParticleSystem>();
             // ps.burstCount = xpToDrop;
             var em = ps.emission;
+            // var ef = ps.externalForces;
+            // ef.enabled = false;
             em.rateOverTime = 0;
             em.SetBurst(0, new ParticleSystem.Burst(0f, (short)xpToDrop, (short)xpToDrop, 0.05f));
-            // ps.Emit(xpToDrop);
-            // ps.Play();
         }
     }
 }
