@@ -23,6 +23,7 @@ namespace ContradictiveGames.Managers
 
         private void Start(){
             luckStat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().LuckStat;
+            totalWeights = 0;
             for(int i = 0; i < rarities.Count; i++){
                 totalWeights += rarities[i].Weight;
             }
@@ -45,6 +46,7 @@ namespace ContradictiveGames.Managers
 
 
         public void DropLoot(Vector3 spawnPos){
+            Debug.Log($"Total weights: {totalWeights}");
             int roll = Random.Range(0, totalWeights + 1);
             Debug.Log(roll);
             // roll /= 1 + (int)luckStat.Value;

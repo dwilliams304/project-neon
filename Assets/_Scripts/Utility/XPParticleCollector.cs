@@ -14,7 +14,7 @@ namespace ContradictiveGames.Utility
         private void Start() {
             ps = GetComponent<ParticleSystem>();
             ps.trigger.AddCollider(GameObject.FindGameObjectWithTag("Player").transform);
-        } 
+        }
 
         private void OnParticleTrigger(){
             int _part = ps.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, particles);

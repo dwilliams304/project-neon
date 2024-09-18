@@ -49,7 +49,7 @@ namespace ContradictiveGames.Managers
             // ps.burstCount = xpToDrop;
             var em = ps.emission;
             em.rateOverTime = 0;
-            em.SetBurst(0, new ParticleSystem.Burst(0f, (short)xpToDrop, (short)xpToDrop));
+            em.SetBurst(0, new ParticleSystem.Burst(0f, (short)xpToDrop, (short)xpToDrop, 0.05f));
             // ps.Emit(xpToDrop);
             // ps.Play();
         }
