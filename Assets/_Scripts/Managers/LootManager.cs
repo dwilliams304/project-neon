@@ -46,9 +46,7 @@ namespace ContradictiveGames.Managers
 
 
         public void DropLoot(Vector3 spawnPos){
-            Debug.Log($"Total weights: {totalWeights}");
             int roll = Random.Range(0, totalWeights + 1);
-            Debug.Log(roll);
             // roll /= 1 + (int)luckStat.Value;
             Rarity _rarity = ChooseRarity(roll);
 
@@ -69,7 +67,6 @@ namespace ContradictiveGames.Managers
 
         private Rarity ChooseRarity(int roll){
             for(int i = 0; i < rarities.Count; i++){
-                Debug.Log($"<color=green>{roll} on loop {i}</color>");
                 if(roll <= rarities[i].Weight){
                     return rarities[i]; //DEBUG ONLY
                 }
@@ -77,7 +74,6 @@ namespace ContradictiveGames.Managers
                     roll -= rarities[i].Weight;
                 }
             }
-            Debug.LogError("COULD NOT FIND A RARITY");
             return null;
         }
 

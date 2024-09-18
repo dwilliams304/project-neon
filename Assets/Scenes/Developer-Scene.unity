@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8023,7 +8023,7 @@ ParticleSystemForceField:
   m_Parameters:
     m_Shape: 0
     m_StartRange: 0
-    m_EndRange: 15
+    m_EndRange: 8
     m_Length: 1
     m_GravityFocus: 0
     m_RotationRandomness: {x: 0, y: 0}
@@ -8347,9 +8347,9 @@ ParticleSystemForceField:
         m_RotationOrder: 4
     m_DragCurve:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 30
-      minScalar: 0
+      minMaxState: 3
+      scalar: 45
+      minScalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -8505,8 +8505,8 @@ ParticleSystemForceField:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    m_MultiplyDragByParticleSize: 1
-    m_MultiplyDragByParticleVelocity: 1
+    m_MultiplyDragByParticleSize: 0
+    m_MultiplyDragByParticleVelocity: 0
 --- !u!1 &933589105
 GameObject:
   m_ObjectHideFlags: 0
@@ -16862,13 +16862,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rarities:
-  - {fileID: 11400000, guid: e12cc6e757adccf4da92e5d0ff09cfe4, type: 2}
-  - {fileID: 11400000, guid: d3b4df6187e03634ea933770c522942f, type: 2}
-  - {fileID: 11400000, guid: 8eaec1456cf38d94580f6e87f4a7b9e4, type: 2}
-  - {fileID: 11400000, guid: 2291fff21942d62439dcfa465eb8d6cf, type: 2}
-  - {fileID: 11400000, guid: b28e054f3c1503647afe25640c6a5b14, type: 2}
-  - {fileID: 11400000, guid: 5063e5e0522cd494fb835c145210d8b0, type: 2}
   - {fileID: 11400000, guid: 56c05cafb4ce5164a8c258b26b38d368, type: 2}
+  - {fileID: 11400000, guid: 5063e5e0522cd494fb835c145210d8b0, type: 2}
+  - {fileID: 11400000, guid: b28e054f3c1503647afe25640c6a5b14, type: 2}
+  - {fileID: 11400000, guid: 2291fff21942d62439dcfa465eb8d6cf, type: 2}
+  - {fileID: 11400000, guid: 8eaec1456cf38d94580f6e87f4a7b9e4, type: 2}
+  - {fileID: 11400000, guid: d3b4df6187e03634ea933770c522942f, type: 2}
+  - {fileID: 11400000, guid: e12cc6e757adccf4da92e5d0ff09cfe4, type: 2}
   totalWeights: 2637
 --- !u!4 &1940732117
 Transform:
