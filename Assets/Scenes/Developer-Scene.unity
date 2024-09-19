@@ -8023,7 +8023,7 @@ ParticleSystemForceField:
   m_Parameters:
     m_Shape: 0
     m_StartRange: 0
-    m_EndRange: 8
+    m_EndRange: 45
     m_Length: 1
     m_GravityFocus: 0
     m_RotationRandomness: {x: 0, y: 0}
@@ -8189,7 +8189,7 @@ ParticleSystemForceField:
     m_GravityCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 25
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -8347,9 +8347,9 @@ ParticleSystemForceField:
         m_RotationOrder: 4
     m_DragCurve:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 45
-      minScalar: 20
+      minMaxState: 0
+      scalar: 150
+      minScalar: 50
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -8402,7 +8402,7 @@ ParticleSystemForceField:
     m_VectorFieldSpeedCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -8505,7 +8505,7 @@ ParticleSystemForceField:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    m_MultiplyDragByParticleSize: 0
+    m_MultiplyDragByParticleSize: 1
     m_MultiplyDragByParticleVelocity: 0
 --- !u!1 &933589105
 GameObject:
@@ -14474,6 +14474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   XPDropPrefab: {fileID: 8101072217834296851, guid: 8c20a85cc5aade249ab6f3d7ade3206c,
     type: 3}
+  timeToWaitForXPDrag: 0.75
 --- !u!1 &1614891688
 GameObject:
   m_ObjectHideFlags: 0

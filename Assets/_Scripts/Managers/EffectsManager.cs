@@ -1,5 +1,7 @@
 using UnityEngine;
 using Cinemachine;
+using System;
+using System.Collections;
 
 namespace ContradictiveGames.Managers
 {
@@ -12,6 +14,10 @@ namespace ContradictiveGames.Managers
 
         [SerializeField] private GameObject XPDropPrefab;
 
+        [SerializeField] private float timeToWaitForXPDrag = 1f;
+
+        WaitForSeconds xpDragWait;
+
 
         //Camera shake variables
         private float shakeTimer;
@@ -22,6 +28,7 @@ namespace ContradictiveGames.Managers
             Instance = this;
             cam = FindObjectOfType<CinemachineVirtualCamera>();
             camNoise = cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            xpDragWait = new WaitForSeconds(timeToWaitForXPDrag);
         }
 
         private void Update(){
@@ -49,8 +56,16 @@ namespace ContradictiveGames.Managers
             // ps.burstCount = xpToDrop;
             // var ef = ps.externalForces;
             // ef.enabled = false;
-            ps.Emit(xpToDrop);
+            StartCoroutine(WaitForParticlesToDrag(ps));
+            ps.Emit(Mathf.CeilToInt(xpToDrop * GameManager.Instance.enemyXPDropScale));
             ps.Play();
+        }
+
+        private IEnumerator WaitForParticlesToDrag(ParticleSystem ps){
+            var ef = ps.externalForces;
+            ef.enabled = false;
+            yield return xpDragWait;
+            ef.enabled = true;
         }
     }
 }
