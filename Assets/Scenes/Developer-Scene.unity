@@ -1822,6 +1822,8 @@ MonoBehaviour:
   openPanels: []
   pausePanel: {fileID: 1333157828}
   pauseKey: 27
+  devMenuPanel: {fileID: 969443707}
+  devMenuKey: 282
 --- !u!4 &193830114
 Transform:
   m_ObjectHideFlags: 0
@@ -2139,13 +2141,19 @@ MonoBehaviour:
   Pooled_Bullet:
     ObjectToPool: {fileID: 1107567162705653528, guid: e956e63ece7e4b3499132259626764db,
       type: 3}
-    AmountToPool: 10
+    AmountToPool: 50
+    WillGrow: 1
+    currentPool: []
+  XPDrop_Prefab:
+    ObjectToPool: {fileID: 8101072217834296851, guid: 8c20a85cc5aade249ab6f3d7ade3206c,
+      type: 3}
+    AmountToPool: 25
     WillGrow: 1
     currentPool: []
   Pooled_Damage_Text:
     ObjectToPool: {fileID: 5713069235524420174, guid: ee7d370b9fad74a47906caaaabe20f61,
       type: 3}
-    AmountToPool: 10
+    AmountToPool: 50
     WillGrow: 1
     currentPool: []
     Color_Normal: {r: 1, g: 1, b: 1, a: 1}
@@ -4082,6 +4090,7 @@ Transform:
   m_Children:
   - {fileID: 1504175852}
   - {fileID: 912647269}
+  - {fileID: 715463925}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &490503881
@@ -4650,11 +4659,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1134493599}
   - {fileID: 243761673}
   - {fileID: 1765507170}
   - {fileID: 1940732117}
   - {fileID: 407519279}
-  - {fileID: 1134493599}
   - {fileID: 2130556474}
   - {fileID: 1608107379}
   m_Father: {fileID: 0}
@@ -5756,6 +5765,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713880649}
   m_CullTransparentMesh: 1
+--- !u!1 &715463924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 715463925}
+  - component: {fileID: 715463926}
+  m_Layer: 7
+  m_Name: ParticleCollector
+  m_TagString: ParticleCollector
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &715463925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715463924}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 490503880}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &715463926
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715463924}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &719426624
 GameObject:
   m_ObjectHideFlags: 0
@@ -8189,7 +8251,7 @@ ParticleSystemForceField:
     m_GravityCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 25
+      scalar: 100
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -8348,7 +8410,7 @@ ParticleSystemForceField:
     m_DragCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 150
+      scalar: 0
       minScalar: 50
       maxCurve:
         serializedVersion: 2
@@ -8505,7 +8567,7 @@ ParticleSystemForceField:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    m_MultiplyDragByParticleSize: 1
+    m_MultiplyDragByParticleSize: 0
     m_MultiplyDragByParticleVelocity: 0
 --- !u!1 &933589105
 GameObject:
@@ -14322,7 +14384,6 @@ GameObject:
   - component: {fileID: 1596449248}
   - component: {fileID: 1596449247}
   - component: {fileID: 1596449246}
-  - component: {fileID: 1596449249}
   m_Layer: 0
   m_Name: _DevUI
   m_TagString: Untagged
@@ -14414,20 +14475,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 50
   m_TargetDisplay: 0
---- !u!114 &1596449249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596449244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9b44c5b435768a4aa0875abbec8721a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  devMenuButton: 282
-  panelToOpen: {fileID: 969443707}
 --- !u!1 &1608107378
 GameObject:
   m_ObjectHideFlags: 0
@@ -18882,9 +18929,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 330585546}
   - {fileID: 508309312}
+  - {fileID: 193830114}
   - {fileID: 519825182}
   - {fileID: 407815204}
-  - {fileID: 193830114}
   - {fileID: 265667367}
   - {fileID: 73353822}
   - {fileID: 490503880}

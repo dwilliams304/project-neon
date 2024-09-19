@@ -1,7 +1,7 @@
 using UnityEngine;
 using Cinemachine;
-using System;
 using System.Collections;
+using ContradictiveGames.Experimental;
 
 namespace ContradictiveGames.Managers
 {
@@ -16,7 +16,10 @@ namespace ContradictiveGames.Managers
 
         [SerializeField] private float timeToWaitForXPDrag = 1f;
 
+        Experimental_ObjectPooler objPInstance;
+
         WaitForSeconds xpDragWait;
+        Quaternion xpParticleRotation;
 
 
         //Camera shake variables
@@ -29,6 +32,11 @@ namespace ContradictiveGames.Managers
             cam = FindObjectOfType<CinemachineVirtualCamera>();
             camNoise = cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
             xpDragWait = new WaitForSeconds(timeToWaitForXPDrag);
+        }
+
+        private void Start() {
+            objPInstance = Experimental_ObjectPooler.Instance;
+            xpParticleRotation = Quaternion.Euler(-90, 0, 0);
         }
 
         private void Update(){
@@ -52,17 +60,13 @@ namespace ContradictiveGames.Managers
 
 
         public void CallForXPParticles(Vector3 pos, int xpToDrop){
-            ParticleSystem ps = Instantiate(XPDropPrefab, pos, Quaternion.Euler(-90, 0, 0)).GetComponent<ParticleSystem>();
-            // ps.burstCount = xpToDrop;
-            // var ef = ps.externalForces;
-            // ef.enabled = false;
-            StartCoroutine(WaitForParticlesToDrag(ps));
+            ParticleSystem ps = objPInstance.XPDrop_Prefab.GetPooledObject(pos, xpParticleRotation).GetComponent<ParticleSystem>();
+            StartCoroutine(WaitForParticlesToDrag(ps.externalForces));
             ps.Emit(Mathf.CeilToInt(xpToDrop * GameManager.Instance.enemyXPDropScale));
             ps.Play();
         }
 
-        private IEnumerator WaitForParticlesToDrag(ParticleSystem ps){
-            var ef = ps.externalForces;
+        private IEnumerator WaitForParticlesToDrag(ParticleSystem.ExternalForcesModule ef){
             ef.enabled = false;
             yield return xpDragWait;
             ef.enabled = true;

@@ -8,13 +8,16 @@ namespace ContradictiveGames.Experimental
         public static Experimental_ObjectPooler Instance;
 
         public PooledObject Pooled_Bullet;
+        public PooledObject XPDrop_Prefab;
         public PooledTextObject Pooled_Damage_Text;
+
 
         void Awake () => Instance = this;
 
         void Start(){
             Pooled_Bullet.InstantiateObjectPool(gameObject);
             Pooled_Damage_Text.InstantiateObjectPool(gameObject);
+            XPDrop_Prefab.InstantiateObjectPool(gameObject);
         }
     }
 }

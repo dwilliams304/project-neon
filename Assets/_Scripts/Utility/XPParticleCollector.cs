@@ -9,11 +9,14 @@ namespace ContradictiveGames.Utility
         [SerializeField] private ParticleSystem ps;
 
         List<ParticleSystem.Particle> particles = new List<ParticleSystem.Particle>();
+        XPManager xpMngrInstance;
 
 
         private void Start() {
             ps = GetComponent<ParticleSystem>();
-            ps.trigger.AddCollider(GameObject.FindGameObjectWithTag("Player").transform);
+            ps.trigger.AddCollider(GameObject.FindGameObjectWithTag("ParticleCollector").transform);
+            // ps.trigger.AddCollider(GameObject.)
+            xpMngrInstance = XPManager.Instance;
         }
 
         private void OnParticleTrigger(){
@@ -21,7 +24,7 @@ namespace ContradictiveGames.Utility
             for(int i = 0; i < _part; i++){
                 ParticleSystem.Particle p = particles[i];
                 p.remainingLifetime = 0;
-                XPManager.Instance.AddExperience(1);
+                xpMngrInstance.AddExperience(1);
             }
         }
     }

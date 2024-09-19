@@ -13,15 +13,14 @@ namespace ContradictiveGames.Managers
 
         [SerializeField] private List<GameObject> openPanels = new List<GameObject>();
 
-        // [System.Serializable]
-        // public class GamePanel {
-        //     public GameObject panel;
-        //     public KeyCode key;
-        // }
-
-        [Header("Specific Panels")]
+        [Header("Pause Menu")]
         [SerializeField] private GameObject pausePanel;
         [SerializeField] private KeyCode pauseKey;
+
+        [Header("Dev Menu")]
+        [SerializeField] private GameObject devMenuPanel;
+        [SerializeField] private KeyCode devMenuKey;
+
 
         void Awake(){
             if(Instance == null){
@@ -40,11 +39,16 @@ namespace ContradictiveGames.Managers
             if(Input.GetKeyDown(pauseKey)){
                 TogglePanel(pausePanel);
             }
+            else if(Input.GetKeyDown(devMenuKey)){
+                OpenDevMenu();
+            }
         }
+
 
         public void OnDragMenu(bool preventInput = false){
             onPreventPlayerInput?.Invoke(preventInput);
         }
+
 
         public void TogglePanel(GameObject panel){
             if(openPanels.Contains(panel)) {
@@ -60,10 +64,10 @@ namespace ContradictiveGames.Managers
             else {
                 openPanels.Add(panel);
                 panel.SetActive(true);
-                Debug.Log("Panels already open, don't need to change time scale");
             }
             onPreventPlayerInput?.Invoke(true);
         }
+
 
         private void ClosePanel(GameObject panel){
             if(!openPanels.Contains(panel)) {
@@ -78,9 +82,14 @@ namespace ContradictiveGames.Managers
         }
 
 
-        public bool ArePanelsOpen(){
+        private bool ArePanelsOpen(){
             if(openPanels.Count == 0) return false;
             else return true;
+        }
+
+
+        private void OpenDevMenu(){
+            devMenuPanel.SetActive(!devMenuPanel.activeInHierarchy);
         }
     }
 }

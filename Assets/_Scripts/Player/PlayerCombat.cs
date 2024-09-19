@@ -26,6 +26,8 @@ namespace ContradictiveGames.Player
 
         private float timeSinceLastShot;
 
+        private Experimental_ObjectPooler objPInsance;
+
 
         private Health health;
 
@@ -45,6 +47,7 @@ namespace ContradictiveGames.Player
             health = GetComponent<Health>();
             reloadSpeedWait = new WaitForSeconds(playerStats.ReloadSpeed.Value);
             PlayerHUDUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
+            objPInsance = Experimental_ObjectPooler.Instance;
         }
 
         private void Update(){
@@ -66,7 +69,7 @@ namespace ContradictiveGames.Player
         private void Shoot(){
             if(currentAmmo > 0 && (Time.time > timeSinceLastShot + playerStats.FireRate.Value)){
                 timeSinceLastShot = Time.time;
-                GameObject bullet_exp = Experimental_ObjectPooler.Instance.Pooled_Bullet.GetPooledObject(firePoint.position, firePoint.rotation);
+                GameObject bullet_exp = objPInsance.Pooled_Bullet.GetPooledObject(firePoint.position, firePoint.rotation);
                 if(bullet_exp == null) return;
                 bullet_exp.GetComponent<Rigidbody>().AddForce(firePoint.up * playerStats.ProjectileSpeed.Value, ForceMode.Impulse);
                 if(!infiniteAmmo) {
