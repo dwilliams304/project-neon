@@ -1,21 +1,21 @@
 using System.Collections.Generic;
-using ContradictiveGames.Managers;
+using ContradictiveGames.Player;
 using UnityEngine;
 
 namespace ContradictiveGames.Utility
 {
-    public class XPParticleCollector : MonoBehaviour
+    public class GoldParticleCollector : MonoBehaviour
     {
         private ParticleSystem ps;
 
         List<ParticleSystem.Particle> particles = new List<ParticleSystem.Particle>();
-        XPManager xpMngrInstance;
+        PlayerInventory playerInventory;
 
 
         private void Start() {
             ps = GetComponent<ParticleSystem>();
             ps.trigger.AddCollider(GameObject.FindGameObjectWithTag("ParticleCollector").transform);
-            xpMngrInstance = XPManager.Instance;
+            playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>();
         }
 
         private void OnParticleTrigger(){
@@ -23,7 +23,7 @@ namespace ContradictiveGames.Utility
             for(int i = 0; i < _part; i++){
                 ParticleSystem.Particle p = particles[i];
                 p.remainingLifetime = 0;
-                xpMngrInstance.AddExperience(1);
+                playerInventory.AddCurrency(1);
             }
         }
     }

@@ -9,6 +9,7 @@ namespace ContradictiveGames.Experimental
 
         public PooledObject Pooled_Bullet;
         public PooledObject XPDrop_Prefab;
+        public PooledObject GoldDrop_Prefab;
         public PooledTextObject Pooled_Damage_Text;
 
 
@@ -18,6 +19,7 @@ namespace ContradictiveGames.Experimental
             Pooled_Bullet.InstantiateObjectPool(gameObject);
             Pooled_Damage_Text.InstantiateObjectPool(gameObject);
             XPDrop_Prefab.InstantiateObjectPool(gameObject);
+            GoldDrop_Prefab.InstantiateObjectPool(gameObject);
         }
     }
 }

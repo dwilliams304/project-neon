@@ -13,7 +13,9 @@ namespace ContradictiveGames.AI
         [SerializeField] private NPCBrain npcBrain;
 
         private GameObject playerTarget;
-        private PlayerInventory playerInventory;        
+        private PlayerInventory playerInventory;   
+        private LootManager lootManager;
+        private EffectsManager effectsManager;
 
 
         private void Awake(){
@@ -33,6 +35,8 @@ namespace ContradictiveGames.AI
         private void Start(){
             playerTarget = GameObject.FindGameObjectWithTag("Player");
             playerInventory = playerTarget.GetComponent<PlayerInventory>();
+            lootManager = LootManager.Instance;
+            effectsManager = EffectsManager.Instance;
         }
 
 
@@ -48,9 +52,10 @@ namespace ContradictiveGames.AI
 
         private void OnDeath(){
             gameObject.SetActive(false);
-            EffectsManager.Instance.CallForXPParticles(transform.position, npcData.XPDrop);
-            playerInventory.AddCurrency(npcData.CurrencyDrop);
-            LootManager.Instance.DropLoot(transform.position);
+            effectsManager.CallForXPParticles(transform.position, npcData.XPDrop);
+            effectsManager.CallForGoldParticles(transform.position, npcData.CurrencyDrop);
+            lootManager.DropLoot(transform.position);
+            // playerInventory.AddCurrency(npcData.CurrencyDrop);
         }
     }
 }

@@ -65,6 +65,11 @@ namespace ContradictiveGames.Managers
             ps.Emit(Mathf.CeilToInt(xpToDrop * GameManager.Instance.enemyXPDropScale));
             ps.Play();
         }
+        public void CallForGoldParticles(Vector3 pos, int goldToDrop){
+            ParticleSystem ps = objPInstance.GoldDrop_Prefab.GetPooledObject(pos, xpParticleRotation).GetComponent<ParticleSystem>();
+            ps.Emit(goldToDrop);
+            ps.Play();
+        }
 
         private IEnumerator WaitForParticlesToDrag(ParticleSystem.ExternalForcesModule ef){
             ef.enabled = false;
