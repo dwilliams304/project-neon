@@ -3,6 +3,14 @@ using ContradictiveGames.Loot;
 
 namespace ContradictiveGames.AI
 {
+    public enum ThinkingSpeed {
+        None, //Does not think
+        Short,
+        Normal,
+        Second,
+        Fifth
+    }
+
     [CreateAssetMenu(fileName = "NPC Data", menuName = "NPCs/NPC Data")]
     public class NPCData : ScriptableObject
     {
@@ -25,6 +33,7 @@ namespace ContradictiveGames.AI
         [Header("Combat")]
         public Stat AttackSpeed = new Stat(0.5f);
         public Stat BaseDamage = new Stat(10f);
+        public float AttackRange = 1f;
 
 
         [Header("Loot Pool")]
@@ -37,5 +46,9 @@ namespace ContradictiveGames.AI
         [Header("Misc")]
         public bool UsesHealthBar = true;
         public bool ShowsDamageText = true;
+        [Tooltip("Whether or not the NPC will do things on ticks/updates. If checked false, will not do anything")]
+        public bool IsStaticNpc = false;
+        [Tooltip("Which tick speed this NPC will subscribe to")]
+        public ThinkingSpeed thinkingSpeed = ThinkingSpeed.Normal;
     }    
 }

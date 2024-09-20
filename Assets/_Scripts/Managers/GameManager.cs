@@ -50,6 +50,9 @@ namespace ContradictiveGames.Managers
         void Awake() => Instance = this;
 
         void Start(){
+            if(player == null){
+                player = GameObject.FindGameObjectWithTag("Player");
+            }
             playerStats = player.GetComponent<PlayerStats>();
             HandleLevelChange(0);
         }

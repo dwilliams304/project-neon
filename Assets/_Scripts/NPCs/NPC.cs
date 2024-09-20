@@ -1,6 +1,7 @@
 using UnityEngine;
 using ContradictiveGames.Managers;
 using ContradictiveGames.Player;
+using ContradictiveGames.Utility;
 
 namespace ContradictiveGames.AI
 {
@@ -13,7 +14,6 @@ namespace ContradictiveGames.AI
         [SerializeField] private NPCBrain npcBrain;
 
         private GameObject playerTarget;
-        private PlayerInventory playerInventory;   
         private LootManager lootManager;
         private EffectsManager effectsManager;
 
@@ -27,17 +27,75 @@ namespace ContradictiveGames.AI
         
         private void OnEnable(){
             if(health != null) health.onDeath += OnDeath;
+            if(!npcData.IsStaticNpc){
+                switch(npcData.thinkingSpeed){
+                    case ThinkingSpeed.None:
+                        break;
+
+                    case ThinkingSpeed.Short:
+                        Ticker.onShortTick += OnTick;
+                        break;
+                    
+                    case ThinkingSpeed.Normal:
+                        Ticker.onNormalTick += OnTick;
+                        break;
+
+                    case ThinkingSpeed.Second:
+                        Ticker.onSecondTick += OnTick;
+                        break;
+
+                    case ThinkingSpeed.Fifth:
+                        Ticker.onFifthTick += OnTick;
+                        break;
+                }
+            }
         }
+
         private void OnDisable(){
             if(health != null) health.onDeath -= OnDeath;
+            if(!npcData.IsStaticNpc){
+                switch(npcData.thinkingSpeed){
+                    case ThinkingSpeed.None:
+                        break;
+
+                    case ThinkingSpeed.Short:
+                        Ticker.onShortTick -= OnTick;
+                        break;
+                    
+                    case ThinkingSpeed.Normal:
+                        Ticker.onNormalTick -= OnTick;
+                        break;
+
+                    case ThinkingSpeed.Second:
+                        Ticker.onSecondTick -= OnTick;
+                        break;
+
+                    case ThinkingSpeed.Fifth:
+                        Ticker.onFifthTick -= OnTick;
+                        break;
+                }
+            }
         }
+
 
         private void Start(){
             playerTarget = GameObject.FindGameObjectWithTag("Player");
-            playerInventory = playerTarget.GetComponent<PlayerInventory>();
             lootManager = LootManager.Instance;
             effectsManager = EffectsManager.Instance;
         }
+
+
+        private void Update(){
+            if(!npcData.IsStaticNpc){
+                if(npcBrain.CheckConditions()) npcBrain.DoMainLogic();
+                npcBrain.DoUpdateLogic();
+            }
+        }
+
+        private void OnTick(){
+            npcBrain.DoTickLogic();
+        }
+
 
 
 

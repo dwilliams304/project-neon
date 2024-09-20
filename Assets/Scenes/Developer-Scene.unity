@@ -386,8 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcData: {fileID: 11400000, guid: a2d13f59f147d8d439d3bce6d4b6e96f, type: 2}
-  npcBrain: {fileID: 0}
+  npcData: {fileID: 11400000, guid: e2e6298143f0ced4584d9ef495592a27, type: 2}
+  npcBrain: {fileID: 11400000, guid: 42256eedcae488d43b9107a26f65866c, type: 2}
 --- !u!136 &39328109
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1464,8 +1464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcData: {fileID: 11400000, guid: a2d13f59f147d8d439d3bce6d4b6e96f, type: 2}
-  npcBrain: {fileID: 0}
+  npcData: {fileID: 11400000, guid: e2e6298143f0ced4584d9ef495592a27, type: 2}
+  npcBrain: {fileID: 11400000, guid: 42256eedcae488d43b9107a26f65866c, type: 2}
 --- !u!136 &176471474
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3836,8 +3836,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcData: {fileID: 11400000, guid: a2d13f59f147d8d439d3bce6d4b6e96f, type: 2}
-  npcBrain: {fileID: 0}
+  npcData: {fileID: 11400000, guid: a608758d00d85fe4d90710d9248c3faa, type: 2}
+  npcBrain: {fileID: 11400000, guid: 42256eedcae488d43b9107a26f65866c, type: 2}
 --- !u!136 &474196595
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13269,8 +13269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcData: {fileID: 11400000, guid: a608758d00d85fe4d90710d9248c3faa, type: 2}
-  npcBrain: {fileID: 0}
+  npcData: {fileID: 11400000, guid: e2e6298143f0ced4584d9ef495592a27, type: 2}
+  npcBrain: {fileID: 11400000, guid: 42256eedcae488d43b9107a26f65866c, type: 2}
 --- !u!136 &1485528791
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13715,8 +13715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcData: {fileID: 11400000, guid: a2d13f59f147d8d439d3bce6d4b6e96f, type: 2}
-  npcBrain: {fileID: 0}
+  npcData: {fileID: 11400000, guid: e2e6298143f0ced4584d9ef495592a27, type: 2}
+  npcBrain: {fileID: 11400000, guid: 42256eedcae488d43b9107a26f65866c, type: 2}
 --- !u!136 &1510036655
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16574,8 +16574,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcData: {fileID: 11400000, guid: 28a942ca836eebe4a836bb635ed0a7b8, type: 2}
-  npcBrain: {fileID: 0}
+  npcData: {fileID: 11400000, guid: e2e6298143f0ced4584d9ef495592a27, type: 2}
+  npcBrain: {fileID: 11400000, guid: 42256eedcae488d43b9107a26f65866c, type: 2}
 --- !u!136 &1846820415
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16718,8 +16718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcData: {fileID: 11400000, guid: a2d13f59f147d8d439d3bce6d4b6e96f, type: 2}
-  npcBrain: {fileID: 0}
+  npcData: {fileID: 11400000, guid: e2e6298143f0ced4584d9ef495592a27, type: 2}
+  npcBrain: {fileID: 11400000, guid: 42256eedcae488d43b9107a26f65866c, type: 2}
 --- !u!136 &1850075634
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18391,8 +18391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcData: {fileID: 11400000, guid: a608758d00d85fe4d90710d9248c3faa, type: 2}
-  npcBrain: {fileID: 0}
+  npcData: {fileID: 11400000, guid: a2d13f59f147d8d439d3bce6d4b6e96f, type: 2}
+  npcBrain: {fileID: 11400000, guid: 42256eedcae488d43b9107a26f65866c, type: 2}
 --- !u!136 &2085540371
 CapsuleCollider:
   m_ObjectHideFlags: 0

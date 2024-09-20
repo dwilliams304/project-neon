@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bed45238aae256d4483c06d72cd10ee7, type: 3}
-  m_Name: Default NPC
+  m_Name: Static NPC
   m_EditorClassIdentifier: 
-  NpcName: Default NPC
+  NpcName: Default Name
   IsFriendly: 0
   IsDamageable: 1
-  CanHeal: 1
+  CanHeal: 0
   MoveSpeed:
     BaseValue: 7
     canNotAugment: 0
@@ -34,8 +34,8 @@ MonoBehaviour:
   CurrencyDrop: 10
   XPDrop: 10
   CorruptionDrop: 10
-  lootPool: {fileID: 11400000, guid: 0dedb244705ddbc448a29f6bee6a4f8f, type: 2}
+  lootPool: {fileID: 0}
   UsesHealthBar: 1
   ShowsDamageText: 1
-  IsStaticNpc: 0
-  thinkingSpeed: 4
+  IsStaticNpc: 1
+  thinkingSpeed: 2

@@ -23,13 +23,11 @@ namespace ContradictiveGames.Utility
         private float lastTick;
         private float lastShortTick;
         private int tick;
-        private int shortTicks;
 
         private void Start() => tick = 0;
         
         private void Update(){
             if(Time.time >= lastShortTick + shortTickTimer){
-                shortTicks++;
                 onShortTick?.Invoke();
                 lastShortTick = Time.time;
             }
@@ -40,7 +38,7 @@ namespace ContradictiveGames.Utility
                 onNormalTick?.Invoke();
                 
                 if(tick % 2 == 0) onSecondTick?.Invoke();
-                if(tick % 5 == 0)onFifthTick?.Invoke();
+                if(tick % 5 == 0) onFifthTick?.Invoke();
 
                 lastTick = Time.time;
             }
