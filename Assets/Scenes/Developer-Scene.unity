@@ -18391,7 +18391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8ced7b06a7ae4d971806837ef6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcData: {fileID: 11400000, guid: a2d13f59f147d8d439d3bce6d4b6e96f, type: 2}
+  npcData: {fileID: 11400000, guid: a608758d00d85fe4d90710d9248c3faa, type: 2}
   npcBrain: {fileID: 0}
 --- !u!136 &2085540371
 CapsuleCollider:

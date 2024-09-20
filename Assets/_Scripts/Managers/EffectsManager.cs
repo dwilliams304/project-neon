@@ -67,6 +67,7 @@ namespace ContradictiveGames.Managers
         }
         public void CallForGoldParticles(Vector3 pos, int goldToDrop){
             ParticleSystem ps = objPInstance.GoldDrop_Prefab.GetPooledObject(pos, xpParticleRotation).GetComponent<ParticleSystem>();
+            StartCoroutine(WaitForParticlesToDrag(ps.externalForces));
             ps.Emit(goldToDrop);
             ps.Play();
         }

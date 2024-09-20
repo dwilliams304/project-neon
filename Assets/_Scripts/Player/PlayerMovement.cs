@@ -4,6 +4,7 @@ using UnityEngine;
 namespace ContradictiveGames.Player
 {
     [RequireComponent(typeof(PlayerStats))]
+    [RequireComponent(typeof(Rigidbody))]
     public class PlayerMovement : MonoBehaviour
     {
         
@@ -27,7 +28,7 @@ namespace ContradictiveGames.Player
             isDashing = false;
             playerStats = GetComponent<PlayerStats>();
             dashDurationWait = new WaitForSeconds(playerStats.DashDuration.Value);
-            timeSinceLastDash = Time.time;
+            timeSinceLastDash = Time.time - playerStats.DashCooldown.Value;
             // dashTrailAnimatior = GetComponent<DashTrailAnimatior>();
         }
 
