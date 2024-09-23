@@ -13,6 +13,7 @@ namespace ContradictiveGames.AI
         [SerializeField] private NPCBrain npcBrain;
 
         private GameObject playerTarget;
+        private GameManager gameManager;
         private LootManager lootManager;
         private EffectsManager effectsManager;
         private DamageFlasher damageFlasher;
@@ -36,7 +37,7 @@ namespace ContradictiveGames.AI
                     case ThinkingSpeed.None:
                         break;
 
-                    case ThinkingSpeed.Short:
+                    case ThinkingSpeed.Fast:
                         Ticker.onShortTick += OnTick;
                         break;
                     
@@ -44,11 +45,11 @@ namespace ContradictiveGames.AI
                         Ticker.onNormalTick += OnTick;
                         break;
 
-                    case ThinkingSpeed.Second:
+                    case ThinkingSpeed.Slow:
                         Ticker.onSecondTick += OnTick;
                         break;
 
-                    case ThinkingSpeed.Fifth:
+                    case ThinkingSpeed.Slowest:
                         Ticker.onFifthTick += OnTick;
                         break;
                 }
@@ -63,7 +64,7 @@ namespace ContradictiveGames.AI
                     case ThinkingSpeed.None:
                         break;
 
-                    case ThinkingSpeed.Short:
+                    case ThinkingSpeed.Fast:
                         Ticker.onShortTick -= OnTick;
                         break;
                     
@@ -71,11 +72,11 @@ namespace ContradictiveGames.AI
                         Ticker.onNormalTick -= OnTick;
                         break;
 
-                    case ThinkingSpeed.Second:
+                    case ThinkingSpeed.Slow:
                         Ticker.onSecondTick -= OnTick;
                         break;
 
-                    case ThinkingSpeed.Fifth:
+                    case ThinkingSpeed.Slowest:
                         Ticker.onFifthTick -= OnTick;
                         break;
                 }
@@ -87,6 +88,7 @@ namespace ContradictiveGames.AI
             playerTarget = GameObject.FindGameObjectWithTag("Player");
             lootManager = LootManager.Instance;
             effectsManager = EffectsManager.Instance;
+            gameManager = GameManager.Instance;
         }
 
 
@@ -107,8 +109,9 @@ namespace ContradictiveGames.AI
         public void OnDamage(Stat damageStat = null)
         {
             if(!npcData.IsFriendly && npcData.IsDamageable){
-                // bool crit = GameManager.Instance.CalculateIfCrit();
-                health.TakeDamage(10);
+                bool crit = gameManager.CalculateIfCrit();
+                int damage = gameManager.CalculatePlayerDamageDone(crit);
+                health.TakeDamage(damage, crit);
                 damageFlasher.DoDamageFlash();
             }
         }
