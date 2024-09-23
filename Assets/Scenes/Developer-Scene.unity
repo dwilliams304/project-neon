@@ -2180,10 +2180,10 @@ MonoBehaviour:
     AmountToPool: 25
     WillGrow: 1
     currentPool: []
-  GoldDrop_Prefab:
+  CurrencyDrop_Prefab:
     ObjectToPool: {fileID: 7406599548655510536, guid: e370bd8c3a756044c98af02876e5c1c6,
       type: 3}
-    AmountToPool: 50
+    AmountToPool: 25
     WillGrow: 1
     currentPool: []
   Pooled_Damage_Text:
@@ -14585,8 +14585,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78fe61113a76b2348bb4d18aa7447a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XPDropPrefab: {fileID: 8101072217834296851, guid: 8c20a85cc5aade249ab6f3d7ade3206c,
-    type: 3}
   timeToWaitForXPDrag: 0.75
 --- !u!1 &1614891688
 GameObject:

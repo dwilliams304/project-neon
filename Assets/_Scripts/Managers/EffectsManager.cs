@@ -12,14 +12,12 @@ namespace ContradictiveGames.Managers
         private CinemachineVirtualCamera cam;
         private CinemachineBasicMultiChannelPerlin camNoise;
 
-        [SerializeField] private GameObject XPDropPrefab;
-
         [SerializeField] private float timeToWaitForXPDrag = 1f;
 
         Experimental_ObjectPooler objPInstance;
 
         WaitForSeconds xpDragWait;
-        Quaternion xpParticleRotation;
+        Quaternion particleRot;
 
 
         //Camera shake variables
@@ -36,7 +34,7 @@ namespace ContradictiveGames.Managers
 
         private void Start() {
             objPInstance = Experimental_ObjectPooler.Instance;
-            xpParticleRotation = Quaternion.Euler(-90, 0, 0);
+            particleRot = Quaternion.Euler(-90, 0, 0);
         }
 
         private void Update(){
@@ -59,14 +57,14 @@ namespace ContradictiveGames.Managers
         }
 
 
-        public void CallForXPParticles(Vector3 pos, int xpToDrop){
-            ParticleSystem ps = objPInstance.XPDrop_Prefab.GetPooledObject(pos, xpParticleRotation).GetComponent<ParticleSystem>();
+        public void DropXPParticles(Vector3 pos, int xpToDrop){
+            ParticleSystem ps = objPInstance.XPDrop_Prefab.GetPooledObject(pos, particleRot).GetComponent<ParticleSystem>();
             StartCoroutine(WaitForParticlesToDrag(ps.externalForces));
             ps.Emit(Mathf.CeilToInt(xpToDrop * GameManager.Instance.enemyXPDropScale));
             ps.Play();
         }
-        public void CallForGoldParticles(Vector3 pos, int goldToDrop){
-            ParticleSystem ps = objPInstance.GoldDrop_Prefab.GetPooledObject(pos, xpParticleRotation).GetComponent<ParticleSystem>();
+        public void DropCurrencyParticles(Vector3 pos, int goldToDrop){
+            ParticleSystem ps = objPInstance.CurrencyDrop_Prefab.GetPooledObject(pos, particleRot).GetComponent<ParticleSystem>();
             StartCoroutine(WaitForParticlesToDrag(ps.externalForces));
             ps.Emit(goldToDrop);
             ps.Play();

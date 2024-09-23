@@ -119,8 +119,8 @@ namespace ContradictiveGames.AI
 
         private void OnDeath(){
             gameObject.SetActive(false);
-            effectsManager.CallForXPParticles(transform.position, npcData.XPDrop);
-            effectsManager.CallForGoldParticles(transform.position, npcData.CurrencyDrop);
+            effectsManager.DropXPParticles(transform.position, npcData.XPDrop);
+            effectsManager.DropCurrencyParticles(transform.position, npcData.CurrencyDrop);
             lootManager.DropLoot(transform.position);
             // playerInventory.AddCurrency(npcData.CurrencyDrop);
         }

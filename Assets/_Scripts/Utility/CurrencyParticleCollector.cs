@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ContradictiveGames.Utility
 {
-    public class GoldParticleCollector : MonoBehaviour
+    public class CurrencyParticleCollector : MonoBehaviour
     {
         private ParticleSystem ps;
 

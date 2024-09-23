@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 975575488574413178}
   - component: {fileID: 6698780405674098676}
   m_Layer: 0
-  m_Name: XP
+  m_Name: XPDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
