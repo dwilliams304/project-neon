@@ -30,9 +30,12 @@ MonoBehaviour:
   BaseDamage:
     BaseValue: 10
     canNotAugment: 0
+  AttackRange: 1
   CurrencyDrop: 10
   XPDrop: 10
   CorruptionDrop: 10
   lootPool: {fileID: 11400000, guid: 0dedb244705ddbc448a29f6bee6a4f8f, type: 2}
   UsesHealthBar: 1
   ShowsDamageText: 1
+  IsStaticNpc: 1
+  thinkingSpeed: 2

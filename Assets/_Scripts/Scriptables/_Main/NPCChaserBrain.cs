@@ -17,7 +17,7 @@ namespace ContradictiveGames.AI
 
         public override void DoTickLogic()
         {
-            Debug.Log($"I am doing something on a tick! (I should be chasing)");
+            // Debug.Log($"I am doing something on a tick! (I should be chasing)");
         }
 
         public override void DoMainLogic()
