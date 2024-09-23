@@ -1,7 +1,6 @@
-using ContradictiveGames.AI;
 using UnityEngine;
 
-namespace ContradictiveGames
+namespace ContradictiveGames.AI
 {
     [CreateAssetMenu(fileName = "Chaser", menuName = "NPCs/Brains/Chaser Brain")]
     public class NPCChaserBrain : NPCBrain

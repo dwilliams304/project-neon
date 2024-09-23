@@ -1,6 +1,5 @@
 using UnityEngine;
 using ContradictiveGames.Managers;
-using ContradictiveGames.Player;
 using ContradictiveGames.Utility;
 
 namespace ContradictiveGames.AI
