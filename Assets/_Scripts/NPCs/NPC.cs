@@ -112,7 +112,7 @@ namespace ContradictiveGames.AI
                 bool crit = gameManager.CalculateIfCrit();
                 int damage = gameManager.CalculatePlayerDamageDone(crit);
                 health.TakeDamage(damage, crit);
-                damageFlasher.DoDamageFlash();
+                damageFlasher.DoDamageFlash(crit);
             }
         }
 
@@ -122,7 +122,6 @@ namespace ContradictiveGames.AI
             effectsManager.DropXPParticles(transform.position, npcData.XPDrop);
             effectsManager.DropCurrencyParticles(transform.position, npcData.CurrencyDrop);
             lootManager.DropLoot(transform.position);
-            // playerInventory.AddCurrency(npcData.CurrencyDrop);
         }
     }
 }

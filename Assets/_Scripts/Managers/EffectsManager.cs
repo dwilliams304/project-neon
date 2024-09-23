@@ -12,8 +12,15 @@ namespace ContradictiveGames.Managers
         private CinemachineVirtualCamera cam;
         private CinemachineBasicMultiChannelPerlin camNoise;
 
+        [Header("Particles")]
         [SerializeField] private float timeToWaitForXPDrag = 1f;
 
+
+        [Header("Damage Flash Colors")]
+        public Color NormalDamageFlashColor;
+        public Color CritDamageFlashColor;
+
+        
         Experimental_ObjectPooler objPInstance;
 
         WaitForSeconds xpDragWait;

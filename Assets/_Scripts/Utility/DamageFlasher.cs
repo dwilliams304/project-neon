@@ -1,4 +1,5 @@
 using System.Collections;
+using ContradictiveGames.Managers;
 using UnityEngine;
 
 namespace ContradictiveGames.Utility
@@ -6,20 +7,22 @@ namespace ContradictiveGames.Utility
     [DisallowMultipleComponent]
     public class DamageFlasher : MonoBehaviour
     {
-        [SerializeField] private Color flashColor = Color.white;
+        [SerializeField] private Color flashColor;
+        [SerializeField] private Color critFlashColor;
         [SerializeField] private float flashTimer = 0.25f;
 
         private Material mat;
-        private Coroutine damageFlashCor;
 
         private Health health;
         private bool isDead;
+
 
         private void Awake(){
             //THIS IS TEMPORARY, Using MeshRenderer.materials[0] is not needed at all!
             mat = GetComponent<MeshRenderer>().materials[0];
             health = GetComponent<Health>();
         }
+
 
         private void OnEnable(){
             isDead = false;
@@ -29,9 +32,18 @@ namespace ContradictiveGames.Utility
             health.onDeath -= OnDeath;
         }
 
-        public void DoDamageFlash(){
-            if(!isDead) damageFlashCor = StartCoroutine(DamageFlash());
+
+        private void Start(){
+            //In case I want these to be a bit more modular and for them to be different
+            flashColor = EffectsManager.Instance.NormalDamageFlashColor;
+            critFlashColor = EffectsManager.Instance.CritDamageFlashColor;
         }
+
+
+        public void DoDamageFlash(bool showCritColor){
+            if(!isDead) StartCoroutine(DamageFlash(showCritColor));
+        }
+
 
         private void OnDeath(){
             //Used to prevent Coroutine calls on inactive game objects
@@ -40,8 +52,9 @@ namespace ContradictiveGames.Utility
         }
 
 
-        private IEnumerator DamageFlash(){
-            mat.SetColor("_DamageFlashColor", flashColor);
+        private IEnumerator DamageFlash(bool showCritColor = false){
+            if(showCritColor) mat.SetColor("_DamageFlashColor", critFlashColor);
+            else mat.SetColor("_DamageFlashColor", flashColor);
 
             float cur = 0f;
             float elapsedTime = 0f;

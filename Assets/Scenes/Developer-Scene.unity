@@ -491,6 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashColor: {r: 1, g: 1, b: 1, a: 1}
+  critFlashColor: {r: 1, g: 0, b: 1, a: 1}
   flashTimer: 0.25
 --- !u!1 &58564268
 GameObject:
@@ -1584,6 +1585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashColor: {r: 1, g: 1, b: 1, a: 1}
+  critFlashColor: {r: 1, g: 0, b: 1, a: 1}
   flashTimer: 0.25
 --- !u!1 &177297444
 GameObject:
@@ -3971,6 +3973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashColor: {r: 1, g: 1, b: 1, a: 1}
+  critFlashColor: {r: 1, g: 0, b: 1, a: 1}
   flashTimer: 0.25
 --- !u!1 &480670077
 GameObject:
@@ -13865,6 +13868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashColor: {r: 1, g: 1, b: 1, a: 1}
+  critFlashColor: {r: 1, g: 0, b: 1, a: 1}
   flashTimer: 0.25
 --- !u!1 &1534215225
 GameObject:
@@ -14586,6 +14590,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToWaitForXPDrag: 0.75
+  NormalDamageFlashColor: {r: 1, g: 1, b: 1, a: 1}
+  CritDamageFlashColor: {r: 1, g: 0, b: 0.99997807, a: 1}
 --- !u!1 &1614891688
 GameObject:
   m_ObjectHideFlags: 0
@@ -16881,6 +16887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashColor: {r: 1, g: 1, b: 1, a: 1}
+  critFlashColor: {r: 1, g: 0, b: 1, a: 1}
   flashTimer: 0.25
 --- !u!1 &1850295997
 GameObject:
@@ -18569,6 +18576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashColor: {r: 1, g: 1, b: 1, a: 1}
+  critFlashColor: {r: 1, g: 0, b: 1, a: 1}
   flashTimer: 0.25
 --- !u!1 &2119330752
 GameObject:
