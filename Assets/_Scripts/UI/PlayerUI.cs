@@ -20,7 +20,6 @@ namespace ContradictiveGames.UI
 
         [Header("Player Alerts Elements")]
         [SerializeField] private GameObject lowAmmoAlert;
-        private TMP_Text lowAmmoAlertText;
 
 
         //CHANGE THESE TO BE A SETTING - NOT SOMETHING SET HERE!
@@ -56,11 +55,11 @@ namespace ContradictiveGames.UI
         private void UpdateLevel(int newLevel, int xpToNext, int newXpAmnt){
             xpBar.maxValue = xpToNext;
             xpBar.value = newXpAmnt;
-            levelText.text = $"Lvl. {newLevel}";
+            levelText.text = "Lvl. " + newLevel;
         }
 
         public void UpdateAmmoText(int cur, int max){
-            ammoText.text = $"{cur} / {max}";
+            ammoText.text = cur + " / " + max;
         }
         
 

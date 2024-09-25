@@ -81,11 +81,7 @@ namespace ContradictiveGames.Player
                 }
                 EffectsManager.Instance.CameraShake(1.5f, 0.05f);
             }
-            if(currentAmmo == 0 && !lowAmmoAlertActive){
-                lowAmmoAlertActive = true;
-                PlayerUI.Instance.ShowLowAmmoAlert(lowAmmoAlertActive);
-            }
-            else if(currentAmmo < 7 && !lowAmmoAlertActive){
+            if(currentAmmo < 7 && !lowAmmoAlertActive){
                 lowAmmoAlertActive = true;
                 PlayerUI.Instance.ShowLowAmmoAlert(lowAmmoAlertActive);
             }
@@ -94,10 +90,10 @@ namespace ContradictiveGames.Player
 
         private IEnumerator Reload(){
             isReloading = true;
-            lowAmmoAlertActive = false;
-            PlayerUI.Instance.ShowLowAmmoAlert(lowAmmoAlertActive);
             yield return reloadSpeedWait;
             currentAmmo = magazineSize;
+            lowAmmoAlertActive = false;
+            PlayerUI.Instance.ShowLowAmmoAlert(lowAmmoAlertActive);
             PlayerUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
             isReloading = false;
         }

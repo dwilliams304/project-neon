@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ContradictiveGames.Loot;
 using ContradictiveGames.Player;
+using Unity.VisualScripting;
 
 namespace ContradictiveGames.Managers
 {
@@ -50,7 +51,8 @@ namespace ContradictiveGames.Managers
             // roll /= 1 + (int)luckStat.Value;
             Rarity _rarity = ChooseRarity(roll);
 
-            Debug.Log($"<color=cyan>Rolled and got a(n) {_rarity.RarityName} drop!</color>"); //DEBUG ONLY
+            string colorHex = _rarity.RarityColor.ToHexString(); //DEBUG ONLY
+            Debug.Log($"Rolled and got a(n) <color=#{colorHex}><b> {_rarity.RarityName} </b></color> drop!"); //DEBUG ONLY
         }
 
 
