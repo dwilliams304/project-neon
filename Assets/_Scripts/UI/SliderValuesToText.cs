@@ -30,13 +30,13 @@ namespace ContradictiveGames.UI
             slider = GetComponentInParent<Slider>();
             text = GetComponent<TMP_Text>();
             slider.onValueChanged.AddListener(delegate{
-                if(PlayerHUDUI.showPercentages == true && PlayerHUDUI.showTotalValues == true){
+                if(PlayerUI.showPercentages == true && PlayerUI.showTotalValues == true){
                     ChangeValuesText_Both();
                 }
-                else if(PlayerHUDUI.showPercentages == true && PlayerHUDUI.showTotalValues == false){
+                else if(PlayerUI.showPercentages == true && PlayerUI.showTotalValues == false){
                     ChangeValuesText_Pct_Only();
                 }
-                else if(PlayerHUDUI.showPercentages == false && PlayerHUDUI.showTotalValues == true){
+                else if(PlayerUI.showPercentages == false && PlayerUI.showTotalValues == true){
                     ChangeValuesText_Vals_Only();
                 }
                 else Destroy(this);
@@ -45,13 +45,13 @@ namespace ContradictiveGames.UI
 
 
         void Start(){
-            if(PlayerHUDUI.showPercentages == true && PlayerHUDUI.showTotalValues == true){
+            if(PlayerUI.showPercentages == true && PlayerUI.showTotalValues == true){
                 ChangeValuesText_Both();
             }
-            else if(PlayerHUDUI.showPercentages == true && PlayerHUDUI.showTotalValues == false){
+            else if(PlayerUI.showPercentages == true && PlayerUI.showTotalValues == false){
                 ChangeValuesText_Pct_Only();
             }
-            else if(PlayerHUDUI.showPercentages == false && PlayerHUDUI.showTotalValues == true){
+            else if(PlayerUI.showPercentages == false && PlayerUI.showTotalValues == true){
                 ChangeValuesText_Vals_Only();
             }
         }

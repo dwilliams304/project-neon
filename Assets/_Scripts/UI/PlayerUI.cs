@@ -7,10 +7,10 @@ using ContradictiveGames.Player;
 
 namespace ContradictiveGames.UI
 {
-    public class PlayerHUDUI : MonoBehaviour
+    public class PlayerUI : MonoBehaviour
     {
 
-        public static PlayerHUDUI Instance;
+        public static PlayerUI Instance;
 
         [Header("UI Elements")]
         [SerializeField] private Slider xpBar;

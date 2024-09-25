@@ -46,7 +46,7 @@ namespace ContradictiveGames.Player
             currentAmmo = magazineSize;
             health = GetComponent<Health>();
             reloadSpeedWait = new WaitForSeconds(playerStats.ReloadSpeed.Value);
-            PlayerHUDUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
+            PlayerUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
             objPInsance = Experimental_ObjectPooler.Instance;
         }
 
@@ -74,7 +74,7 @@ namespace ContradictiveGames.Player
                 bullet_exp.GetComponent<Rigidbody>().AddForce(firePoint.up * playerStats.ProjectileSpeed.Value, ForceMode.Impulse);
                 if(!infiniteAmmo) {
                     currentAmmo--;
-                    PlayerHUDUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
+                    PlayerUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
                 }
                 EffectsManager.Instance.CameraShake(1.5f, 0.05f);
             }
@@ -85,7 +85,7 @@ namespace ContradictiveGames.Player
             isReloading = true;
             yield return reloadSpeedWait;
             currentAmmo = magazineSize;
-            PlayerHUDUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
+            PlayerUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
             isReloading = false;
         }
 
