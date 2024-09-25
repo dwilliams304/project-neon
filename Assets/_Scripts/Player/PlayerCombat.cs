@@ -31,6 +31,8 @@ namespace ContradictiveGames.Player
 
         private Health health;
 
+        private bool lowAmmoAlertActive;
+
 
 
         private void OnEnable(){
@@ -42,6 +44,7 @@ namespace ContradictiveGames.Player
 
         private void Start(){
             preventInput = false;
+            lowAmmoAlertActive = false;
             playerStats = GetComponent<PlayerStats>();
             currentAmmo = magazineSize;
             health = GetComponent<Health>();
@@ -78,11 +81,21 @@ namespace ContradictiveGames.Player
                 }
                 EffectsManager.Instance.CameraShake(1.5f, 0.05f);
             }
+            if(currentAmmo == 0 && !lowAmmoAlertActive){
+                lowAmmoAlertActive = true;
+                PlayerUI.Instance.ShowLowAmmoAlert(lowAmmoAlertActive);
+            }
+            else if(currentAmmo < 7 && !lowAmmoAlertActive){
+                lowAmmoAlertActive = true;
+                PlayerUI.Instance.ShowLowAmmoAlert(lowAmmoAlertActive);
+            }
         }
 
 
         private IEnumerator Reload(){
             isReloading = true;
+            lowAmmoAlertActive = false;
+            PlayerUI.Instance.ShowLowAmmoAlert(lowAmmoAlertActive);
             yield return reloadSpeedWait;
             currentAmmo = magazineSize;
             PlayerUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);

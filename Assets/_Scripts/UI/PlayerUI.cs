@@ -12,12 +12,15 @@ namespace ContradictiveGames.UI
 
         public static PlayerUI Instance;
 
-        [Header("UI Elements")]
+        [Header("HUD UI Elements")]
         [SerializeField] private Slider xpBar;
         [SerializeField] private TMP_Text levelText;
         [SerializeField] private TMP_Text currencyText;
-
         [SerializeField] private TMP_Text ammoText;
+
+        [Header("Player Alerts Elements")]
+        [SerializeField] private GameObject lowAmmoAlert;
+        private TMP_Text lowAmmoAlertText;
 
 
         //CHANGE THESE TO BE A SETTING - NOT SOMETHING SET HERE!
@@ -39,6 +42,7 @@ namespace ContradictiveGames.UI
 
         private void Awake(){
             Instance = this;
+            lowAmmoAlert.SetActive(false);
         }
 
         private void UpdateXPBar(int newValue){
@@ -60,6 +64,9 @@ namespace ContradictiveGames.UI
         }
         
 
+        public void ShowLowAmmoAlert(bool show){
+            lowAmmoAlert.SetActive(show);
+        }
 
     }
 }
