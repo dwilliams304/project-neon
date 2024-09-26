@@ -59,7 +59,7 @@ namespace ContradictiveGames.Player
             if(!isReloading && Input.GetButton("Fire1")){
                 Shoot();
             }
-            if(!isReloading && Input.GetKeyDown(KeyCode.R)){
+            else if(!isReloading && Input.GetKeyDown(KeyCode.R)){
                 StartCoroutine(Reload());
             }
         }

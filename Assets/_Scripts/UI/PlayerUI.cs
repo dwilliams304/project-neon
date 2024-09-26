@@ -20,6 +20,7 @@ namespace ContradictiveGames.UI
 
         [Header("Player Alerts Elements")]
         [SerializeField] private GameObject lowAmmoAlert;
+        private TMP_Text lowAmmoAlertText;
 
 
         //CHANGE THESE TO BE A SETTING - NOT SOMETHING SET HERE!
@@ -42,6 +43,7 @@ namespace ContradictiveGames.UI
         private void Awake(){
             Instance = this;
             lowAmmoAlert.SetActive(false);
+            lowAmmoAlertText = lowAmmoAlert.GetComponent<TMP_Text>();
         }
 
         private void UpdateXPBar(int newValue){
