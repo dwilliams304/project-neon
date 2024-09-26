@@ -12,7 +12,6 @@ namespace ContradictiveGames.AI
         [SerializeField] private NPCData npcData;
         [SerializeField] private NPCBrain npcBrain;
 
-        private GameObject playerTarget;
         private GameManager gameManager;
         private LootManager lootManager;
         private EffectsManager effectsManager;
@@ -31,79 +30,21 @@ namespace ContradictiveGames.AI
         
         private void OnEnable(){
             if(health != null) health.onDeath += OnDeath;
-            
-            if(!npcData.IsStaticNpc){
-                switch(npcData.thinkingSpeed){
-                    case ThinkingSpeed.None:
-                        break;
-
-                    case ThinkingSpeed.Fast:
-                        Ticker.onShortTick += OnTick;
-                        break;
-                    
-                    case ThinkingSpeed.Normal:
-                        Ticker.onNormalTick += OnTick;
-                        break;
-
-                    case ThinkingSpeed.Slow:
-                        Ticker.onSecondTick += OnTick;
-                        break;
-
-                    case ThinkingSpeed.Slowest:
-                        Ticker.onFifthTick += OnTick;
-                        break;
-                }
-            }
-
         }
 
         private void OnDisable(){
             if(health != null) health.onDeath -= OnDeath;
-            if(!npcData.IsStaticNpc){
-                switch(npcData.thinkingSpeed){
-                    case ThinkingSpeed.None:
-                        break;
-
-                    case ThinkingSpeed.Fast:
-                        Ticker.onShortTick -= OnTick;
-                        break;
-                    
-                    case ThinkingSpeed.Normal:
-                        Ticker.onNormalTick -= OnTick;
-                        break;
-
-                    case ThinkingSpeed.Slow:
-                        Ticker.onSecondTick -= OnTick;
-                        break;
-
-                    case ThinkingSpeed.Slowest:
-                        Ticker.onFifthTick -= OnTick;
-                        break;
-                }
-            }
         }
 
 
         private void Start(){
-            playerTarget = GameObject.FindGameObjectWithTag("Player");
+            if(npcBrain != null){
+                npcBrain.Initialize(gameObject, npcData);
+            }
             lootManager = LootManager.Instance;
             effectsManager = EffectsManager.Instance;
             gameManager = GameManager.Instance;
         }
-
-
-        private void Update(){
-            if(!npcData.IsStaticNpc){
-                if(npcBrain.CheckConditions()) npcBrain.DoMainLogic();
-                npcBrain.DoUpdateLogic();
-            }
-        }
-
-        private void OnTick(){
-            npcBrain.DoTickLogic();
-        }
-
-
 
 
         public void OnDamage(Stat damageStat = null)

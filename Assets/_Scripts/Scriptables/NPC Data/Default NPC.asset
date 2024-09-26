@@ -17,7 +17,7 @@ MonoBehaviour:
   IsDamageable: 1
   CanHeal: 1
   MoveSpeed:
-    BaseValue: 7
+    BaseValue: 5
     canNotAugment: 0
   MaxHealth: 100
   DamageTakenModifier:
@@ -25,12 +25,13 @@ MonoBehaviour:
     canNotAugment: 0
   HealthBarColor: {r: 1, g: 0, b: 0, a: 1}
   AttackSpeed:
-    BaseValue: 0.5
+    BaseValue: 1
     canNotAugment: 0
   BaseDamage:
     BaseValue: 10
     canNotAugment: 0
-  AttackRange: 1
+  AttackRange: 2
+  FollowRange: 1
   CurrencyDrop: 10
   XPDrop: 10
   CorruptionDrop: 10
@@ -39,3 +40,4 @@ MonoBehaviour:
   ShowsDamageText: 1
   IsStaticNpc: 0
   thinkingSpeed: 4
+  PlayerIsTarget: 1

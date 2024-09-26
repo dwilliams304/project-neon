@@ -7,7 +7,7 @@ namespace ContradictiveGames.AI
         protected NPCData npcData;
         protected GameObject npcGameObject;
         protected Transform npcTransform;
-        protected Transform targetTransform;
+        public Transform targetTransform;
         
 
         /// <summary>
@@ -16,14 +16,14 @@ namespace ContradictiveGames.AI
         /// <param name="_gameObject"></param>
         /// <param name="_npcData"></param>
         /// <param name="_mainTarget"></param>
-        public virtual void Initialize(GameObject _gameObject, NPCData _npcData, Transform _mainTarget = null){
+        public virtual void Initialize(GameObject _gameObject, NPCData _npcData){
             npcGameObject = _gameObject;
             npcTransform = _gameObject.transform;
             npcData = _npcData;
             
             //Allows for more flexibility, if it is going to be a healer or not
-            if(_mainTarget == null) targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
-            else targetTransform = _mainTarget;
+            if(_npcData.PlayerIsTarget) targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            
         }
 
         /// <summary>

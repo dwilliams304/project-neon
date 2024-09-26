@@ -52,6 +52,10 @@ namespace ContradictiveGames
             SetMaxHealth(npcData.MaxHealth, true);
         }
 
+        private void Start(){
+            SetMaxHealth(maxHealth, true);
+        }
+
 
         private void SetMaxHealth(int amount, bool setCurToMax = false){
             maxHealth = amount;

@@ -4662,11 +4662,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976dc619ba51cb24cb811f15b22c1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 100
   currentHealth: 0
-  isDamageable: 0
-  canHeal: 0
-  usesHealthBar: 0
+  isDamageable: 1
+  canHeal: 1
+  usesHealthBar: 1
   healthBar: {fileID: 1031588388}
   showsDamageText: 0
   damageTextRandomOffset: {x: 0, y: 0, z: 0}

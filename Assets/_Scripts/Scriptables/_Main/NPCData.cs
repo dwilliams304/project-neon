@@ -36,6 +36,8 @@ namespace ContradictiveGames.AI
         public Stat BaseDamage = new Stat(10f);
         [Min(0)]
         public float AttackRange = 1f;
+        [Min(0)]
+        public float FollowRange = 2f;
 
 
         [Header("Loot Pool")]
@@ -55,5 +57,7 @@ namespace ContradictiveGames.AI
         public bool IsStaticNpc = false;
         [Tooltip("Which tick speed this NPC will subscribe to. \n None - Does not do any update logic \n Fast - Every short tick \n Normal - Every normal tick \n Slow - Every 2nd normal tick \n Slowest - Every 5th normal tick")]
         public ThinkingSpeed thinkingSpeed = ThinkingSpeed.Normal;
+        [Tooltip("If the main target is the player. Allows for pet NPCs, Healer Enemies, etc...")]
+        public bool PlayerIsTarget = true;
     }    
 }

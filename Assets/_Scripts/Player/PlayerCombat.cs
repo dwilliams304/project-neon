@@ -34,24 +34,33 @@ namespace ContradictiveGames.Player
         private bool lowAmmoAlertActive;
 
 
+        private void Awake(){
+            playerStats = GetComponent<PlayerStats>();
+            health = GetComponent<Health>();
+        }
+
 
         private void OnEnable(){
             UIManager.Instance.onPreventPlayerInput += PreventInput;
+            health.onDeath += OnDeath;
         }
+
+
         private void OnDisable(){
             UIManager.Instance.onPreventPlayerInput -= PreventInput;
+            health.onDeath -= OnDeath;
         }
+
 
         private void Start(){
             preventInput = false;
             lowAmmoAlertActive = false;
-            playerStats = GetComponent<PlayerStats>();
             currentAmmo = magazineSize;
-            health = GetComponent<Health>();
             reloadSpeedWait = new WaitForSeconds(playerStats.ReloadSpeed.Value);
             PlayerUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
             objPInsance = Experimental_ObjectPooler.Instance;
         }
+
 
         private void Update(){
             if(preventInput) return;
@@ -63,6 +72,7 @@ namespace ContradictiveGames.Player
                 StartCoroutine(Reload());
             }
         }
+
 
         private void PreventInput(bool _preventInput){
             preventInput = _preventInput;
@@ -83,7 +93,7 @@ namespace ContradictiveGames.Player
             }
             if(currentAmmo < 7 && !lowAmmoAlertActive){
                 lowAmmoAlertActive = true;
-                PlayerUI.Instance.ShowLowAmmoAlert(lowAmmoAlertActive);
+                PlayerUI.Instance.ShowLowAmmoAlert(true);
             }
         }
 
@@ -93,7 +103,7 @@ namespace ContradictiveGames.Player
             yield return reloadSpeedWait;
             currentAmmo = magazineSize;
             lowAmmoAlertActive = false;
-            PlayerUI.Instance.ShowLowAmmoAlert(lowAmmoAlertActive);
+            PlayerUI.Instance.ShowLowAmmoAlert(false);
             PlayerUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
             isReloading = false;
         }
@@ -111,7 +121,9 @@ namespace ContradictiveGames.Player
         }
 
 
-
+        private void OnDeath(){
+            Debug.Log("Player dead! Sad!");
+        }
 
     }
 }
