@@ -15,11 +15,6 @@ namespace ContradictiveGames.Player
         public static OnCurrencyChange onCurrencyChange;
 
 
-        public CharacterAugment Augment1;
-        public CharacterAugment Augment2;
-        public CharacterAugment Augment3;
-        public CharacterAugment Augment4;
-        public CharacterAugment Augment5;
 
 
         [SerializeField] private int currency;
@@ -42,35 +37,6 @@ namespace ContradictiveGames.Player
         }
 
 
-        public void ModifyCurrentAugments(CharacterAugment newAugment, int augmentToSwap){
-            switch(augmentToSwap){
-                case 1:
-                    if(Augment1 != null) Augment1.RemoveAllAugments();
-                    Augment1 = newAugment;
-                    newAugment.AddAugment(gameObject);
-                    break;
-                case 2:
-                    if(Augment2 != null) Augment2.RemoveAllAugments();
-                    Augment2 = newAugment;
-                    newAugment.AddAugment(gameObject);
-                    break;
-                case 3:
-                    if(Augment3 != null) Augment3.RemoveAllAugments();
-                    Augment3 = newAugment;
-                    newAugment.AddAugment(gameObject);
-                    break;
-                case 4:
-                    if(Augment4 != null) Augment4.RemoveAllAugments();
-                    Augment4 = newAugment;
-                    newAugment.AddAugment(gameObject);
-                    break;
-                case 5:
-                    if(Augment5 != null) Augment5.RemoveAllAugments();
-                    Augment5 = newAugment;
-                    newAugment.AddAugment(gameObject);
-                    break;
-            }
-        }
 
     }
 }
