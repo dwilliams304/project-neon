@@ -3,6 +3,7 @@ using UnityEngine;
 using ContradictiveGames.Experimental;
 using ContradictiveGames.Managers;
 using ContradictiveGames.UI;
+using ContradictiveGames.Sounds;
 
 namespace ContradictiveGames.Player
 {
@@ -12,6 +13,7 @@ namespace ContradictiveGames.Player
         private bool preventInput;
 
         public PlayerStats playerStats;
+        [SerializeField] private SoundsList playerSounds;
 
         [Header("Other vars")]
         [SerializeField] private int magazineSize; //TO-DO: GET THIS VALUE FROM A PLAYERSTATS CLASS
@@ -87,6 +89,7 @@ namespace ContradictiveGames.Player
                     PlayerUI.Instance.UpdateAmmoText(currentAmmo, magazineSize);
                 }
                 EffectsManager.Instance.CameraShake(1.5f, 0.05f);
+                SoundManager.Instance.PlayRandomSoundEffect(playerSounds, "Shoot", false, true);
             }
             if(currentAmmo < 7){
                 PlayerUI.Instance.ShowLowAmmoAlert(true);
@@ -113,6 +116,7 @@ namespace ContradictiveGames.Player
         public void OnDamage(Stat damageStat)
         {
             health.TakeDamage(Mathf.FloorToInt(GameManager.Instance.CalculateDamage(damageStat) * playerStats.DamageTaken.Value), false);
+            SoundManager.Instance.PlayRandomSoundEffect(playerSounds, "Hurt");
         }
 
 
