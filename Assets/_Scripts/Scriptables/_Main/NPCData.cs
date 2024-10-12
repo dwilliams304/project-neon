@@ -1,5 +1,6 @@
 using UnityEngine;
 using ContradictiveGames.Loot;
+using ContradictiveGames.Sounds;
 
 namespace ContradictiveGames.AI
 {
@@ -19,6 +20,7 @@ namespace ContradictiveGames.AI
         public bool IsFriendly = false;
         public bool IsDamageable = true;
         public bool CanHeal = false;
+        public SoundsList soundsList;
 
         [Header("Movement")]
         public Stat MoveSpeed = new Stat(7f);

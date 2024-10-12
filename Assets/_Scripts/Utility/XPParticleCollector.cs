@@ -24,6 +24,7 @@ namespace ContradictiveGames.Utility
                 ParticleSystem.Particle p = particles[i];
                 p.remainingLifetime = 0;
                 xpMngrInstance.AddExperience(1);
+                SoundManager.Instance.PlayCommonSoundEffect(SoundManager.Instance.xpGain);
             }
         }
     }

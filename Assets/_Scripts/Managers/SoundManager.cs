@@ -24,6 +24,9 @@ namespace ContradictiveGames.Managers
         [SerializeField] private AudioClip buttonClick;
         [SerializeField] private AudioClip buttonConfirm;
 
+        [Header("Common Sounds")]
+        public AudioClip xpGain;
+
 
 
         //private vars
@@ -66,6 +69,7 @@ namespace ContradictiveGames.Managers
                 }
                 else effectsSource.PlayOneShot(clip);
             }
+            else Debug.Log("<color=red>Could not find AudioClip of type: </color>" + soundType);
     
         }
 

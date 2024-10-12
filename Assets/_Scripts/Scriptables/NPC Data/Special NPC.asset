@@ -16,6 +16,7 @@ MonoBehaviour:
   IsFriendly: 0
   IsDamageable: 1
   CanHeal: 1
+  soundsList: {fileID: 11400000, guid: 5a4c767223148ec47b6b3bedf2145595, type: 2}
   MoveSpeed:
     BaseValue: 7
     canNotAugment: 0
@@ -30,9 +31,14 @@ MonoBehaviour:
   BaseDamage:
     BaseValue: 10
     canNotAugment: 0
+  AttackRange: 1
+  FollowRange: 2
   CurrencyDrop: 500
   XPDrop: 110
   CorruptionDrop: 10
   lootPool: {fileID: 11400000, guid: 0dedb244705ddbc448a29f6bee6a4f8f, type: 2}
   UsesHealthBar: 1
   ShowsDamageText: 1
+  IsStaticNpc: 0
+  thinkingSpeed: 2
+  PlayerIsTarget: 1

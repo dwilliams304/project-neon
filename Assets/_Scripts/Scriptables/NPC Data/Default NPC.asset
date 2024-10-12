@@ -16,6 +16,7 @@ MonoBehaviour:
   IsFriendly: 0
   IsDamageable: 1
   CanHeal: 1
+  soundsList: {fileID: 11400000, guid: 5a4c767223148ec47b6b3bedf2145595, type: 2}
   MoveSpeed:
     BaseValue: 5
     canNotAugment: 0

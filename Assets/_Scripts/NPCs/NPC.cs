@@ -1,6 +1,7 @@
 using UnityEngine;
 using ContradictiveGames.Managers;
 using ContradictiveGames.Utility;
+using ContradictiveGames.Sounds;
 
 namespace ContradictiveGames.AI
 {
@@ -11,6 +12,7 @@ namespace ContradictiveGames.AI
 
         [SerializeField] private NPCData npcData;
         [SerializeField] private NPCBrain npcBrain;
+        private SoundsList soundsList;
 
         private GameManager gameManager;
         private LootManager lootManager;
@@ -44,6 +46,7 @@ namespace ContradictiveGames.AI
             lootManager = LootManager.Instance;
             effectsManager = EffectsManager.Instance;
             gameManager = GameManager.Instance;
+            soundsList = npcData.soundsList;
         }
 
 
@@ -52,6 +55,7 @@ namespace ContradictiveGames.AI
             if(!npcData.IsFriendly && npcData.IsDamageable){
                 bool crit = gameManager.CalculateIfCrit();
                 int damage = gameManager.CalculatePlayerDamageDone(crit);
+                SoundManager.Instance.PlayRandomSoundEffect(soundsList, "Hurt", true, true);
                 health.TakeDamage(damage, crit);
                 damageFlasher.DoDamageFlash(crit);
             }

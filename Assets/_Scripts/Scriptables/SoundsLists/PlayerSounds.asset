@@ -15,7 +15,7 @@ MonoBehaviour:
   sounds:
   - soundType: Shoot
     audioClips:
-    - {fileID: 8300000, guid: 6739c01659ad96d47987f4ddee226b36, type: 3}
+    - {fileID: 8300000, guid: a764377339b869e459f5e53fb9258f73, type: 3}
   - soundType: Shockwave
     audioClips:
     - {fileID: 8300000, guid: f9eb44b85c96be5429737d4dcadbfa3b, type: 3}
@@ -25,4 +25,3 @@ MonoBehaviour:
   - soundType: Die
     audioClips:
     - {fileID: 8300000, guid: d47e6ed162da1f740ad807d00f4679f3, type: 3}
-  constantSounds: []
